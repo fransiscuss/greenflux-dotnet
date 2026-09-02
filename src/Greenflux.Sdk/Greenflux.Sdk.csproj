@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>Greenflux.Sdk</AssemblyName>
+    <RootNamespace>Greenflux</RootNamespace>
+    <PackageId>Greenflux.Sdk</PackageId>
+    <Title>Greenflux .NET SDK</Title>
+    <Version>0.1.0</Version>
+    <Authors>Greenflux.Sdk contributors</Authors>
+    <Copyright>Copyright (c) 2026 Greenflux.Sdk contributors</Copyright>
+    <Description>Unofficial typed .NET client for the Greenflux Platform, Charge Location Management, Remote Commands, and Charge Assist APIs.</Description>
+    <PackageTags>greenflux;ev;charging;cpms;cpo;emsp;ocpi;smart-charging</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+    <None Include="..\..\docs\usage-examples.md" Pack="true" PackagePath="docs\" />
+    <None Include="..\..\openapi\*.json" Pack="true" PackagePath="openapi\" />
+  </ItemGroup>
+</Project>
