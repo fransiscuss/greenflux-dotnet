@@ -46,50 +46,9 @@ jobs:
         with:
           user: fransiscus
 
-      # nuget.org has a known bug (https://github.com/NuGet/Home/issues/13357) where the
-      # V2 push endpoint can return "409 Conflict / already exists" for a package that has
-      # never been published, even though it's verifiably absent from the flat-container
-      # CDN. Retry with backoff and independently verify via the flat-container API instead
-      # of trusting the CLI's exit code alone.
-      - name: Push to NuGet.org (with retry/verify for nuget.org push race condition)
+      - name: Push to NuGet.org
         run: |
-          set +e
-
-          PACKAGE=$(ls artifacts/packages/*.nupkg)
-          FILENAME=$(basename "$PACKAGE" .nupkg)
-          ID_LOWER=$(echo "Greenflux.Sdk" | tr '[:upper:]' '[:lower:]')
-          VERSION=${FILENAME#Greenflux.Sdk.}
-          FLAT_URL="https://api.nuget.org/v3-flatcontainer/${ID_LOWER}/${VERSION}/${ID_LOWER}.${VERSION}.nupkg"
-
-          echo "Package: $PACKAGE"
-          echo "Verification URL: $FLAT_URL"
-
-          MAX_ATTEMPTS=6
-          for attempt in $(seq 1 $MAX_ATTEMPTS); do
-            echo "::group::Push attempt $attempt/$MAX_ATTEMPTS"
-            dotnet nuget push "$PACKAGE" \
-              --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
-              --source https://api.nuget.org/v3/index.json \
-              --skip-duplicate
-            PUSH_EXIT=$?
-            echo "CLI exit code: $PUSH_EXIT"
-            echo "::endgroup::"
-
-            echo "Waiting for CDN propagation before checking..."
-            sleep 15
-
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$FLAT_URL")
-            echo "Flat-container status for $VERSION: $STATUS"
-
-            if [ "$STATUS" = "200" ]; then
-              echo "Confirmed: $ID_LOWER $VERSION is live on nuget.org."
-              exit 0
-            fi
-
-            BACKOFF=$((attempt * 15))
-            echo "Not yet visible. Backing off ${BACKOFF}s before retrying..."
-            sleep $BACKOFF
-          done
-
-          echo "::error::Package never became visible on nuget.org after $MAX_ATTEMPTS attempts. See https://github.com/NuGet/Home/issues/13357 for the known upstream issue."
-          exit 1
+          dotnet nuget push artifacts/packages/*.nupkg \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
