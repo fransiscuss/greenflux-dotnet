@@ -5,7 +5,7 @@
     <RootNamespace>Greenflux</RootNamespace>
     <PackageId>Greenflux.Sdk</PackageId>
     <Title>Greenflux .NET SDK</Title>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
     <Authors>Greenflux.Sdk contributors</Authors>
     <Copyright>Copyright (c) 2026 Greenflux.Sdk contributors</Copyright>
     <Description>Unofficial typed .NET client for the Greenflux Platform, Charge Location Management, Remote Commands, and Charge Assist APIs.</Description>
