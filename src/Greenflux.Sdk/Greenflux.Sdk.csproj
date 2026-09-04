@@ -3,9 +3,9 @@
     <TargetFramework>net9.0</TargetFramework>
     <AssemblyName>Greenflux.Sdk</AssemblyName>
     <RootNamespace>Greenflux</RootNamespace>
-    <PackageId>Greenflux.Sdk</PackageId>
+    <PackageId>GreenfluxDotNet.Sdk</PackageId>
     <Title>Greenflux .NET SDK</Title>
-    <Version>0.1.4</Version>
+    <Version>0.1.5</Version>
     <Authors>Greenflux.Sdk contributors</Authors>
     <Copyright>Copyright (c) 2026 Greenflux.Sdk contributors</Copyright>
     <Description>Unofficial typed .NET client for the Greenflux Platform, Charge Location Management, Remote Commands, and Charge Assist APIs.</Description>
