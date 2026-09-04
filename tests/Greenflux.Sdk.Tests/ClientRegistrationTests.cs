@@ -190,7 +190,7 @@ public sealed class ClientRegistrationTests
     [InlineData(typeof(IGreenfluxPlatformClient), 63)]
     [InlineData(typeof(IChargeLocationManagementClient), 24)]
     [InlineData(typeof(IRemoteCommandsClient), 11)]
-    [InlineData(typeof(IChargeAssistClient), 65)]
+    [InlineData(typeof(IChargeAssistClient), 67)]
     public void GeneratedInterface_ContainsEveryOpenApiOperation(Type interfaceType, int expectedOperations)
     {
         Assert.Equal(expectedOperations, interfaceType.GetMethods().Length);

@@ -57,6 +57,29 @@ public abstract class GreenfluxApiClient
         return await SendAsync<T>(request, cancellationToken).ConfigureAwait(false);
     }
 
+    /// <summary>
+    /// Sends a GET request and deserializes the response.
+    /// Returns <c>default</c> when the server responds with 404 Not Found,
+    /// instead of throwing <see cref="GreenfluxApiException"/>.
+    /// </summary>
+    protected async Task<T?> TrySendGetAsync<T>(
+        string url,
+        IReadOnlyDictionary<string, string?>? queryParameters = null,
+        CancellationToken cancellationToken = default)
+    {
+        var fullUrl = AppendQueryString(url, queryParameters);
+        using var request = new HttpRequestMessage(HttpMethod.Get, new Uri(fullUrl, UriKind.RelativeOrAbsolute));
+        request.Headers.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
+        try
+        {
+            return await SendAsync<T>(request, cancellationToken).ConfigureAwait(false);
+        }
+        catch (GreenfluxApiException ex) when (ex.StatusCode == 404)
+        {
+            return default;
+        }
+    }
+
     /// <summary>Sends a GET request that returns no content.</summary>
     protected async Task SendGetAsync(
         string url,
