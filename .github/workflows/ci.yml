@@ -3,6 +3,7 @@ name: CI
 on:
   push:
     branches: [main]
+    tags: ['v*.*.*']
   pull_request:
     branches: [main]
 
@@ -21,3 +22,33 @@ jobs:
       - run: dotnet build --no-restore --configuration Release
 
       - run: dotnet test --no-build --configuration Release --verbosity normal
+
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Pack
+        run: dotnet pack src/Greenflux.Sdk/Greenflux.Sdk.csproj -c Release -o artifacts/packages
+
+      - name: NuGet login (OIDC)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: fransiscus
+
+      - name: Push to NuGet.org
+        run: |
+          dotnet nuget push artifacts/packages/*.nupkg \
+            --api-key ${{ steps.login.outputs.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
