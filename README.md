@@ -77,9 +77,9 @@ See `docs/usage-examples.md` (included in both the repository and NuGet package)
 
 ## Authentication and endpoints
 
-Platform, Charge Location Management, and Remote Commands send `Authorization: Token {token}`. Call `UseAcceptance()` for `https://platform-a.greenflux.com/` or `UseProduction()` for `https://platform.greenflux.com/` when you intend to use real data.
+Platform, Charge Location Management, and Remote Commands send an `Authorization` Token header. Call `UseAcceptance()` for `https://platform-a.greenflux.com/` or `UseProduction()` for `https://platform.greenflux.com/` when you intend to use real data.
 
-Charge Assist defaults to the working acceptance gateway convention: `Ocp-Apim-Subscription-Key` at `https://gfx-app-api-management-a.azure-api.net/ca/`. The published OpenAPI document instead describes `Authorization: ApiKey {key}` at `https://api-a.greenflux.app/`; call `UseOpenApiAcceptanceEndpoint()` when that is the endpoint provisioned for your key. Any base address can be overridden.
+Charge Assist defaults to the working acceptance gateway convention: `Ocp-Apim-Subscription-Key` at `https://gfx-app-api-management-a.azure-api.net/ca/`. The published OpenAPI document instead describes an `Authorization` ApiKey header at `https://api-a.greenflux.app/`; call `UseOpenApiAcceptanceEndpoint()` when that is the endpoint provisioned for your key. Any base address can be overridden.
 
 Each registration returns `IHttpClientBuilder`, so consumers can add their preferred retry, circuit-breaker, proxy, or test handler. Credentials and base addresses are validated when the client is created, and cancellation tokens flow through every operation.
 
