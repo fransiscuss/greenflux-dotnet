@@ -15,24 +15,44 @@ var platformToken = Environment.GetEnvironmentVariable("GREENFLUX_PLATFORM_TOKEN
     ?? throw new InvalidOperationException("Set GREENFLUX_PLATFORM_TOKEN.");
 var chargeAssistKey = Environment.GetEnvironmentVariable("GREENFLUX_CHARGE_ASSIST_KEY")
     ?? throw new InvalidOperationException("Set GREENFLUX_CHARGE_ASSIST_KEY.");
+var platformBaseAddress = Environment.GetEnvironmentVariable("GREENFLUX_PLATFORM_BASE_URL")
+    ?? throw new InvalidOperationException("Set GREENFLUX_PLATFORM_BASE_URL.");
+var chargeAssistBaseAddress = Environment.GetEnvironmentVariable("GREENFLUX_CHARGE_ASSIST_BASE_URL")
+    ?? throw new InvalidOperationException("Set GREENFLUX_CHARGE_ASSIST_BASE_URL.");
 
 var services = new ServiceCollection();
 
-services.AddGreenfluxPlatform(options => options.Token = platformToken);
-services.AddGreenfluxChargeLocations(options => options.Token = platformToken);
-services.AddGreenfluxRemoteCommands(options => options.Token = platformToken);
-services.AddGreenfluxChargeAssist(options => options.ApiKey = chargeAssistKey);
+services.AddGreenfluxPlatform(options =>
+{
+    options.Token = platformToken;
+    options.BaseAddress = new Uri(platformBaseAddress);
+});
+services.AddGreenfluxChargeLocations(options =>
+{
+    options.Token = platformToken;
+    options.BaseAddress = new Uri(platformBaseAddress);
+});
+services.AddGreenfluxRemoteCommands(options =>
+{
+    options.Token = platformToken;
+    options.BaseAddress = new Uri(platformBaseAddress);
+});
+services.AddGreenfluxChargeAssist(options =>
+{
+    options.ApiKey = chargeAssistKey;
+    options.BaseAddress = new Uri(chargeAssistBaseAddress);
+});
 
 await using var provider = services.BuildServiceProvider();
 ```
 
-All registrations default to acceptance/test endpoints. For a Platform client that intentionally targets real data:
+Base addresses are selected by the consuming application. For a Platform client that intentionally targets real data:
 
 ```csharp
 services.AddGreenfluxPlatform(options =>
 {
     options.Token = platformToken;
-    options.UseProduction();
+    options.BaseAddress = new Uri("https://platform.greenflux.com/");
     options.Timeout = TimeSpan.FromSeconds(30);
 });
 ```
