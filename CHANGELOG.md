@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2](https://github.com/fransiscuss/greenflux-dotnet/compare/v0.2.1...v0.2.2) (2026-09-05)
+
+
+### Bug Fixes
+
+* update package docs and action runtimes ([848d385](https://github.com/fransiscuss/greenflux-dotnet/commit/848d38509a5b59f6887c722b41a908629e5b3992))
+* update package docs and action runtimes ([7ec6e56](https://github.com/fransiscuss/greenflux-dotnet/commit/7ec6e569dc1cd4836cf32a33de27d7f79320e9a9))
+
 ## [0.2.1](https://github.com/fransiscuss/greenflux-dotnet/compare/v0.2.0...v0.2.1) (2026-09-05)
 
 
