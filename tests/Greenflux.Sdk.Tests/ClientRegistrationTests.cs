@@ -44,6 +44,7 @@ public sealed class ClientRegistrationTests
         {
             options.ApiKey = "test-key";
             options.AuthenticationMode = ChargeAssistAuthenticationMode.AuthorizationApiKey;
+            options.BaseAddress = new Uri("https://example.test/");
         }).ConfigurePrimaryHttpMessageHandler(() => handler);
 
         await using var provider = services.BuildServiceProvider();
@@ -60,7 +61,11 @@ public sealed class ClientRegistrationTests
     {
         var handler = new RecordingHandler(statusCode: HttpStatusCode.NoContent);
         var services = new ServiceCollection();
-        services.AddGreenfluxChargeAssist(options => options.ApiKey = "test-key")
+        services.AddGreenfluxChargeAssist(options =>
+        {
+            options.ApiKey = "test-key";
+            options.BaseAddress = new Uri("https://example.test/");
+        })
             .ConfigurePrimaryHttpMessageHandler(() => handler);
 
         await using var provider = services.BuildServiceProvider();
@@ -120,7 +125,11 @@ public sealed class ClientRegistrationTests
     {
         var handler = new RecordingHandler("{\"data\":[],\"status_code\":1000,\"timestamp\":\"2026-01-01T00:00:00Z\"}");
         var services = new ServiceCollection();
-        services.AddGreenfluxChargeLocations(options => options.Token = "platform-token")
+        services.AddGreenfluxChargeLocations(options =>
+        {
+            options.Token = "platform-token";
+            options.BaseAddress = new Uri("https://example.test/");
+        })
             .ConfigurePrimaryHttpMessageHandler(() => handler);
 
         await using var provider = services.BuildServiceProvider();
@@ -129,7 +138,7 @@ public sealed class ClientRegistrationTests
         var response = await client.Locations_GetAllLocationsAsync("2.0");
 
         Assert.Empty(response.Data!);
-        Assert.Equal("https://platform-a.greenflux.com/api/2.0/Locations", handler.RequestUri?.AbsoluteUri);
+        Assert.Equal("https://example.test/api/2.0/Locations", handler.RequestUri?.AbsoluteUri);
     }
 
     [Fact]
@@ -138,7 +147,11 @@ public sealed class ClientRegistrationTests
         var handler = new RecordingHandler(
             "{\"data\":[],\"status_code\":2000,\"status_message\":\"Business error\",\"timestamp\":\"2026-01-01T00:00:00Z\"}");
         var services = new ServiceCollection();
-        services.AddGreenfluxChargeLocations(options => options.Token = "platform-token")
+        services.AddGreenfluxChargeLocations(options =>
+        {
+            options.Token = "platform-token";
+            options.BaseAddress = new Uri("https://example.test/");
+        })
             .ConfigurePrimaryHttpMessageHandler(() => handler);
 
         await using var provider = services.BuildServiceProvider();
@@ -155,7 +168,11 @@ public sealed class ClientRegistrationTests
     {
         var handler = new RecordingHandler("{}");
         var services = new ServiceCollection();
-        services.AddGreenfluxRemoteCommands(options => options.Token = "platform-token")
+        services.AddGreenfluxRemoteCommands(options =>
+        {
+            options.Token = "platform-token";
+            options.BaseAddress = new Uri("https://example.test/");
+        })
             .ConfigurePrimaryHttpMessageHandler(() => handler);
 
         await using var provider = services.BuildServiceProvider();
@@ -177,13 +194,36 @@ public sealed class ClientRegistrationTests
     public void MissingCredential_IsRejectedWithoutLeakingItsValue()
     {
         var services = new ServiceCollection();
-        services.AddGreenfluxRemoteCommands(_ => { });
+        services.AddGreenfluxRemoteCommands(options =>
+        {
+            options.BaseAddress = new Uri("https://example.test/");
+        });
 
         using var provider = services.BuildServiceProvider();
 
         var exception = Assert.Throws<OptionsValidationException>(
             () => provider.GetRequiredService<IRemoteCommandsClient>());
         Assert.Contains(nameof(RemoteCommandsOptions.Token), exception.Message, StringComparison.Ordinal);
+    }
+
+    [Fact]
+    public async Task ChargeAssist_TryGetDoesNotHideBadRequest()
+    {
+        var handler = new RecordingHandler(statusCode: HttpStatusCode.BadRequest);
+        var services = new ServiceCollection();
+        services.AddGreenfluxChargeAssist(options =>
+        {
+            options.ApiKey = "test-key";
+            options.BaseAddress = new Uri("https://example.test/");
+        }).ConfigurePrimaryHttpMessageHandler(() => handler);
+
+        await using var provider = services.BuildServiceProvider();
+        var client = provider.GetRequiredService<IChargeAssistClient>();
+
+        var exception = await Assert.ThrowsAsync<ChargeAssistApiException>(
+            () => client.Payment_TryGetWalletAsync("app-token"));
+
+        Assert.Equal((int)HttpStatusCode.BadRequest, exception.StatusCode);
     }
 
     [Theory]

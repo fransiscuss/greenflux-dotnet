@@ -49,14 +49,16 @@ services.AddGreenfluxPlatform(options =>
 {
     options.Token = Environment.GetEnvironmentVariable("GREENFLUX_PLATFORM_TOKEN")
         ?? throw new InvalidOperationException("GREENFLUX_PLATFORM_TOKEN is missing.");
-    options.UseAcceptance(); // UseProduction() when you intend to use real data.
+    options.BaseAddress = new Uri(Environment.GetEnvironmentVariable("GREENFLUX_PLATFORM_BASE_URL")
+        ?? throw new InvalidOperationException("GREENFLUX_PLATFORM_BASE_URL is missing."));
 });
 
 services.AddGreenfluxChargeAssist(options =>
 {
     options.ApiKey = Environment.GetEnvironmentVariable("GREENFLUX_CHARGE_ASSIST_KEY")
         ?? throw new InvalidOperationException("GREENFLUX_CHARGE_ASSIST_KEY is missing.");
-    options.UseAcceptanceGateway();
+    options.BaseAddress = new Uri(Environment.GetEnvironmentVariable("GREENFLUX_CHARGE_ASSIST_BASE_URL")
+        ?? throw new InvalidOperationException("GREENFLUX_CHARGE_ASSIST_BASE_URL is missing."));
 });
 
 await using var provider = services.BuildServiceProvider();
@@ -77,15 +79,15 @@ See `docs/usage-examples.md` (included in both the repository and NuGet package)
 
 ## Authentication and endpoints
 
-Platform, Charge Location Management, and Remote Commands send an `Authorization` Token header. Call `UseAcceptance()` for `https://platform-a.greenflux.com/` or `UseProduction()` for `https://platform.greenflux.com/` when you intend to use real data.
+Platform, Charge Location Management, and Remote Commands send an `Authorization` Token header. Set each client's `BaseAddress` to the endpoint selected by your application, such as `https://platform-a.greenflux.com/` or `https://platform.greenflux.com/`.
 
-Charge Assist defaults to the working acceptance gateway convention: `Ocp-Apim-Subscription-Key` at `https://gfx-app-api-management-a.azure-api.net/ca/`. The published OpenAPI document instead describes an `Authorization` ApiKey header at `https://api-a.greenflux.app/`; call `UseOpenApiAcceptanceEndpoint()` when that is the endpoint provisioned for your key. Any base address can be overridden.
+Charge Assist requires an application-selected `BaseAddress`. The gateway convention uses `Ocp-Apim-Subscription-Key`; the endpoint published by OpenAPI uses `Authorization: ApiKey {key}`, selected with `AuthenticationMode`. Any base address can be supplied.
 
 Each registration returns `IHttpClientBuilder`, so consumers can add their preferred retry, circuit-breaker, proxy, or test handler. Credentials and base addresses are validated when the client is created, and cancellation tokens flow through every operation.
 
 ## Errors
 
-Non-success responses throw an API-specific exception containing the HTTP status and headers. Unexpected responses expose the raw body through `Response`; documented typed errors expose their payload through the API-specific generic exception's `Result` property:
+Non-success responses throw an API-specific exception containing the HTTP status and headers. `TryGet` methods return `null` only for HTTP 404; HTTP 400 and other non-success responses are exposed to the consumer. Unexpected responses expose the raw body through `Response`; documented typed errors expose their payload through the API-specific generic exception's `Result` property:
 
 - `GreenfluxPlatformApiException`
 - `ChargeLocationManagementApiException`
