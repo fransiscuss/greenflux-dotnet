@@ -59,7 +59,8 @@ public abstract class GreenfluxApiClient
 
     /// <summary>
     /// Sends a GET request and deserializes the response.
-    /// Returns <c>default</c> when the server responds with 404 Not Found,
+    /// Returns <c>default</c> when the server responds with 404 Not Found
+    /// or 400 Bad Request (used by some endpoints for "not found" cases),
     /// instead of throwing <see cref="GreenfluxApiException"/>.
     /// </summary>
     protected async Task<T?> TrySendGetAsync<T>(
@@ -74,7 +75,7 @@ public abstract class GreenfluxApiClient
         {
             return await SendAsync<T>(request, cancellationToken).ConfigureAwait(false);
         }
-        catch (GreenfluxApiException ex) when (ex.StatusCode == 404)
+        catch (GreenfluxApiException ex) when (ex.StatusCode is 400 or 404)
         {
             return default;
         }

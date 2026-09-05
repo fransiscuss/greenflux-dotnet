@@ -8,3 +8,4 @@ obj/
 artifacts/
 TestResults/
 .env
+local-test/
