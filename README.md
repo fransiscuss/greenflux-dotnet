@@ -28,7 +28,7 @@ Keeping a single package is the best trade-off at the current size. If the four 
 dotnet add package GreenfluxDotNet.Sdk
 ```
 
-Current package version is `0.1.5`. Contributors packing from source:
+Contributors packing from source:
 
 ```bash
 dotnet pack src/Greenflux.Sdk/Greenflux.Sdk.csproj -c Release -o artifacts/packages
