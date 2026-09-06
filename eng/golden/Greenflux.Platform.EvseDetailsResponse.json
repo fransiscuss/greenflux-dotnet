@@ -1,0 +1,10 @@
+{
+  "uid": "v_uid",
+  "capacity_group_id": "v_capacity_group_id",
+  "charge_point_id": "v_charge_point_id",
+  "status": "AVAILABLE",
+  "smart_charging_status": "VEHICLEDONECHARGING",
+  "connectors": [
+    80
+  ]
+}

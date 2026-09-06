@@ -1,0 +1,5 @@
+{
+  "id": "v_id",
+  "type": "CHARGE_CARD",
+  "cardHint": "v_cardHint"
+}

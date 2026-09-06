@@ -1,55 +1,53 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Coupon
 {
-    [JsonProperty("couponId", NullValueHandling = NullValueHandling.Ignore)]
-    public string? CouponId { get; set; } = default!;
+    [JsonPropertyName("couponId")]
+    public string? CouponId { get; set; }
 
-    [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonProperty("sessions", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Sessions { get; set; } = default!;
+    [JsonPropertyName("sessions")]
+    public int? Sessions { get; set; }
 
-    [JsonProperty("money", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Money { get; set; } = default!;
+    [JsonPropertyName("money")]
+    public double? Money { get; set; }
 
-    [JsonProperty("discountRate", NullValueHandling = NullValueHandling.Ignore)]
-    public double? DiscountRate { get; set; } = default!;
+    [JsonPropertyName("discountRate")]
+    public double? DiscountRate { get; set; }
 
-    [JsonProperty("meterValueDuration", NullValueHandling = NullValueHandling.Ignore)]
-    public string? MeterValueDuration { get; set; } = default!;
+    [JsonPropertyName("meterValueDuration")]
+    public string? MeterValueDuration { get; set; }
 
-    [JsonProperty("meterValueTolerance", NullValueHandling = NullValueHandling.Ignore)]
-    public string? MeterValueTolerance { get; set; } = default!;
+    [JsonPropertyName("meterValueTolerance")]
+    public string? MeterValueTolerance { get; set; }
 
-    [JsonProperty("couponScope", NullValueHandling = NullValueHandling.Ignore)]
-    public CouponScopeStruct? CouponScope { get; set; } = default!;
+    [JsonPropertyName("couponScope")]
+    public CouponScopeStruct? CouponScope { get; set; }
 
-    [JsonProperty("expirationDate", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ExpirationDate { get; set; } = default!;
+    [JsonPropertyName("expirationDate")]
+    public DateTimeOffset? ExpirationDate { get; set; }
 
-    [JsonProperty("active", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Active { get; set; } = default!;
+    [JsonPropertyName("active")]
+    public bool? Active { get; set; }
 
-    [JsonProperty("createdOn", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? CreatedOn { get; set; } = default!;
+    [JsonPropertyName("createdOn")]
+    public DateTimeOffset? CreatedOn { get; set; }
 
-    [JsonProperty("createdBy", NullValueHandling = NullValueHandling.Ignore)]
-    public string? CreatedBy { get; set; } = default!;
+    [JsonPropertyName("createdBy")]
+    public string? CreatedBy { get; set; }
 
-    [JsonProperty("modifiedOn", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ModifiedOn { get; set; } = default!;
+    [JsonPropertyName("modifiedOn")]
+    public DateTimeOffset? ModifiedOn { get; set; }
 
-    [JsonProperty("modifiedBy", NullValueHandling = NullValueHandling.Ignore)]
-    public string? ModifiedBy { get; set; } = default!;
+    [JsonPropertyName("modifiedBy")]
+    public string? ModifiedBy { get; set; }
 
-    [JsonProperty("reason", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reason { get; set; } = default!;
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
 
     private IDictionary<string, object>? _additionalProperties;
 

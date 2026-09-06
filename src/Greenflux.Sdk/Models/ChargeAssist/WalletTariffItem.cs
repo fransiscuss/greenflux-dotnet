@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,23 +6,22 @@ namespace Greenflux.ChargeAssist;
 public class WalletTariffItem
 {
 
-    [JsonProperty("tariff", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffModel? Tariff { get; set; } = default!;
+    [JsonPropertyName("tariff")]
+    public TariffModel? Tariff { get; set; }
 
-    [JsonProperty("tariffWholeSale", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffModel? TariffWholeSale { get; set; } = default!;
+    [JsonPropertyName("tariffWholeSale")]
+    public TariffModel? TariffWholeSale { get; set; }
 
-    [JsonProperty("validity", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public WalletTariffItemValidity? Validity { get; set; } = default!;
+    [JsonPropertyName("validity")]
+    public WalletTariffItemValidity? Validity { get; set; }
 
-    [JsonProperty("paymentMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public PaymentMethodModel? PaymentMethod { get; set; } = default!;
+    [JsonPropertyName("paymentMethod")]
+    public PaymentMethodModel? PaymentMethod { get; set; }
 
-    [JsonProperty("futureTariffs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<TariffModel>? FutureTariffs { get; set; } = default!;
+    [JsonPropertyName("futureTariffs")]
+    public ICollection<TariffModel>? FutureTariffs { get; set; }
 
-    [JsonProperty("isDefaultTariff", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsDefaultTariff { get; set; } = default!;
+    [JsonPropertyName("isDefaultTariff")]
+    public bool? IsDefaultTariff { get; set; }
 
 }

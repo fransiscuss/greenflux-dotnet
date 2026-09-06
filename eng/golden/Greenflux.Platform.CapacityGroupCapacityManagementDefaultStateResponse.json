@@ -1,0 +1,9 @@
+{
+  "default_group_capacity_amps": 35.5,
+  "current_group_capacity_amps": 779.5,
+  "current_group_capacity_amps_l1": 15.5,
+  "current_group_capacity_amps_l2": 16.5,
+  "current_group_capacity_amps_l3": 17.5,
+  "session_started_duration": "v_session_started_duration",
+  "min_allocation_amps": 888.5
+}

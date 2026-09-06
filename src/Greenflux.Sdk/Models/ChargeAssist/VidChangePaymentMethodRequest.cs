@@ -1,12 +1,12 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class VidChangePaymentMethodRequest
 {
 
-    [JsonProperty("paymentMethodId", Required = Required.AllowNull)]
-    public string? PaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("paymentMethodId")]
+    [JsonRequired]
+    public string? PaymentMethodId { get; set; }
 
 }

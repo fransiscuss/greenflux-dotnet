@@ -1,24 +1,23 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SessionBrandingModel
 {
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("logoUrl", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LogoUrl { get; set; } = default!;
+    [JsonPropertyName("logoUrl")]
+    public string? LogoUrl { get; set; }
 
-    [JsonProperty("supportPhone", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportPhone { get; set; } = default!;
+    [JsonPropertyName("supportPhone")]
+    public string? SupportPhone { get; set; }
 
-    [JsonProperty("supportEmail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportEmail { get; set; } = default!;
+    [JsonPropertyName("supportEmail")]
+    public string? SupportEmail { get; set; }
 
-    [JsonProperty("supportWebsite", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportWebsite { get; set; } = default!;
+    [JsonPropertyName("supportWebsite")]
+    public string? SupportWebsite { get; set; }
 
 }

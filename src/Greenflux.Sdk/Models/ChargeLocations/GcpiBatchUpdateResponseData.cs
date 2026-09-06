@@ -1,21 +1,17 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiBatchUpdateResponseData
 {
-    [JsonProperty("report_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Report_id { get; set; } = default!;
+    [JsonPropertyName("report_id")]
+    public string? ReportId { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public DataStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public DataStatus? Status { get; set; }
 
-    [JsonProperty("validation_error", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Validation_error { get; set; } = default!;
+    [JsonPropertyName("validation_error")]
+    public string? ValidationError { get; set; }
 
     [JsonExtensionData]
     public IDictionary<string, object>? AdditionalProperties { get; set; }

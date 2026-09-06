@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,10 +6,10 @@ namespace Greenflux.ChargeAssist;
 public class RegularHoursModel
 {
 
-    [JsonProperty("weekday", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Weekday { get; set; } = default!;
+    [JsonPropertyName("weekday")]
+    public int? Weekday { get; set; }
 
-    [JsonProperty("periods", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<RegularHourPeriod>? Periods { get; set; } = default!;
+    [JsonPropertyName("periods")]
+    public ICollection<RegularHourPeriod>? Periods { get; set; }
 
 }

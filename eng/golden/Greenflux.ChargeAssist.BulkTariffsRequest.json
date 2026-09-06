@@ -1,0 +1,8 @@
+{
+  "locationEvses": [
+    {
+      "locationId": "v_locationId",
+      "evseUid": "v_evseUid"
+    }
+  ]
+}

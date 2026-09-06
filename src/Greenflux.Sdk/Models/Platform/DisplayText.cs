@@ -1,15 +1,15 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class DisplayText
 {
-    [JsonProperty("language", Required = Required.AllowNull)]
-    public string? Language { get; set; } = default!;
+    [JsonPropertyName("language")]
+    [JsonRequired]
+    public string? Language { get; set; }
 
-    [JsonProperty("text", Required = Required.Always)]
+    [JsonPropertyName("text")]
+    [JsonRequired]
     public string Text { get; set; } = default!;
 }
 

@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class AppVersionSettingsModel
 {
 
-    [JsonProperty("ios", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public AppTypeModel? Ios { get; set; } = default!;
+    [JsonPropertyName("ios")]
+    public AppTypeModel? Ios { get; set; }
 
-    [JsonProperty("android", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public AppTypeModel? Android { get; set; } = default!;
+    [JsonPropertyName("android")]
+    public AppTypeModel? Android { get; set; }
 
 }

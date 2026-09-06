@@ -1,0 +1,14 @@
+{
+  "id": "v_id",
+  "standard": "CHADEMO",
+  "format": "SOCKET",
+  "powerType": "AC_1_PHASE",
+  "phases": 977,
+  "kw": 773,
+  "powerInKw": 813.5,
+  "voltage": 877,
+  "amperage": 791,
+  "tariffId": "v_tariffId",
+  "termsAndConditions": "v_termsAndConditions",
+  "matchesFilter": true
+}

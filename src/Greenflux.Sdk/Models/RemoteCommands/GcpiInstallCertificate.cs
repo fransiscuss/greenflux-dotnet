@@ -1,19 +1,18 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiInstallCertificate
 {
-    [JsonProperty("charge_station_id", Required = Required.Always)]
-    public string Charge_station_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_id")]
+    [JsonRequired]
+    public string ChargeStationId { get; set; } = default!;
 
-    [JsonProperty("certificateType", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("certificateType")]
+    [JsonRequired]
     public GcpiInstallCertificateEnumType CertificateType { get; set; } = default!;
 
-    [JsonProperty("certificate", Required = Required.Always)]
+    [JsonPropertyName("certificate")]
+    [JsonRequired]
     public string Certificate { get; set; } = default!;
 }

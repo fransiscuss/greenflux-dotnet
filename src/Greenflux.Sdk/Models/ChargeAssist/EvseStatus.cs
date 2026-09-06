@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System;
 
@@ -9,22 +7,22 @@ namespace Greenflux.ChargeAssist;
 public class EvseStatus
 {
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public string? Status { get; set; }
 
-    [JsonProperty("evseId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseId { get; set; } = default!;
+    [JsonPropertyName("evseId")]
+    public string? EvseId { get; set; }
 
-    [JsonProperty("parkingRestrictions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<ParkingRestrictions2>? ParkingRestrictions { get; set; } = default!;
+    [JsonPropertyName("parkingRestrictions")]
+    public ICollection<ParkingRestrictions2>? ParkingRestrictions { get; set; }
 
-    [JsonProperty("restrictedAccess", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? RestrictedAccess { get; set; } = default!;
+    [JsonPropertyName("restrictedAccess")]
+    public bool? RestrictedAccess { get; set; }
 
-    [JsonProperty("uid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("lu", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Lu { get; set; } = default!;
+    [JsonPropertyName("lu")]
+    public DateTimeOffset? Lu { get; set; }
 
 }

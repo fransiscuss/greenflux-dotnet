@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "current_group_capacity_watts": 699.5,
+  "allocated_capacity_watts": 277.5,
+  "evses": [
+    {
+      "uid": "v_uid",
+      "allocated_watts": 992.5,
+      "smart_charging_status": "VEHICLEDONECHARGING"
+    }
+  ]
+}

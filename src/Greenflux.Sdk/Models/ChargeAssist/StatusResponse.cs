@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,121 +6,121 @@ namespace Greenflux.ChargeAssist;
 public class StatusResponse
 {
 
-    [JsonProperty("sessionId", Required = Required.AllowNull)]
-    public string? SessionId { get; set; } = default!;
+    [JsonPropertyName("sessionId")]
+    [JsonRequired]
+    public string? SessionId { get; set; }
 
-    [JsonProperty("appToken", Required = Required.AllowNull)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    [JsonRequired]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("externalSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ExternalSessionId { get; set; } = default!;
+    [JsonPropertyName("externalSessionId")]
+    public string? ExternalSessionId { get; set; }
 
-    [JsonProperty("locationId", Required = Required.AllowNull)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    [JsonRequired]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("evseUid", Required = Required.AllowNull)]
-    public string? EvseUid { get; set; } = default!;
+    [JsonPropertyName("evseUid")]
+    [JsonRequired]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("connectorId", Required = Required.AllowNull)]
-    public string? ConnectorId { get; set; } = default!;
+    [JsonPropertyName("connectorId")]
+    [JsonRequired]
+    public string? ConnectorId { get; set; }
 
-    [JsonProperty("authId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AuthId { get; set; } = default!;
+    [JsonPropertyName("authId")]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponseStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public StatusResponseStatus? Status { get; set; }
 
-    [JsonProperty("canRateSession", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? CanRateSession { get; set; } = default!;
+    [JsonPropertyName("canRateSession")]
+    public bool? CanRateSession { get; set; }
 
-    [JsonProperty("error", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponseError? Error { get; set; } = default!;
+    [JsonPropertyName("error")]
+    public StatusResponseError? Error { get; set; }
 
-    [JsonProperty("errorMessage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ErrorMessage { get; set; } = default!;
+    [JsonPropertyName("errorMessage")]
+    public string? ErrorMessage { get; set; }
 
-    [JsonProperty("energyInKwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? EnergyInKwh { get; set; } = default!;
+    [JsonPropertyName("energyInKwh")]
+    public double? EnergyInKwh { get; set; }
 
-    [JsonProperty("currentPowerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? CurrentPowerInKw { get; set; } = default!;
+    [JsonPropertyName("currentPowerInKw")]
+    public double? CurrentPowerInKw { get; set; }
 
-    [JsonProperty("totalCosts", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? TotalCosts { get; set; } = default!;
+    [JsonPropertyName("totalCosts")]
+    public double? TotalCosts { get; set; }
 
-    [JsonProperty("totalVat", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? TotalVat { get; set; } = default!;
+    [JsonPropertyName("totalVat")]
+    public double? TotalVat { get; set; }
 
-    [JsonProperty("vatPercentage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? VatPercentage { get; set; } = default!;
+    [JsonPropertyName("vatPercentage")]
+    public double? VatPercentage { get; set; }
 
-    [JsonProperty("currency", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Currency { get; set; } = default!;
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
 
-    [JsonProperty("startTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? StartTime { get; set; } = default!;
+    [JsonPropertyName("startTime")]
+    public DateTimeOffset? StartTime { get; set; }
 
-    [JsonProperty("endTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? EndTime { get; set; } = default!;
+    [JsonPropertyName("endTime")]
+    public DateTimeOffset? EndTime { get; set; }
 
-    [JsonProperty("nextStatusCall", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? NextStatusCall { get; set; } = default!;
+    [JsonPropertyName("nextStatusCall")]
+    public DateTimeOffset? NextStatusCall { get; set; }
 
-    [JsonProperty("usageSummary", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionDataPointsSummaryModel? UsageSummary { get; set; } = default!;
+    [JsonPropertyName("usageSummary")]
+    public SessionDataPointsSummaryModel? UsageSummary { get; set; }
 
-    [JsonProperty("smartChargingEnabled", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? SmartChargingEnabled { get; set; } = default!;
+    [JsonPropertyName("smartChargingEnabled")]
+    public bool? SmartChargingEnabled { get; set; }
 
-    [JsonProperty("prioritySessionStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponsePrioritySessionStatus? PrioritySessionStatus { get; set; } = default!;
+    [JsonPropertyName("prioritySessionStatus")]
+    public StatusResponsePrioritySessionStatus? PrioritySessionStatus { get; set; }
 
-    [JsonProperty("vidStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponseVidStatus? VidStatus { get; set; } = default!;
+    [JsonPropertyName("vidStatus")]
+    public StatusResponseVidStatus? VidStatus { get; set; }
 
-    [JsonProperty("paymentMethodId", Required = Required.AllowNull)]
-    public string? PaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("paymentMethodId")]
+    [JsonRequired]
+    public string? PaymentMethodId { get; set; }
 
-    [JsonProperty("paymentMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionPaymentMethodModel? PaymentMethod { get; set; } = default!;
+    [JsonPropertyName("paymentMethod")]
+    public SessionPaymentMethodModel? PaymentMethod { get; set; }
 
-    [JsonProperty("chargingNotAllowed", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? ChargingNotAllowed { get; set; } = default!;
+    [JsonPropertyName("chargingNotAllowed")]
+    public bool? ChargingNotAllowed { get; set; }
 
-    [JsonProperty("stateOfCharge", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? StateOfCharge { get; set; } = default!;
+    [JsonPropertyName("stateOfCharge")]
+    public double? StateOfCharge { get; set; }
 
-    [JsonProperty("receiptNumber", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ReceiptNumber { get; set; } = default!;
+    [JsonPropertyName("receiptNumber")]
+    public string? ReceiptNumber { get; set; }
 
-    [JsonProperty("couponStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponseCouponStatus? CouponStatus { get; set; } = default!;
+    [JsonPropertyName("couponStatus")]
+    public StatusResponseCouponStatus? CouponStatus { get; set; }
 
-    [JsonProperty("mileage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Mileage { get; set; } = default!;
+    [JsonPropertyName("mileage")]
+    public string? Mileage { get; set; }
 
-    [JsonProperty("startMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public StatusResponseStartMethod? StartMethod { get; set; } = default!;
+    [JsonPropertyName("startMethod")]
+    public StatusResponseStartMethod? StartMethod { get; set; }
 
-    [JsonProperty("transactionDetails", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionTransactionDetailsModel? TransactionDetails { get; set; } = default!;
+    [JsonPropertyName("transactionDetails")]
+    public SessionTransactionDetailsModel? TransactionDetails { get; set; }
 
-    [JsonProperty("pspPreAuthTransactionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PspPreAuthTransactionId { get; set; } = default!;
+    [JsonPropertyName("pspPreAuthTransactionId")]
+    public string? PspPreAuthTransactionId { get; set; }
 
-    [JsonProperty("isPrivateCharger", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsPrivateCharger { get; set; } = default!;
+    [JsonPropertyName("isPrivateCharger")]
+    public bool? IsPrivateCharger { get; set; }
 
-    [JsonProperty("location", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionLocationModel? Location { get; set; } = default!;
+    [JsonPropertyName("location")]
+    public SessionLocationModel? Location { get; set; }
 
-    [JsonProperty("costBreakdown", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public CdrCostBreakdown? CostBreakdown { get; set; } = default!;
+    [JsonPropertyName("costBreakdown")]
+    public CdrCostBreakdown? CostBreakdown { get; set; }
 
 }

@@ -1,0 +1,10 @@
+{
+  "subRatingOptions": [
+    {
+      "key": "v_key",
+      "description": "v_description"
+    }
+  ],
+  "key": "v_key",
+  "description": "v_description"
+}

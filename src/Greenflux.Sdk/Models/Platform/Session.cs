@@ -1,60 +1,64 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Session
 {
-    [JsonProperty("total_cost", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_cost { get; set; } = default!;
+    [JsonPropertyName("total_cost")]
+    public double? TotalCost { get; set; }
 
-    [JsonProperty("id", Required = Required.Always)]
+    [JsonPropertyName("id")]
+    [JsonRequired]
     public string Id { get; set; } = default!;
 
-    [JsonProperty("start_datetime", Required = Required.Always)]
-    public DateTimeOffset Start_datetime { get; set; } = default!;
+    [JsonPropertyName("start_datetime")]
+    [JsonRequired]
+    public DateTimeOffset StartDatetime { get; set; } = default!;
 
-    [JsonProperty("end_datetime", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? End_datetime { get; set; } = default!;
+    [JsonPropertyName("end_datetime")]
+    public DateTimeOffset? EndDatetime { get; set; }
 
-    [JsonProperty("kwh", Required = Required.Always)]
+    [JsonPropertyName("kwh")]
+    [JsonRequired]
     public double Kwh { get; set; } = default!;
 
-    [JsonProperty("auth_id", Required = Required.Always)]
-    public string Auth_id { get; set; } = default!;
+    [JsonPropertyName("auth_id")]
+    [JsonRequired]
+    public string AuthId { get; set; } = default!;
 
-    [JsonProperty("auth_method", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public AuthMethod Auth_method { get; set; } = default!;
+    [JsonPropertyName("auth_method")]
+    [JsonRequired]
+    public AuthMethod AuthMethod { get; set; } = default!;
 
-    [JsonProperty("location", Required = Required.Always)]
+    [JsonPropertyName("location")]
+    [JsonRequired]
     public Location Location { get; set; } = new Location();
 
-    [JsonProperty("meter_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Meter_id { get; set; } = default!;
+    [JsonPropertyName("meter_id")]
+    public string? MeterId { get; set; }
 
-    [JsonProperty("currency", Required = Required.Always)]
+    [JsonPropertyName("currency")]
+    [JsonRequired]
     public string Currency { get; set; } = default!;
 
-    [JsonProperty("charging_periods", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ChargingPeriod>? Charging_periods { get; set; } = default!;
+    [JsonPropertyName("charging_periods")]
+    public ICollection<ChargingPeriod>? ChargingPeriods { get; set; }
 
-    [JsonProperty("status", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("status")]
+    [JsonRequired]
     public SessionStatus Status { get; set; } = default!;
 
-    [JsonProperty("last_updated", Required = Required.Always)]
-    public DateTimeOffset Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    [JsonRequired]
+    public DateTimeOffset LastUpdated { get; set; } = default!;
 
-    [JsonProperty("authorization_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Authorization_id { get; set; } = default!;
+    [JsonPropertyName("authorization_id")]
+    public string? AuthorizationId { get; set; }
 
-    [JsonProperty("vid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Vid { get; set; } = default!;
+    [JsonPropertyName("vid")]
+    public string? Vid { get; set; }
 
-    [JsonProperty("state_of_charge", NullValueHandling = NullValueHandling.Ignore)]
-    public double? State_of_charge { get; set; } = default!;
+    [JsonPropertyName("state_of_charge")]
+    public double? StateOfCharge { get; set; }
 }
 

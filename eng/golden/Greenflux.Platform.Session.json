@@ -1,0 +1,139 @@
+{
+  "total_cost": 359.5,
+  "id": "v_id",
+  "start_datetime": "2026-01-01T23:47:03+00:00",
+  "end_datetime": "2026-01-01T21:07:28+00:00",
+  "kwh": 67.5,
+  "auth_id": "v_auth_id",
+  "auth_method": "AUTH_REQUEST",
+  "location": {
+    "id": "v_id",
+    "type": "ON_STREET",
+    "access_type": "PUBLIC",
+    "publish": true,
+    "name": "v_name",
+    "address": "v_address",
+    "city": "v_city",
+    "postal_code": "v_postal_code",
+    "country": "v_country",
+    "coordinates": {
+      "latitude": "v_latitude",
+      "longitude": "v_longitude"
+    },
+    "related_locations": [
+      {
+        "name": "v_name",
+        "latitude": "v_latitude",
+        "longitude": "v_longitude"
+      }
+    ],
+    "evses": [
+      {
+        "uid": "v_uid",
+        "evse_id": "v_evse_id",
+        "status": "AVAILABLE",
+        "connectors": [],
+        "floor_level": "v_floor_level",
+        "physical_reference": "v_physical_reference",
+        "charging_behavior": "URBAN_CHARGING",
+        "last_updated": "2026-01-01T08:35:41+00:00"
+      }
+    ],
+    "directions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "operator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "suboperator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "auth_rules": [
+      {
+        "type": "v_type",
+        "value": "v_value"
+      }
+    ],
+    "owner": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "facilities": [
+      "HOTEL"
+    ],
+    "time_zone": "v_time_zone",
+    "opening_times": {
+      "regular_hours": [],
+      "twentyfourseven": false,
+      "exceptional_openings": [],
+      "exceptional_closings": []
+    },
+    "charging_when_closed": true,
+    "images": [
+      {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      }
+    ],
+    "energy_mix": {
+      "is_green_energy": true,
+      "energy_sources": [],
+      "environ_impact": [],
+      "supplier_name": "v_supplier_name",
+      "energy_product_name": "v_energy_product_name"
+    },
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "meter_id": "v_meter_id",
+  "currency": "v_currency",
+  "charging_periods": [
+    {
+      "start_date_time": "2026-01-01T08:34:24+00:00",
+      "dimensions": []
+    }
+  ],
+  "status": "ACTIVE",
+  "last_updated": "2026-01-01T08:35:41+00:00",
+  "authorization_id": "v_authorization_id",
+  "vid": "v_vid",
+  "state_of_charge": 843.5
+}

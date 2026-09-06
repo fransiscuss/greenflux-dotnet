@@ -1,14 +1,12 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiGeoLocation
 {
-    [JsonProperty("latitude", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Latitude { get; set; } = default!;
+    [JsonPropertyName("latitude")]
+    public string? Latitude { get; set; }
 
-    [JsonProperty("longitude", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Longitude { get; set; } = default!;
+    [JsonPropertyName("longitude")]
+    public string? Longitude { get; set; }
 }

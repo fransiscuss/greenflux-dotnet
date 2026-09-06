@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,13 +6,13 @@ namespace Greenflux.ChargeAssist;
 public class SubscriptionCultureSettingsModel
 {
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonProperty("isPdf", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsPdf { get; set; } = default!;
+    [JsonPropertyName("isPdf")]
+    public bool? IsPdf { get; set; }
 
-    [JsonProperty("values", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<SubscriptionCultureSettingValuesModel>? Values { get; set; } = default!;
+    [JsonPropertyName("values")]
+    public ICollection<SubscriptionCultureSettingValuesModel>? Values { get; set; }
 
 }

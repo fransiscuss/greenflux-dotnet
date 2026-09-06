@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiEvseTemplate
 {
-    [JsonProperty("evse_sequence_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Evse_sequence_number { get; set; } = default!;
+    [JsonPropertyName("evse_sequence_number")]
+    public int? EvseSequenceNumber { get; set; }
 
-    [JsonProperty("capabilities", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Capabilities { get; set; } = default!;
+    [JsonPropertyName("capabilities")]
+    public ICollection<string>? Capabilities { get; set; }
 
-    [JsonProperty("connector_templates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiConnectorTemplate>? Connector_templates { get; set; } = default!;
+    [JsonPropertyName("connector_templates")]
+    public ICollection<GcpiConnectorTemplate>? ConnectorTemplates { get; set; }
 }

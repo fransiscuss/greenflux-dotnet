@@ -96,22 +96,42 @@ Non-success responses throw an API-specific exception containing the HTTP status
 
 Do not log exception response bodies blindly; upstream payloads may contain customer or charging-session data.
 
-The Charge Station create examples published by Greenflux use both an object and an array for `data` under HTTP 200. `ChargeStations_CreateChargeStationAsync` therefore preserves that union safely; call `response.GetChargeStations()` to obtain a typed list for either shape, and inspect `Status_code` before treating it as a successful creation.
+The Charge Station create examples published by Greenflux use both an object and an array for `data` under HTTP 200. `ChargeStations_CreateChargeStationAsync` therefore preserves that union safely; call `response.GetChargeStations()` to obtain a typed list for either shape, and inspect `StatusCode` before treating it as a successful creation.
 
-## Regenerating clients (maintainers)
+## Maintaining the client code (maintainers)
 
-Package consumers do **not** regenerate clients. The published NuGet package already contains concrete C# models and API clients under `src/Greenflux.Sdk/Clients` and `src/Greenflux.Sdk/Models`. NSwag is a pinned development tool only; it is not a runtime dependency and is not invoked during a normal build or `dotnet add package`.
+The SDK is hand-written. `src/Greenflux.Sdk/Clients` and `src/Greenflux.Sdk/Models` were
+originally scaffolded from the specifications in `openapi/`, but they are edited by hand
+now and there is no generation step: change the code directly.
 
-Maintainers regenerate when the versioned specifications in `openapi/` change. Reproducible compatibility corrections live in `eng/normalize-openapi.jq`, and friendly operation-name corrections live in `eng/operation-ids.json`. These compensate for missing operation IDs, malformed Remote Commands requirements, repeated anonymous schemas, and response envelopes shown by the official examples/live API but omitted from response schemas.
+Two conventions in that code are deliberate and should be preserved:
+
+- **Member names follow the wire contract.** Enum members carry the published spec value
+  (`CHADEMO`, `AC_3_PHASE`) and client methods carry the API's operation id
+  (`Locations_GetById`). `.editorconfig` switches the corresponding naming analyzers off
+  for those two directories only.
+- **Every property pins its JSON name** with `[JsonPropertyName]`, so C# identifiers can be
+  renamed freely without touching the wire format.
+
+The documents under `openapi/` are kept as the reference for what the upstream APIs look
+like, and ship inside the package.
+
+### Checking a change
+
+Two tools back the test suite, both runnable:
 
 ```bash
-dotnet tool restore
-./eng/generate-clients.sh
-dotnet test Greenflux.Sdk.sln -c Release
+# End-to-end: starts a local HTTP server, drives the real clients against it, and
+# asserts the bytes on the wire - auth headers, request bodies, enum values, error mapping.
+dotnet run --project samples/Greenflux.Sdk.IntegrationHarness
+
+# Serialization safety net: writes the serialized form of all 296 models to eng/golden/.
+# Run before and after any serialization change and diff the output; it must not move.
+dotnet run --project eng/SerializationGolden -- eng/golden-check
+diff -r eng/golden eng/golden-check
 ```
 
-Generated code is committed so package consumers and normal builds do not need NSwag or network access.
-
-Handwriting the same transport and model layer would add tens of thousands of lines of HTTP, serialization, error, and DTO code without improving the consumer API. It would also make upstream schema changes harder to audit. The project therefore uses a hybrid design: generated concrete transport/models, checked-in compatibility normalization for known specification defects, and handwritten authentication, DI, endpoint configuration, and developer-facing helpers.
+`eng/golden/` is the committed baseline, captured while the SDK still used Newtonsoft.Json.
+It is what proves the System.Text.Json migration left the wire format untouched.
 
 This project is licensed under the [MIT License](LICENSE). Source: [github.com/fransiscuss/greenflux-dotnet](https://github.com/fransiscuss/greenflux-dotnet).

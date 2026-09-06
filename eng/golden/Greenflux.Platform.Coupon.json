@@ -1,0 +1,25 @@
+{
+  "couponId": "v_couponId",
+  "type": "v_type",
+  "sessions": 910,
+  "money": 119.5,
+  "discountRate": 518.5,
+  "meterValueDuration": "v_meterValueDuration",
+  "meterValueTolerance": "v_meterValueTolerance",
+  "couponScope": {
+    "emsp": "v_emsp",
+    "driverId": "v_driverId",
+    "cpsos": [
+      "v_cpsos_0"
+    ],
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "expirationDate": "2026-01-01T17:09:06+00:00",
+  "active": false,
+  "createdOn": "2026-01-01T00:29:42+00:00",
+  "createdBy": "v_createdBy",
+  "modifiedOn": "2026-01-01T13:02:17+00:00",
+  "modifiedBy": "v_modifiedBy",
+  "reason": "v_reason",
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}

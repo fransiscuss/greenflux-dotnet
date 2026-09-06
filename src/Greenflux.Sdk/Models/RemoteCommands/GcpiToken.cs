@@ -1,38 +1,36 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiToken
 {
-    [JsonProperty("uid", Required = Required.AllowNull)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    [JsonRequired]
+    public string? Uid { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiTokenType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public GcpiTokenType? Type { get; set; }
 
-    [JsonProperty("auth_id", Required = Required.AllowNull)]
-    public string? Auth_id { get; set; } = default!;
+    [JsonPropertyName("auth_id")]
+    [JsonRequired]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("visual_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Visual_number { get; set; } = default!;
+    [JsonPropertyName("visual_number")]
+    public string? VisualNumber { get; set; }
 
-    [JsonProperty("issuer", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Issuer { get; set; } = default!;
+    [JsonPropertyName("issuer")]
+    public string? Issuer { get; set; }
 
-    [JsonProperty("valid", Required = Required.Always)]
+    [JsonPropertyName("valid")]
+    [JsonRequired]
     public bool Valid { get; set; } = default!;
 
-    [JsonProperty("whitelist", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiWhitelistType? Whitelist { get; set; } = default!;
+    [JsonPropertyName("whitelist")]
+    public GcpiWhitelistType? Whitelist { get; set; }
 
-    [JsonProperty("language", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Language { get; set; } = default!;
+    [JsonPropertyName("language")]
+    public string? Language { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    public DateTimeOffset? LastUpdated { get; set; }
 }

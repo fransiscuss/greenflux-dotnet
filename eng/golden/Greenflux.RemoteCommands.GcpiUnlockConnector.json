@@ -1,0 +1,5 @@
+{
+  "location_id": "v_location_id",
+  "evse_uid": "v_evse_uid",
+  "connector_id": "v_connector_id"
+}

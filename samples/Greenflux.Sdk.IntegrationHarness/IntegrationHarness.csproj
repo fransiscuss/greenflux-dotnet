@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Runnable end-to-end check: starts a local HTTP server, points the real SDK
+    clients at it, and asserts what actually goes over the wire. Not shipped.
+      dotnet run [dash][dash]project samples/Greenflux.Sdk.IntegrationHarness
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AssemblyName>Greenflux.Sdk.IntegrationHarness</AssemblyName>
+    <RootNamespace>Greenflux.Sdk.IntegrationHarness</RootNamespace>
+    <NoWarn>$(NoWarn);CA1707;CA1031;CA2007</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Greenflux.Sdk\Greenflux.Sdk.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+  </ItemGroup>
+
+</Project>

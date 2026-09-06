@@ -1,27 +1,25 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiEnergyMix
 {
-    [JsonProperty("energy_mix_profile_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Energy_mix_profile_id { get; set; } = default!;
+    [JsonPropertyName("energy_mix_profile_id")]
+    public string? EnergyMixProfileId { get; set; }
 
-    [JsonProperty("is_green_energy", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Is_green_energy { get; set; } = default!;
+    [JsonPropertyName("is_green_energy")]
+    public bool? IsGreenEnergy { get; set; }
 
-    [JsonProperty("energy_sources", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEnergySource>? Energy_sources { get; set; } = default!;
+    [JsonPropertyName("energy_sources")]
+    public ICollection<GcpiEnergySource>? EnergySources { get; set; }
 
-    [JsonProperty("environ_impact", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEnvironmentalImpact>? Environ_impact { get; set; } = default!;
+    [JsonPropertyName("environ_impact")]
+    public ICollection<GcpiEnvironmentalImpact>? EnvironImpact { get; set; }
 
-    [JsonProperty("supplier_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Supplier_name { get; set; } = default!;
+    [JsonPropertyName("supplier_name")]
+    public string? SupplierName { get; set; }
 
-    [JsonProperty("energy_product_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Energy_product_name { get; set; } = default!;
+    [JsonPropertyName("energy_product_name")]
+    public string? EnergyProductName { get; set; }
 }

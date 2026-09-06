@@ -1,23 +1,21 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiReset
 {
-    [JsonProperty("charge_station_id", Required = Required.AllowNull)]
-    public string? Charge_station_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_id")]
+    [JsonRequired]
+    public string? ChargeStationId { get; set; }
 
-    [JsonProperty("evse_uid", Required = Required.AllowNull)]
-    public string? Evse_uid { get; set; } = default!;
+    [JsonPropertyName("evse_uid")]
+    [JsonRequired]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("type", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("type")]
+    [JsonRequired]
     public GcpiResetType Type { get; set; } = default!;
 
-    [JsonProperty("scheduled", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiResetEnumType? Scheduled { get; set; } = default!;
+    [JsonPropertyName("scheduled")]
+    public GcpiResetEnumType? Scheduled { get; set; }
 }

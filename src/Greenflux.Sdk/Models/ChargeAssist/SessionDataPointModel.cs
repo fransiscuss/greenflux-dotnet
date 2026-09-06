@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,20 +6,19 @@ namespace Greenflux.ChargeAssist;
 public class SessionDataPointModel
 {
 
-    [JsonProperty("timestamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 
-    [JsonProperty("energyInKwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? EnergyInKwh { get; set; } = default!;
+    [JsonPropertyName("energyInKwh")]
+    public double? EnergyInKwh { get; set; }
 
-    [JsonProperty("powerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? PowerInKw { get; set; } = default!;
+    [JsonPropertyName("powerInKw")]
+    public double? PowerInKw { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SessionDataPointModelStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public SessionDataPointModelStatus? Status { get; set; }
 
-    [JsonProperty("stateOfCharge", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? StateOfCharge { get; set; } = default!;
+    [JsonPropertyName("stateOfCharge")]
+    public double? StateOfCharge { get; set; }
 
 }

@@ -1,27 +1,25 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class UpdateStripeConnectRequest
 {
-    [JsonProperty("cpsos", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<StripeConnectTenantCpso>? Cpsos { get; set; } = default!;
+    [JsonPropertyName("cpsos")]
+    public ICollection<StripeConnectTenantCpso>? Cpsos { get; set; }
 
-    [JsonProperty("cpo_customers", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<StripeConnectTenantCpoCustomer>? Cpo_customers { get; set; } = default!;
+    [JsonPropertyName("cpo_customers")]
+    public ICollection<StripeConnectTenantCpoCustomer>? CpoCustomers { get; set; }
 
-    [JsonProperty("application_fee_percentage", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Application_fee_percentage { get; set; } = default!;
+    [JsonPropertyName("application_fee_percentage")]
+    public double? ApplicationFeePercentage { get; set; }
 
-    [JsonProperty("customer_email", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Customer_email { get; set; } = default!;
+    [JsonPropertyName("customer_email")]
+    public string? CustomerEmail { get; set; }
 
-    [JsonProperty("business_details", NullValueHandling = NullValueHandling.Ignore)]
-    public Business_details3? Business_details { get; set; } = default!;
+    [JsonPropertyName("business_details")]
+    public Business_details3? Business_details { get; set; }
 
-    [JsonProperty("enable_tax_calculation", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Enable_tax_calculation { get; set; } = default!;
+    [JsonPropertyName("enable_tax_calculation")]
+    public bool? EnableTaxCalculation { get; set; }
 }
 

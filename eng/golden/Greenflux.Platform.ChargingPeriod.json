@@ -1,0 +1,9 @@
+{
+  "start_date_time": "2026-01-01T08:34:24+00:00",
+  "dimensions": [
+    {
+      "type": "ENERGY",
+      "volume": 387.5
+    }
+  ]
+}

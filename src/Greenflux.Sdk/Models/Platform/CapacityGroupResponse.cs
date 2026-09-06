@@ -1,33 +1,28 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupResponse
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("cpo_external_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_external_id { get; set; } = default!;
+    [JsonPropertyName("cpo_external_id")]
+    public string? CpoExternalId { get; set; }
 
-    [JsonProperty("remarks", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Remarks { get; set; } = default!;
+    [JsonPropertyName("remarks")]
+    public string? Remarks { get; set; }
 
-    [JsonProperty("algorithm", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public AlgorithmType? Algorithm { get; set; } = default!;
+    [JsonPropertyName("algorithm")]
+    public AlgorithmType? Algorithm { get; set; }
 
-    [JsonProperty("algorithm_display_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Algorithm_display_name { get; set; } = default!;
+    [JsonPropertyName("algorithm_display_name")]
+    public string? AlgorithmDisplayName { get; set; }
 
-    [JsonProperty("capacity_update_method", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public CapacityUpdateMethod? Capacity_update_method { get; set; } = default!;
+    [JsonPropertyName("capacity_update_method")]
+    public CapacityUpdateMethod? CapacityUpdateMethod { get; set; }
 }
 

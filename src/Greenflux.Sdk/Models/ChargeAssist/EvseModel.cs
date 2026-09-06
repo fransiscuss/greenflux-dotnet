@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System;
 
@@ -9,68 +7,67 @@ namespace Greenflux.ChargeAssist;
 public class EvseModel
 {
 
-    [JsonProperty("uid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public EvseModelStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public EvseModelStatus? Status { get; set; }
 
-    [JsonProperty("capabilities", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<Capabilities>? Capabilities { get; set; } = default!;
+    [JsonPropertyName("capabilities")]
+    public ICollection<Capabilities>? Capabilities { get; set; }
 
-    [JsonProperty("connectors", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ConnectorModel>? Connectors { get; set; } = default!;
+    [JsonPropertyName("connectors")]
+    public ICollection<ConnectorModel>? Connectors { get; set; }
 
-    [JsonProperty("floorLevel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? FloorLevel { get; set; } = default!;
+    [JsonPropertyName("floorLevel")]
+    public string? FloorLevel { get; set; }
 
-    [JsonProperty("coordinates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GeoLocationModel>? Coordinates { get; set; } = default!;
+    [JsonPropertyName("coordinates")]
+    public ICollection<GeoLocationModel>? Coordinates { get; set; }
 
-    [JsonProperty("physicalReference", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PhysicalReference { get; set; } = default!;
+    [JsonPropertyName("physicalReference")]
+    public string? PhysicalReference { get; set; }
 
-    [JsonProperty("chargingNotAllowed", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? ChargingNotAllowed { get; set; } = default!;
+    [JsonPropertyName("chargingNotAllowed")]
+    public bool? ChargingNotAllowed { get; set; }
 
-    [JsonProperty("agreement", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Agreement { get; set; } = default!;
+    [JsonPropertyName("agreement")]
+    public bool? Agreement { get; set; }
 
-    [JsonProperty("directions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DisplayTextModel>? Directions { get; set; } = default!;
+    [JsonPropertyName("directions")]
+    public ICollection<DisplayTextModel>? Directions { get; set; }
 
-    [JsonProperty("parkingRestrictions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<ParkingRestrictions>? ParkingRestrictions { get; set; } = default!;
+    [JsonPropertyName("parkingRestrictions")]
+    public ICollection<ParkingRestrictions>? ParkingRestrictions { get; set; }
 
-    [JsonProperty("images", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ImageModel>? Images { get; set; } = default!;
+    [JsonPropertyName("images")]
+    public ICollection<ImageModel>? Images { get; set; }
 
-    [JsonProperty("matchesFilter", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? MatchesFilter { get; set; } = default!;
+    [JsonPropertyName("matchesFilter")]
+    public bool? MatchesFilter { get; set; }
 
-    [JsonProperty("restrictedAccess", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? RestrictedAccess { get; set; } = default!;
+    [JsonPropertyName("restrictedAccess")]
+    public bool? RestrictedAccess { get; set; }
 
-    [JsonProperty("remoteCommandsCapable", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? RemoteCommandsCapable { get; set; } = default!;
+    [JsonPropertyName("remoteCommandsCapable")]
+    public bool? RemoteCommandsCapable { get; set; }
 
-    [JsonProperty("chargerType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargerType { get; set; } = default!;
+    [JsonPropertyName("chargerType")]
+    public string? ChargerType { get; set; }
 
-    [JsonProperty("isPrivateCharger", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsPrivateCharger { get; set; } = default!;
+    [JsonPropertyName("isPrivateCharger")]
+    public bool? IsPrivateCharger { get; set; }
 
-    [JsonProperty("evseId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseId { get; set; } = default!;
+    [JsonPropertyName("evseId")]
+    public string? EvseId { get; set; }
 
-    [JsonProperty("isQrPresent", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsQrPresent { get; set; } = default!;
+    [JsonPropertyName("isQrPresent")]
+    public bool? IsQrPresent { get; set; }
 
-    [JsonProperty("lastUpdated", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? LastUpdated { get; set; } = default!;
+    [JsonPropertyName("lastUpdated")]
+    public DateTimeOffset? LastUpdated { get; set; }
 
 }

@@ -1,0 +1,22 @@
+{
+  "boundingBox": {
+    "bottomLeftLat": 220.5,
+    "bottomLeftLng": 830.5,
+    "topRightLat": 615.5,
+    "topRightLng": 5.5
+  },
+  "data": [
+    {
+      "lat": 358.5,
+      "lon": 786.5,
+      "locationId": "v_locationId",
+      "evsesCount": 472,
+      "evsesAvailableCount": 413
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

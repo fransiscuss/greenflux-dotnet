@@ -1,22 +1,20 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 /// <summary>ChargeStationConfigurations Get Batch Update History response model.</summary>
 public partial class ChargeStationConfigurationsGetBatchUpdate
 {
-    [JsonProperty("data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ChargeStationConfigurationsBatchUpdateReport>? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public ICollection<ChargeStationConfigurationsBatchUpdateReport>? Data { get; set; }
 
-    [JsonProperty("status_message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public OcpiStatusCode? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public OcpiStatusCode? Status { get; set; }
 
-    [JsonProperty("timestamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 }

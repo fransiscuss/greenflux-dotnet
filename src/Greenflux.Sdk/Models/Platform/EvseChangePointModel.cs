@@ -1,15 +1,13 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class EvseChangePointModel
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("connectors", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<int>? Connectors { get; set; } = default!;
+    [JsonPropertyName("connectors")]
+    public ICollection<int>? Connectors { get; set; }
 }
 

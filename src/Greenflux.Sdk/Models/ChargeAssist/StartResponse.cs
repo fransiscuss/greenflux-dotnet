@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -7,13 +6,13 @@ namespace Greenflux.ChargeAssist;
 public class StartResponse
 {
 
-    [JsonProperty("chargeSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeSessionId { get; set; } = default!;
+    [JsonPropertyName("chargeSessionId")]
+    public string? ChargeSessionId { get; set; }
 
-    [JsonProperty("nextStatusCall", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? NextStatusCall { get; set; } = default!;
+    [JsonPropertyName("nextStatusCall")]
+    public DateTimeOffset? NextStatusCall { get; set; }
 
-    [JsonProperty("messageId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? MessageId { get; set; } = default!;
+    [JsonPropertyName("messageId")]
+    public string? MessageId { get; set; }
 
 }

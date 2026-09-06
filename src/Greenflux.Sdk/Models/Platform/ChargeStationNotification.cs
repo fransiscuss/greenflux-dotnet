@@ -1,50 +1,48 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class ChargeStationNotification
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("charge_station_notification_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_station_notification_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_notification_id")]
+    public string? ChargeStationNotificationId { get; set; }
 
-    [JsonProperty("charge_station_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_station_id { get; set; } = default!;
-
-    [Obsolete]
-    [JsonProperty("charge_location_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_location_id { get; set; } = default!;
-
-    [JsonProperty("location_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Location_id { get; set; } = default!;
-
-    [JsonProperty("charge_station_message_payload", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_station_message_payload { get; set; } = default!;
-
-    [JsonProperty("evse_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Evse_id { get; set; } = default!;
-
-    [JsonProperty("created", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Created { get; set; } = default!;
-
-    [JsonProperty("direction", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Direction { get; set; } = default!;
-
-    [JsonProperty("level", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Level { get; set; } = default!;
+    [JsonPropertyName("charge_station_id")]
+    public string? ChargeStationId { get; set; }
 
     [Obsolete]
-    [JsonProperty("messageAction", NullValueHandling = NullValueHandling.Ignore)]
-    public string? MessageAction { get; set; } = default!;
+    [JsonPropertyName("charge_location_id")]
+    public string? ChargeLocationId { get; set; }
 
-    [JsonProperty("message_Action", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Message_Action { get; set; } = default!;
+    [JsonPropertyName("location_id")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("message_type", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Message_type { get; set; } = default!;
+    [JsonPropertyName("charge_station_message_payload")]
+    public string? ChargeStationMessagePayload { get; set; }
+
+    [JsonPropertyName("evse_id")]
+    public string? EvseId { get; set; }
+
+    [JsonPropertyName("created")]
+    public DateTimeOffset? Created { get; set; }
+
+    [JsonPropertyName("direction")]
+    public string? Direction { get; set; }
+
+    [JsonPropertyName("level")]
+    public string? Level { get; set; }
+
+    [Obsolete]
+    [JsonPropertyName("messageAction")]
+    public string? MessageAction { get; set; }
+
+    [JsonPropertyName("message_Action")]
+    public string? Message_Action { get; set; }
+
+    [JsonPropertyName("message_type")]
+    public string? MessageType { get; set; }
 }
 

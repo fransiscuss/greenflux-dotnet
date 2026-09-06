@@ -1,24 +1,23 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class BusinessDetails
 {
-    [JsonProperty("name", Required = Required.Always)]
+    [JsonPropertyName("name")]
+    [JsonRequired]
     public string Name { get; set; } = default!;
 
-    [JsonProperty("website", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Website { get; set; } = default!;
+    [JsonPropertyName("website")]
+    public string? Website { get; set; }
 
-    [JsonProperty("logo", NullValueHandling = NullValueHandling.Ignore)]
-    public Image? Logo { get; set; } = default!;
+    [JsonPropertyName("logo")]
+    public Image? Logo { get; set; }
 
-    [JsonProperty("phone_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Phone_number { get; set; } = default!;
+    [JsonPropertyName("phone_number")]
+    public string? PhoneNumber { get; set; }
 
-    [JsonProperty("email", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Email { get; set; } = default!;
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
 }
 

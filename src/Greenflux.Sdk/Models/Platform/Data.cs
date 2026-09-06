@@ -1,16 +1,14 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Data
 {
-    [JsonProperty("cpsoGrouping", NullValueHandling = NullValueHandling.Ignore)]
-    public IDictionary<string, Anonymous>? CpsoGrouping { get; set; } = default!;
+    [JsonPropertyName("cpsoGrouping")]
+    public IDictionary<string, Anonymous>? CpsoGrouping { get; set; }
 
-    [JsonProperty("shared", NullValueHandling = NullValueHandling.Ignore)]
-    public Shared? Shared { get; set; } = default!;
+    [JsonPropertyName("shared")]
+    public Shared? Shared { get; set; }
 
     private IDictionary<string, object>? _additionalProperties;
 

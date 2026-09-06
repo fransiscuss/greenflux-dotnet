@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,65 +6,64 @@ namespace Greenflux.ChargeAssist;
 public class LocationSummary
 {
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public LocationSummaryType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public LocationSummaryType? Type { get; set; }
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("add", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Add { get; set; } = default!;
+    [JsonPropertyName("add")]
+    public string? Add { get; set; }
 
-    [JsonProperty("city", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? City { get; set; } = default!;
+    [JsonPropertyName("city")]
+    public string? City { get; set; }
 
-    [JsonProperty("country", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Country { get; set; } = default!;
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-    [JsonProperty("lat", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Lat { get; set; } = default!;
+    [JsonPropertyName("lat")]
+    public double? Lat { get; set; }
 
-    [JsonProperty("lng", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Lng { get; set; } = default!;
+    [JsonPropertyName("lng")]
+    public double? Lng { get; set; }
 
-    [JsonProperty("conAvail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? ConAvail { get; set; } = default!;
+    [JsonPropertyName("conAvail")]
+    public int? ConAvail { get; set; }
 
-    [JsonProperty("conTot", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? ConTot { get; set; } = default!;
+    [JsonPropertyName("conTot")]
+    public int? ConTot { get; set; }
 
-    [JsonProperty("dp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Dp { get; set; } = default!;
+    [JsonPropertyName("dp")]
+    public bool? Dp { get; set; }
 
-    [JsonProperty("rfid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Rfid { get; set; } = default!;
+    [JsonPropertyName("rfid")]
+    public bool? Rfid { get; set; }
 
-    [JsonProperty("branding", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public OperatorBrandingModel? Branding { get; set; } = default!;
+    [JsonPropertyName("branding")]
+    public OperatorBrandingModel? Branding { get; set; }
 
-    [JsonProperty("brandingId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? BrandingId { get; set; } = default!;
+    [JsonPropertyName("brandingId")]
+    public string? BrandingId { get; set; }
 
-    [JsonProperty("isHomeCharger", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsHomeCharger { get; set; } = default!;
+    [JsonPropertyName("isHomeCharger")]
+    public bool? IsHomeCharger { get; set; }
 
-    [JsonProperty("isPrivateLocation", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsPrivateLocation { get; set; } = default!;
+    [JsonPropertyName("isPrivateLocation")]
+    public bool? IsPrivateLocation { get; set; }
 
-    [JsonProperty("evses", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EvseSummary>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<EvseSummary>? Evses { get; set; }
 
-    [JsonProperty("customProperties", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<CustomPropertyModel>? CustomProperties { get; set; } = default!;
+    [JsonPropertyName("customProperties")]
+    public ICollection<CustomPropertyModel>? CustomProperties { get; set; }
 
-    [JsonProperty("timeZone", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TimeZone { get; set; } = default!;
+    [JsonPropertyName("timeZone")]
+    public string? TimeZone { get; set; }
 
 }

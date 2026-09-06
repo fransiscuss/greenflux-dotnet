@@ -1,0 +1,15 @@
+{
+  "maxEnergyInKwh": 988.5,
+  "maxPowerInKw": 373.5,
+  "minEnergyInKwh": 38.5,
+  "minPowerInKw": 307.5,
+  "dataPoints": [
+    {
+      "timestamp": "2026-01-01T10:53:25+00:00",
+      "energyInKwh": 382.5,
+      "powerInKw": 813.5,
+      "status": "REQUESTED",
+      "stateOfCharge": 253.5
+    }
+  ]
+}

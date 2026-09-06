@@ -1,0 +1,6 @@
+{
+  "evseUid": "v_evseUid",
+  "pauseEnabled": true,
+  "startTime": "v_startTime",
+  "endTime": "v_endTime"
+}

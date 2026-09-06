@@ -1,4 +1,6 @@
-using Newtonsoft.Json.Linq;
+
+using System.Text.Json;
+using Greenflux.Json;
 
 namespace Greenflux.ChargeLocations;
 
@@ -19,9 +21,14 @@ public static class ChargeStationCreateResponseExtensions
             null => [],
             GcpiChargeStation station => [station],
             IEnumerable<GcpiChargeStation> stations => stations.ToArray(),
-            JObject item => [item.ToObject<GcpiChargeStation>()
-                ?? throw new InvalidOperationException("Greenflux returned an empty charge-station object.")],
-            JArray items => items.ToObject<List<GcpiChargeStation>>() ?? [],
+            // An untyped `object` payload arrives as a JsonElement, so the two
+            // documented shapes have to be read back out of it here.
+            JsonElement { ValueKind: JsonValueKind.Object } item =>
+                [item.Deserialize<GcpiChargeStation>(GreenfluxJson.Options)
+                 ?? throw new InvalidOperationException("Greenflux returned an empty charge-station object.")],
+            JsonElement { ValueKind: JsonValueKind.Array } items =>
+                items.Deserialize<List<GcpiChargeStation>>(GreenfluxJson.Options) ?? [],
+            JsonElement { ValueKind: JsonValueKind.Null } => [],
             _ => throw new InvalidOperationException(
                 $"Unexpected Greenflux charge-station data shape: {response.Data.GetType().Name}."),
         };

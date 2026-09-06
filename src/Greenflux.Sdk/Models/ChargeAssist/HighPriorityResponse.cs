@@ -1,14 +1,11 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class HighPriorityResponse
 {
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public HighPriorityResponseStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public HighPriorityResponseStatus? Status { get; set; }
 
 }

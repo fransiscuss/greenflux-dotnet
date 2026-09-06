@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class PatchCouponRequest
 {
-    [JsonProperty("active", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Active { get; set; } = default!;
+    [JsonPropertyName("active")]
+    public bool? Active { get; set; }
 
-    [JsonProperty("expirationUtc", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ExpirationUtc { get; set; } = default!;
+    [JsonPropertyName("expirationUtc")]
+    public DateTimeOffset? ExpirationUtc { get; set; }
 
-    [JsonProperty("reason", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reason { get; set; } = default!;
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
 }
 

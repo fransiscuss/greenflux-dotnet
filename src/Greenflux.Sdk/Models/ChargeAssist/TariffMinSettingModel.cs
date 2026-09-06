@@ -1,18 +1,17 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class TariffMinSettingModel
 {
 
-    [JsonProperty("enabled", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Enabled { get; set; } = default!;
+    [JsonPropertyName("enabled")]
+    public bool? Enabled { get; set; }
 
-    [JsonProperty("minimumZoomLevel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? MinimumZoomLevel { get; set; } = default!;
+    [JsonPropertyName("minimumZoomLevel")]
+    public int? MinimumZoomLevel { get; set; }
 
-    [JsonProperty("maximumNumberOfLocations", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? MaximumNumberOfLocations { get; set; } = default!;
+    [JsonPropertyName("maximumNumberOfLocations")]
+    public int? MaximumNumberOfLocations { get; set; }
 
 }

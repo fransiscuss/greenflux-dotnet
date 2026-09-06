@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class DateTimeCapacityGroupScenarioRequest
 {
-    [JsonProperty("capacity", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Capacity { get; set; } = default!;
+    [JsonPropertyName("capacity")]
+    public double? Capacity { get; set; }
 
-    [JsonProperty("start_date_time", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Start_date_time { get; set; } = default!;
+    [JsonPropertyName("start_date_time")]
+    public DateTimeOffset? StartDateTime { get; set; }
 
-    [JsonProperty("end_date_time", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? End_date_time { get; set; } = default!;
+    [JsonPropertyName("end_date_time")]
+    public DateTimeOffset? EndDateTime { get; set; }
 }
 

@@ -1,36 +1,41 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class StripeBusinessDetails
 {
-    [JsonProperty("name", Required = Required.Always)]
+    [JsonPropertyName("name")]
+    [JsonRequired]
     public string Name { get; set; } = default!;
 
-    [JsonProperty("street", Required = Required.Always)]
+    [JsonPropertyName("street")]
+    [JsonRequired]
     public string Street { get; set; } = default!;
 
-    [JsonProperty("postal_code", Required = Required.Always)]
-    public string Postal_code { get; set; } = default!;
+    [JsonPropertyName("postal_code")]
+    [JsonRequired]
+    public string PostalCode { get; set; } = default!;
 
-    [JsonProperty("city", Required = Required.Always)]
+    [JsonPropertyName("city")]
+    [JsonRequired]
     public string City { get; set; } = default!;
 
-    [JsonProperty("country", Required = Required.Always)]
+    [JsonPropertyName("country")]
+    [JsonRequired]
     public string Country { get; set; } = default!;
 
-    [JsonProperty("phone", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Phone { get; set; } = default!;
+    [JsonPropertyName("phone")]
+    public string? Phone { get; set; }
 
-    [JsonProperty("email", Required = Required.Always)]
+    [JsonPropertyName("email")]
+    [JsonRequired]
     public string Email { get; set; } = default!;
 
-    [JsonProperty("vat_number", Required = Required.Always)]
-    public string Vat_number { get; set; } = default!;
+    [JsonPropertyName("vat_number")]
+    [JsonRequired]
+    public string VatNumber { get; set; } = default!;
 
-    [JsonProperty("registration_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Registration_number { get; set; } = default!;
+    [JsonPropertyName("registration_number")]
+    public string? RegistrationNumber { get; set; }
 }
 

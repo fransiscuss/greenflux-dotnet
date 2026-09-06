@@ -1,14 +1,12 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiCustomisedField
 {
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonProperty("value", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Value { get; set; } = default!;
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 }

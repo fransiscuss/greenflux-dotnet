@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "lat": 358.5,
+      "lon": 786.5,
+      "count": 910,
+      "dCount": "v_dCount",
+      "locationIds": [
+        "v_locationIds_0"
+      ],
+      "type": "Cluster",
+      "x": 647,
+      "y": 648,
+      "status": "AVAILABLE",
+      "evsAvailCnt": 21,
+      "evsCnt": 0
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

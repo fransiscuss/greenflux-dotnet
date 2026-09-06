@@ -1,23 +1,20 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class ValidationResponseV2
 {
 
-    [JsonProperty("message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Message { get; set; } = default!;
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 
-    [JsonProperty("code", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Code { get; set; } = default!;
+    [JsonPropertyName("code")]
+    public string? Code { get; set; }
 
-    [JsonProperty("context", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Context { get; set; } = default!;
+    [JsonPropertyName("context")]
+    public string? Context { get; set; }
 
-    [JsonProperty("validationStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ValidationResponseV2ValidationStatus? ValidationStatus { get; set; } = default!;
+    [JsonPropertyName("validationStatus")]
+    public ValidationResponseV2ValidationStatus? ValidationStatus { get; set; }
 
 }

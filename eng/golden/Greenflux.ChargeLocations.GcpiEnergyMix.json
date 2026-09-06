@@ -1,0 +1,18 @@
+{
+  "energy_mix_profile_id": "v_energy_mix_profile_id",
+  "is_green_energy": true,
+  "energy_sources": [
+    {
+      "source": "NUCLEAR",
+      "percentage": 837.5
+    }
+  ],
+  "environ_impact": [
+    {
+      "source": "NUCLEAR_WASTE",
+      "amount": 593.5
+    }
+  ],
+  "supplier_name": "v_supplier_name",
+  "energy_product_name": "v_energy_product_name"
+}

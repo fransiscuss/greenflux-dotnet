@@ -1,0 +1,13 @@
+{
+  "valid": false,
+  "id": "v_id",
+  "datasource": "v_datasource",
+  "operator": "v_operator",
+  "locationId": "v_locationId",
+  "ocpiLocationId": "v_ocpiLocationId",
+  "evseUid": "v_evseUid",
+  "connectorId": "v_connectorId",
+  "url": "v_url",
+  "embeddedUrl": "v_embeddedUrl",
+  "createdDate": "2026-01-01T08:44:53+00:00"
+}

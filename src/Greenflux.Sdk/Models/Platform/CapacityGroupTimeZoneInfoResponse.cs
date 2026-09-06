@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupTimeZoneInfoResponse
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("display_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Display_name { get; set; } = default!;
+    [JsonPropertyName("display_name")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("utc_offset", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Utc_offset { get; set; } = default!;
+    [JsonPropertyName("utc_offset")]
+    public string? UtcOffset { get; set; }
 
-    [JsonProperty("supports_daylight_saving_time", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Supports_daylight_saving_time { get; set; } = default!;
+    [JsonPropertyName("supports_daylight_saving_time")]
+    public bool? SupportsDaylightSavingTime { get; set; }
 }
 

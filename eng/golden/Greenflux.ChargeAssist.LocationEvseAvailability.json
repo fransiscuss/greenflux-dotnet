@@ -1,0 +1,16 @@
+{
+  "id": "v_id",
+  "evses": [
+    {
+      "status": "v_status",
+      "evseId": "v_evseId",
+      "parkingRestrictions": [
+        "EV_ONLY"
+      ],
+      "restrictedAccess": true,
+      "uid": "v_uid",
+      "lu": "2026-01-01T05:30:02+00:00"
+    }
+  ],
+  "lu": "2026-01-01T05:30:02+00:00"
+}

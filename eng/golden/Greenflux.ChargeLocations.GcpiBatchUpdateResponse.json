@@ -1,0 +1,11 @@
+{
+  "data": {
+    "report_id": "v_report_id",
+    "status": "Inprogress",
+    "validation_error": "v_validation_error",
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "status_message": "v_status_message",
+  "status": "_1000",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

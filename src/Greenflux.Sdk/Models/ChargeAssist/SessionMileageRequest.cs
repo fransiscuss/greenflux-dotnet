@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SessionMileageRequest
 {
 
-    [JsonProperty("chargeSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeSessionId { get; set; } = default!;
+    [JsonPropertyName("chargeSessionId")]
+    public string? ChargeSessionId { get; set; }
 
-    [JsonProperty("mileage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Mileage { get; set; } = default!;
+    [JsonPropertyName("mileage")]
+    public string? Mileage { get; set; }
 
 }

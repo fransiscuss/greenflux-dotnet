@@ -1,23 +1,21 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class StatusSchedule
 {
-    [JsonProperty("period_begin", Required = Required.Always)]
-    public DateTimeOffset Period_begin { get; set; } = default!;
+    [JsonPropertyName("period_begin")]
+    [JsonRequired]
+    public DateTimeOffset PeriodBegin { get; set; } = default!;
 
-    [JsonProperty("period_end", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Period_end { get; set; } = default!;
+    [JsonPropertyName("period_end")]
+    public DateTimeOffset? PeriodEnd { get; set; }
 
-    [JsonProperty("status", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("status")]
+    [JsonRequired]
     public Status Status { get; set; } = default!;
 
-    [JsonProperty("status_message", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 }
 

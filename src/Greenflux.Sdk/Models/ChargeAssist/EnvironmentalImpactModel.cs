@@ -1,17 +1,16 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class EnvironmentalImpactModel
 {
 
-    [JsonProperty("source", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("source")]
+    [JsonRequired]
     public EnvironmentalImpactModelSource Source { get; set; } = default!;
 
-    [JsonProperty("amount", Required = Required.Always)]
+    [JsonPropertyName("amount")]
+    [JsonRequired]
     public double Amount { get; set; } = default!;
 
 }

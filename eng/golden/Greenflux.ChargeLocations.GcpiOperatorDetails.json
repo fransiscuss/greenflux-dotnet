@@ -1,0 +1,8 @@
+{
+  "name": "v_name",
+  "website_url": "https://example.test/website_url",
+  "phone_number": "v_phone_number",
+  "support_email": "v_support_email",
+  "logo_url": "https://example.test/logo_url",
+  "logo_thumbnail_url": "https://example.test/logo_thumbnail_url"
+}

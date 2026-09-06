@@ -1,22 +1,18 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiCommandResult
 {
-    [JsonProperty("result", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiCommandResultType? Result { get; set; } = default!;
+    [JsonPropertyName("result")]
+    public GcpiCommandResultType? Result { get; set; }
 
-    [JsonProperty("message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Message { get; set; } = default!;
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 
-    [JsonProperty("request", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public object? Request { get; set; } = default!;
+    [JsonPropertyName("request")]
+    public object? Request { get; set; }
 
-    [JsonProperty("charge_station_notification_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_station_notification_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_notification_id")]
+    public string? ChargeStationNotificationId { get; set; }
 }

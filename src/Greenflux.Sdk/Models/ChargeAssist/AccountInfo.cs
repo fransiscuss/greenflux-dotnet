@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class AccountInfo
     {
 
-        [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-        public string? Name { get; set; } = default!;
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
 
-        [JsonProperty("email", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-        public string? Email { get; set; } = default!;
+        [JsonPropertyName("email")]
+        public string? Email { get; set; }
 
     }

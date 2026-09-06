@@ -1,0 +1,17 @@
+{
+  "start_time": "v_start_time",
+  "stop_time": "v_stop_time",
+  "end_time": "v_end_time",
+  "start_date": "v_start_date",
+  "stop_date": "v_stop_date",
+  "end_date": "v_end_date",
+  "min_kwh": 974.5,
+  "max_kwh": 976.5,
+  "min_power": 511.5,
+  "max_power": 937.5,
+  "min_duration": 622,
+  "max_duration": 688,
+  "day_of_week": [
+    "MONDAY"
+  ]
+}

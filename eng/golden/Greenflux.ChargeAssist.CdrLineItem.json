@@ -1,0 +1,8 @@
+{
+  "dimension": "TIME",
+  "price": 168.5,
+  "quantity": 948.5,
+  "unroundedCost": 872.5,
+  "roundedCost": 377.5,
+  "unit": "MIN"
+}

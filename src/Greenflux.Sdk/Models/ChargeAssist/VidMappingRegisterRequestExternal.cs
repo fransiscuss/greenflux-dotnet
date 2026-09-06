@@ -1,12 +1,12 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class VidMappingRegisterRequestExternal
 {
 
-    [JsonProperty("sessionId", Required = Required.AllowNull)]
-    public string? SessionId { get; set; } = default!;
+    [JsonPropertyName("sessionId")]
+    [JsonRequired]
+    public string? SessionId { get; set; }
 
 }

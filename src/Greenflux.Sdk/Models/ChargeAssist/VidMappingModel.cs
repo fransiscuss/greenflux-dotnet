@@ -1,26 +1,23 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class VidMappingModel
 {
 
-    [JsonProperty("vid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Vid { get; set; } = default!;
+    [JsonPropertyName("vid")]
+    public string? Vid { get; set; }
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("paymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("paymentMethodId")]
+    public string? PaymentMethodId { get; set; }
 
-    [JsonProperty("emailId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EmailId { get; set; } = default!;
+    [JsonPropertyName("emailId")]
+    public string? EmailId { get; set; }
 
-    [JsonProperty("vidStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public VidMappingModelVidStatus? VidStatus { get; set; } = default!;
+    [JsonPropertyName("vidStatus")]
+    public VidMappingModelVidStatus? VidStatus { get; set; }
 
 }

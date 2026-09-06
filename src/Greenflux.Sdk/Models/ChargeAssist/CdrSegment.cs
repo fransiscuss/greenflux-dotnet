@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 using System;
 
@@ -8,13 +7,14 @@ namespace Greenflux.ChargeAssist;
 public class CdrSegment
 {
 
-    [JsonProperty("segmentId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? SegmentId { get; set; } = default!;
+    [JsonPropertyName("segmentId")]
+    public int? SegmentId { get; set; }
 
-    [JsonProperty("fromUtc", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? FromUtc { get; set; } = default!;
+    [JsonPropertyName("fromUtc")]
+    public DateTimeOffset? FromUtc { get; set; }
 
-    [JsonProperty("items", Required = Required.AllowNull)]
-    public ICollection<CdrLineItem>? Items { get; set; } = default!;
+    [JsonPropertyName("items")]
+    [JsonRequired]
+    public ICollection<CdrLineItem>? Items { get; set; }
 
 }

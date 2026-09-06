@@ -1,0 +1,15 @@
+{
+  "tariff_id": "v_tariff_id",
+  "start_date_time": "v_start_date_time",
+  "dimensions": [
+    {
+      "type": "ENERGY",
+      "volume": 387.5,
+      "dimension_details": "METER",
+      "price": 168.5,
+      "cost": 518.5,
+      "k_AdditionalProperties": "o_AdditionalProperties_v"
+    }
+  ],
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}
