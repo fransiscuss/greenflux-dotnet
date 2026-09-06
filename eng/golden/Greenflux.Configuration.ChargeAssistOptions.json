@@ -1,0 +1,6 @@
+{
+  "BaseAddress": "https://example.test/BaseAddress",
+  "ApiKey": "v_ApiKey",
+  "AuthenticationMode": "SubscriptionKey",
+  "Timeout": "09:12:00"
+}

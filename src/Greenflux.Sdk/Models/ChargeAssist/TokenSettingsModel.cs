@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class TokenSettingsModel
 {
 
-    [JsonProperty("defaultPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DefaultPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("defaultPaymentMethodId")]
+    public string? DefaultPaymentMethodId { get; set; }
 
-    [JsonProperty("defaultLanguageCode", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DefaultLanguageCode { get; set; } = default!;
+    [JsonPropertyName("defaultLanguageCode")]
+    public string? DefaultLanguageCode { get; set; }
 
 }

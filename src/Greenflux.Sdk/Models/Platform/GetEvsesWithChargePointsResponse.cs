@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class GetEvsesWithChargePointsResponse
 {
-    [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("charge_point", NullValueHandling = NullValueHandling.Ignore)]
-    public EvseChangePointModel? Charge_point { get; set; } = default!;
+    [JsonPropertyName("charge_point")]
+    public EvseChangePointModel? ChargePoint { get; set; }
 }
 

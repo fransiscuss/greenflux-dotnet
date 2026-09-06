@@ -1,35 +1,32 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SessionLocationModel
 {
 
-    [JsonProperty("coordinates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionLocationCoordinatesModel? Coordinates { get; set; } = default!;
+    [JsonPropertyName("coordinates")]
+    public SessionLocationCoordinatesModel? Coordinates { get; set; }
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("address", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Address { get; set; } = default!;
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
-    [JsonProperty("city", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? City { get; set; } = default!;
+    [JsonPropertyName("city")]
+    public string? City { get; set; }
 
-    [JsonProperty("country", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Country { get; set; } = default!;
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-    [JsonProperty("timeZone", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TimeZone { get; set; } = default!;
+    [JsonPropertyName("timeZone")]
+    public string? TimeZone { get; set; }
 
-    [JsonProperty("powerType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SessionLocationModelPowerType? PowerType { get; set; } = default!;
+    [JsonPropertyName("powerType")]
+    public SessionLocationModelPowerType? PowerType { get; set; }
 
-    [JsonProperty("branding", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionBrandingModel? Branding { get; set; } = default!;
+    [JsonPropertyName("branding")]
+    public SessionBrandingModel? Branding { get; set; }
 
 }

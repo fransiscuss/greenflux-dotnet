@@ -1,12 +1,11 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class ReplaceEvsesWithChargePointsRequest
 {
-    [JsonProperty("uid", Required = Required.Always)]
+    [JsonPropertyName("uid")]
+    [JsonRequired]
     public string Uid { get; set; } = default!;
 }
 

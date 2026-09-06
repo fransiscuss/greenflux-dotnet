@@ -1,87 +1,88 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiPutChargeStation
 {
-    [JsonProperty("charge_station_id", Required = Required.AllowNull)]
-    public string? Charge_station_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_id")]
+    [JsonRequired]
+    public string? ChargeStationId { get; set; }
 
-    [JsonProperty("location_id", Required = Required.AllowNull)]
-    public string? Location_id { get; set; } = default!;
+    [JsonPropertyName("location_id")]
+    [JsonRequired]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("deploy_state", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiChargeStationDeployState Deploy_state { get; set; } = default!;
+    [JsonPropertyName("deploy_state")]
+    [JsonRequired]
+    public GcpiChargeStationDeployState DeployState { get; set; } = default!;
 
-    [JsonProperty("installation_date", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Installation_date { get; set; } = default!;
+    [JsonPropertyName("installation_date")]
+    public DateTimeOffset? InstallationDate { get; set; }
 
-    [JsonProperty("default_charge_station_reimbursement_tariff_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Default_charge_station_reimbursement_tariff_id { get; set; } = default!;
+    [JsonPropertyName("default_charge_station_reimbursement_tariff_id")]
+    public string? DefaultChargeStationReimbursementTariffId { get; set; }
 
-    [JsonProperty("default_charge_station_tariff_id", Required = Required.AllowNull)]
-    public string? Default_charge_station_tariff_id { get; set; } = default!;
+    [JsonPropertyName("default_charge_station_tariff_id")]
+    [JsonRequired]
+    public string? DefaultChargeStationTariffId { get; set; }
 
-    [JsonProperty("default_charge_station_directions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiDisplayText>? Default_charge_station_directions { get; set; } = default!;
+    [JsonPropertyName("default_charge_station_directions")]
+    public ICollection<GcpiDisplayText>? DefaultChargeStationDirections { get; set; }
 
-    [JsonProperty("default_charge_station_floor_level", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Default_charge_station_floor_level { get; set; } = default!;
+    [JsonPropertyName("default_charge_station_floor_level")]
+    public string? DefaultChargeStationFloorLevel { get; set; }
 
-    [JsonProperty("evses", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEvse>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<GcpiEvse>? Evses { get; set; }
 
-    [JsonProperty("maintenance_info", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Maintenance_info { get; set; } = default!;
+    [JsonPropertyName("maintenance_info")]
+    public string? MaintenanceInfo { get; set; }
 
-    [JsonProperty("remarks", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Remarks { get; set; } = default!;
+    [JsonPropertyName("remarks")]
+    public string? Remarks { get; set; }
 
-    [JsonProperty("contactless_terminal_serial_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Contactless_terminal_serial_number { get; set; } = default!;
+    [JsonPropertyName("contactless_terminal_serial_number")]
+    public string? ContactlessTerminalSerialNumber { get; set; }
 
-    [JsonProperty("contactless_terminal_auth_amount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Contactless_terminal_auth_amount { get; set; } = default!;
+    [JsonPropertyName("contactless_terminal_auth_amount")]
+    public double? ContactlessTerminalAuthAmount { get; set; }
 
-    [JsonProperty("status_schedule", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEvseStatusSchedule>? Status_schedule { get; set; } = default!;
+    [JsonPropertyName("status_schedule")]
+    public ICollection<GcpiEvseStatusSchedule>? StatusSchedule { get; set; }
 
-    [JsonProperty("auth_rules", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiAuthRule>? Auth_rules { get; set; } = default!;
+    [JsonPropertyName("auth_rules")]
+    public ICollection<GcpiAuthRule>? AuthRules { get; set; }
 
-    [JsonProperty("contactless_type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Contactless_type { get; set; } = default!;
+    [JsonPropertyName("contactless_type")]
+    public string? ContactlessType { get; set; }
 
-    [JsonProperty("tap_to_stop", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Tap_to_stop { get; set; } = default!;
+    [JsonPropertyName("tap_to_stop")]
+    public bool? TapToStop { get; set; }
 
-    [JsonProperty("stop_on_parking", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Stop_on_parking { get; set; } = default!;
+    [JsonPropertyName("stop_on_parking")]
+    public bool? StopOnParking { get; set; }
 
-    [JsonProperty("dynamic_time_based_tariffs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Dynamic_time_based_tariffs { get; set; } = default!;
+    [JsonPropertyName("dynamic_time_based_tariffs")]
+    public bool? DynamicTimeBasedTariffs { get; set; }
 
-    [JsonProperty("time_of_use_tariffs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Time_of_use_tariffs { get; set; } = default!;
+    [JsonPropertyName("time_of_use_tariffs")]
+    public bool? TimeOfUseTariffs { get; set; }
 
-    [JsonProperty("exclude_vat", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Exclude_vat { get; set; } = default!;
+    [JsonPropertyName("exclude_vat")]
+    public bool? ExcludeVat { get; set; }
 
-    [JsonProperty("charger_type", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiPutChargeStationCharger_type Charger_type { get; set; } = default!;
+    [JsonPropertyName("charger_type")]
+    [JsonRequired]
+    public GcpiPutChargeStationCharger_type ChargerType { get; set; } = default!;
 
-    [JsonProperty("charge_station_template_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charge_station_template_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_template_id")]
+    public string? ChargeStationTemplateId { get; set; }
 
-    [JsonProperty("etag", Required = Required.Always)]
+    [JsonPropertyName("etag")]
+    [JsonRequired]
     public string Etag { get; set; } = default!;
 }

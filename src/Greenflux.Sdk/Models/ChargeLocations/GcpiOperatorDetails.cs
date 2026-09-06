@@ -1,26 +1,25 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiOperatorDetails
 {
-    [JsonProperty("name", Required = Required.Always)]
+    [JsonPropertyName("name")]
+    [JsonRequired]
     public string Name { get; set; } = default!;
 
-    [JsonProperty("website_url", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public Uri? Website_url { get; set; } = default!;
+    [JsonPropertyName("website_url")]
+    public Uri? WebsiteUrl { get; set; }
 
-    [JsonProperty("phone_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Phone_number { get; set; } = default!;
+    [JsonPropertyName("phone_number")]
+    public string? PhoneNumber { get; set; }
 
-    [JsonProperty("support_email", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Support_email { get; set; } = default!;
+    [JsonPropertyName("support_email")]
+    public string? SupportEmail { get; set; }
 
-    [JsonProperty("logo_url", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public Uri? Logo_url { get; set; } = default!;
+    [JsonPropertyName("logo_url")]
+    public Uri? LogoUrl { get; set; }
 
-    [JsonProperty("logo_thumbnail_url", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public Uri? Logo_thumbnail_url { get; set; } = default!;
+    [JsonPropertyName("logo_thumbnail_url")]
+    public Uri? LogoThumbnailUrl { get; set; }
 }

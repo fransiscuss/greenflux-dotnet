@@ -1,20 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupEvseAllocationResponseDceda
 {
-    [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("allocated_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_watts { get; set; } = default!;
+    [JsonPropertyName("allocated_watts")]
+    public double? AllocatedWatts { get; set; }
 
-    [JsonProperty("smart_charging_status", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SmartChargingEvseStatus? Smart_charging_status { get; set; } = default!;
+    [JsonPropertyName("smart_charging_status")]
+    public SmartChargingEvseStatus? SmartChargingStatus { get; set; }
 }
 

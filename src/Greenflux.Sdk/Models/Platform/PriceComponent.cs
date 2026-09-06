@@ -1,20 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class PriceComponent
 {
-    [JsonProperty("type", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("type")]
+    [JsonRequired]
     public TariffDimensionType Type { get; set; } = default!;
 
-    [JsonProperty("price", Required = Required.Always)]
+    [JsonPropertyName("price")]
+    [JsonRequired]
     public double Price { get; set; } = default!;
 
-    [JsonProperty("step_size", Required = Required.Always)]
-    public int Step_size { get; set; } = default!;
+    [JsonPropertyName("step_size")]
+    [JsonRequired]
+    public int StepSize { get; set; } = default!;
 }
 

@@ -1,21 +1,21 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CreatePercDiscountCouponRequest
 {
-    [JsonProperty("scope", Required = Required.Always)]
+    [JsonPropertyName("scope")]
+    [JsonRequired]
     public CouponScopeStruct Scope { get; set; } = new CouponScopeStruct();
 
-    [JsonProperty("percentage", Required = Required.Always)]
+    [JsonPropertyName("percentage")]
+    [JsonRequired]
     public double Percentage { get; set; } = default!;
 
-    [JsonProperty("expirationUtc", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ExpirationUtc { get; set; } = default!;
+    [JsonPropertyName("expirationUtc")]
+    public DateTimeOffset? ExpirationUtc { get; set; }
 
-    [JsonProperty("reason", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reason { get; set; } = default!;
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
 }
 

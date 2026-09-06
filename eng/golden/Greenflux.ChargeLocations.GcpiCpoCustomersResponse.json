@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "name": "v_name",
+      "cpo_id": "v_cpo_id",
+      "external_id": "v_external_id",
+      "properties": [],
+      "operator_details": {
+        "name": "v_name",
+        "website_url": "https://example.test/website_url",
+        "phone_number": "v_phone_number",
+        "support_email": "v_support_email",
+        "logo_url": "https://example.test/logo_url",
+        "logo_thumbnail_url": "https://example.test/logo_thumbnail_url"
+      },
+      "vat_number": "v_vat_number"
+    }
+  ],
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "status_code": "_1000",
+  "status_message": "v_status_message"
+}

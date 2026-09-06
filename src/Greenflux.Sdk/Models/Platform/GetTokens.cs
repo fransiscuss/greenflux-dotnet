@@ -1,16 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.ObjectModel;
 
 namespace Greenflux.Platform;
 
 public partial class GetTokens
 {
-    [JsonProperty("tokens", Required = Required.Always)]
+    [JsonPropertyName("tokens")]
+    [JsonRequired]
     public ICollection<GetTokensEntry> Tokens { get; set; } = new Collection<GetTokensEntry>();
 
-    [JsonProperty("token_id", Required = Required.Always)]
-    public string Token_id { get; set; } = default!;
+    [JsonPropertyName("token_id")]
+    [JsonRequired]
+    public string TokenId { get; set; } = default!;
 }
 

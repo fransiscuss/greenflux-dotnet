@@ -1,23 +1,21 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class ConnectorResponse
 {
-    [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
-    public Connector? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public Connector? Data { get; set; }
 
-    [JsonProperty("status_code", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public OcpiStatusCode Status_code { get; set; } = default!;
+    [JsonPropertyName("status_code")]
+    [JsonRequired]
+    public OcpiStatusCode StatusCode { get; set; } = default!;
 
-    [JsonProperty("status_message", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 
-    [JsonProperty("timestamp", Required = Required.Always)]
+    [JsonPropertyName("timestamp")]
+    [JsonRequired]
     public DateTimeOffset Timestamp { get; set; } = default!;
 }
 

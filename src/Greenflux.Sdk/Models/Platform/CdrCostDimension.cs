@@ -1,27 +1,27 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CdrCostDimension
 {
-    [JsonProperty("type", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("type")]
+    [JsonRequired]
     public CdrDimensionType Type { get; set; } = default!;
 
-    [JsonProperty("volume", Required = Required.Always)]
+    [JsonPropertyName("volume")]
+    [JsonRequired]
     public double Volume { get; set; } = default!;
 
-    [JsonProperty("dimension_details", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public CdrCostDimensionDetails Dimension_details { get; set; } = default!;
+    [JsonPropertyName("dimension_details")]
+    [JsonRequired]
+    public CdrCostDimensionDetails DimensionDetails { get; set; } = default!;
 
-    [JsonProperty("price", Required = Required.Always)]
+    [JsonPropertyName("price")]
+    [JsonRequired]
     public double Price { get; set; } = default!;
 
-    [JsonProperty("cost", Required = Required.Always)]
+    [JsonPropertyName("cost")]
+    [JsonRequired]
     public double Cost { get; set; } = default!;
 
     private IDictionary<string, object>? _additionalProperties;

@@ -1,0 +1,17 @@
+{
+  "data": {
+    "id": "v_id",
+    "standard": "CHADEMO",
+    "format": "SOCKET",
+    "power_type": "AC_1_PHASE",
+    "voltage": 877,
+    "amperage": 791,
+    "max_electric_power": 833,
+    "tariff_id": "v_tariff_id",
+    "terms_and_conditions": "v_terms_and_conditions",
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

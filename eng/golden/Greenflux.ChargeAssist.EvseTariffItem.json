@@ -1,0 +1,42 @@
+{
+  "tariff": {
+    "tariffType": "WHOLESALE",
+    "vatPercentage": 14.5,
+    "currency": "v_currency",
+    "isVatIncluded": true,
+    "countryCode": "v_countryCode",
+    "descriptionUrl": "v_descriptionUrl",
+    "descriptions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "elements": [
+      {}
+    ],
+    "validFrom": "v_validFrom",
+    "validTo": "v_validTo"
+  },
+  "tariffWholeSale": {
+    "tariffType": "WHOLESALE",
+    "vatPercentage": 14.5,
+    "currency": "v_currency",
+    "isVatIncluded": true,
+    "countryCode": "v_countryCode",
+    "descriptionUrl": "v_descriptionUrl",
+    "descriptions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "elements": [
+      {}
+    ],
+    "validFrom": "v_validFrom",
+    "validTo": "v_validTo"
+  },
+  "locationId": "v_locationId",
+  "evseUid": "v_evseUid"
+}

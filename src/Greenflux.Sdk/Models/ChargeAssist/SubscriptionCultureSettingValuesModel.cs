@@ -1,18 +1,17 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SubscriptionCultureSettingValuesModel
 {
 
-    [JsonProperty("culture", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Culture { get; set; } = default!;
+    [JsonPropertyName("culture")]
+    public string? Culture { get; set; }
 
-    [JsonProperty("value", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Value { get; set; } = default!;
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 
-    [JsonProperty("isDefault", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsDefault { get; set; } = default!;
+    [JsonPropertyName("isDefault")]
+    public bool? IsDefault { get; set; }
 
 }

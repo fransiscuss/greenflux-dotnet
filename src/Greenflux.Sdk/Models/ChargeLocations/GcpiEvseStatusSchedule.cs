@@ -1,22 +1,18 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiEvseStatusSchedule
 {
-    [JsonProperty("period_begin", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Period_begin { get; set; } = default!;
+    [JsonPropertyName("period_begin")]
+    public DateTimeOffset? PeriodBegin { get; set; }
 
-    [JsonProperty("period_end", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Period_end { get; set; } = default!;
+    [JsonPropertyName("period_end")]
+    public DateTimeOffset? PeriodEnd { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiEvseStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public GcpiEvseStatus? Status { get; set; }
 
-    [JsonProperty("status_message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 }

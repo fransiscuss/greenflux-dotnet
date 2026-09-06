@@ -1,20 +1,20 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiCpoCustomerResponse
 {
-    [JsonProperty("data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiCpoCustomer? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public GcpiCpoCustomer? Data { get; set; }
 
-    [JsonProperty("timestamp", Required = Required.Always)]
+    [JsonPropertyName("timestamp")]
+    [JsonRequired]
     public DateTimeOffset Timestamp { get; set; } = default!;
 
-    [JsonProperty("status_code", Required = Required.Always)]
-    public OcpiStatusCode Status_code { get; set; } = default!;
+    [JsonPropertyName("status_code")]
+    [JsonRequired]
+    public OcpiStatusCode StatusCode { get; set; } = default!;
 
-    [JsonProperty("status_message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 }

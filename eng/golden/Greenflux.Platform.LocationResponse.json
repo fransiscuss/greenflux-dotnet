@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": "v_id",
+      "type": "ON_STREET",
+      "access_type": "PUBLIC",
+      "publish": true,
+      "name": "v_name",
+      "address": "v_address",
+      "city": "v_city",
+      "postal_code": "v_postal_code",
+      "country": "v_country",
+      "coordinates": {
+        "latitude": "v_latitude",
+        "longitude": "v_longitude"
+      },
+      "related_locations": [],
+      "evses": [],
+      "directions": [],
+      "operator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "suboperator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "auth_rules": [],
+      "owner": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "facilities": [
+        "HOTEL"
+      ],
+      "time_zone": "v_time_zone",
+      "opening_times": {
+        "twentyfourseven": false
+      },
+      "charging_when_closed": true,
+      "images": [],
+      "energy_mix": {
+        "is_green_energy": true,
+        "supplier_name": "v_supplier_name",
+        "energy_product_name": "v_energy_product_name"
+      },
+      "last_updated": "2026-01-01T08:35:41+00:00"
+    }
+  ],
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

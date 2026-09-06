@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,72 +6,70 @@ namespace Greenflux.ChargeAssist;
 public class PaymentMethodModel
 {
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("externalPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ExternalPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("externalPaymentMethodId")]
+    public string? ExternalPaymentMethodId { get; set; }
 
-    [JsonProperty("cardAlias", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardAlias { get; set; } = default!;
+    [JsonPropertyName("cardAlias")]
+    public string? CardAlias { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PaymentMethodModelType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public PaymentMethodModelType? Type { get; set; }
 
-    [JsonProperty("chargeCardIssuer", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeCardIssuer { get; set; } = default!;
+    [JsonPropertyName("chargeCardIssuer")]
+    public string? ChargeCardIssuer { get; set; }
 
-    [JsonProperty("cardHint", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardHint { get; set; } = default!;
+    [JsonPropertyName("cardHint")]
+    public string? CardHint { get; set; }
 
-    [JsonProperty("cardShortHint", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardShortHint { get; set; } = default!;
+    [JsonPropertyName("cardShortHint")]
+    public string? CardShortHint { get; set; }
 
-    [JsonProperty("cardExpiryHint", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardExpiryHint { get; set; } = default!;
+    [JsonPropertyName("cardExpiryHint")]
+    public string? CardExpiryHint { get; set; }
 
-    [JsonProperty("authId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AuthId { get; set; } = default!;
+    [JsonPropertyName("authId")]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("isCompatible", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsCompatible { get; set; } = default!;
+    [JsonPropertyName("isCompatible")]
+    public bool? IsCompatible { get; set; }
 
-    [JsonProperty("isVidMapped", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsVidMapped { get; set; } = default!;
+    [JsonPropertyName("isVidMapped")]
+    public bool? IsVidMapped { get; set; }
 
-    [JsonProperty("isAccountPaymentMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsAccountPaymentMethod { get; set; } = default!;
+    [JsonPropertyName("isAccountPaymentMethod")]
+    public bool? IsAccountPaymentMethod { get; set; }
 
-    [JsonProperty("verificationStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PaymentMethodModelVerificationStatus? VerificationStatus { get; set; } = default!;
+    [JsonPropertyName("verificationStatus")]
+    public PaymentMethodModelVerificationStatus? VerificationStatus { get; set; }
 
-    [JsonProperty("driverName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DriverName { get; set; } = default!;
+    [JsonPropertyName("driverName")]
+    public string? DriverName { get; set; }
 
-    [JsonProperty("linkedPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LinkedPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("linkedPaymentMethodId")]
+    public string? LinkedPaymentMethodId { get; set; }
 
-    [JsonProperty("linkedPaymentMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public LinkedPaymentMethod? LinkedPaymentMethod { get; set; } = default!;
+    [JsonPropertyName("linkedPaymentMethod")]
+    public LinkedPaymentMethod? LinkedPaymentMethod { get; set; }
 
-    [JsonProperty("expirationDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ExpirationDate { get; set; } = default!;
+    [JsonPropertyName("expirationDate")]
+    public DateTimeOffset? ExpirationDate { get; set; }
 
-    [JsonProperty("createdDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? CreatedDate { get; set; } = default!;
+    [JsonPropertyName("createdDate")]
+    public DateTimeOffset? CreatedDate { get; set; }
 
-    [JsonProperty("isDefault", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsDefault { get; set; } = default!;
+    [JsonPropertyName("isDefault")]
+    public bool? IsDefault { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("preferredNetwork", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PreferredNetwork { get; set; } = default!;
+    [JsonPropertyName("preferredNetwork")]
+    public string? PreferredNetwork { get; set; }
 
-    [JsonProperty("isValid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsValid { get; set; } = default!;
+    [JsonPropertyName("isValid")]
+    public bool? IsValid { get; set; }
 
 }

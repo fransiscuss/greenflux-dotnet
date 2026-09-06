@@ -1,12 +1,10 @@
-#pragma warning disable CS1591
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using Greenflux.Http;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
@@ -151,7 +149,6 @@ public interface IChargeAssistClient
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
 // ── Exception types ────────────────────────────────────────────────
 
 public class ChargeAssistApiException : GreenfluxApiException

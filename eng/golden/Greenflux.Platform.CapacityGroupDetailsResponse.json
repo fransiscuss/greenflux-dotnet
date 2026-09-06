@@ -1,0 +1,9 @@
+{
+  "id": "v_id",
+  "name": "v_name",
+  "cpo_external_id": "v_cpo_external_id",
+  "remarks": "v_remarks",
+  "algorithm": "NONE",
+  "algorithm_display_name": "v_algorithm_display_name",
+  "capacity_update_method": "DEFAULT"
+}

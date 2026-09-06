@@ -1,0 +1,185 @@
+{
+  "chargeSessionId": "v_chargeSessionId",
+  "status": "REQUESTED",
+  "location": {
+    "id": "v_id",
+    "type": "ON_STREET",
+    "name": "v_name",
+    "displayName": "v_displayName",
+    "address": "v_address",
+    "city": "v_city",
+    "postalCode": "v_postalCode",
+    "country": "v_country",
+    "coordinates": {
+      "latitude": 187.5,
+      "longitude": 646.5
+    },
+    "evses": [
+      {
+        "uid": "v_uid",
+        "displayName": "v_displayName",
+        "status": "AVAILABLE",
+        "floorLevel": "v_floorLevel",
+        "physicalReference": "v_physicalReference",
+        "chargingNotAllowed": false,
+        "agreement": false,
+        "matchesFilter": true,
+        "restrictedAccess": true,
+        "remoteCommandsCapable": false,
+        "chargerType": "v_chargerType",
+        "isPrivateCharger": true,
+        "evseId": "v_evseId",
+        "isQrPresent": false,
+        "lastUpdated": "2026-01-01T21:45:16+00:00"
+      }
+    ],
+    "directions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "operator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "suboperator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "owner": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "facilities": [
+      "HOTEL"
+    ],
+    "openingHours": {
+      "regularHours": [],
+      "twentyfourseven": false,
+      "exceptionalOpenings": [],
+      "exceptionalClosings": []
+    },
+    "images": [
+      {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      }
+    ],
+    "branding": {
+      "id": "v_id",
+      "displayName": "v_displayName",
+      "primaryColorHex": "v_primaryColorHex",
+      "logoUrl": "v_logoUrl",
+      "supportPhone": "v_supportPhone",
+      "supportEmail": "v_supportEmail",
+      "supportWebsite": "v_supportWebsite"
+    },
+    "smartChargingEnabled": true,
+    "reservationEnabled": true,
+    "dp": false,
+    "rfid": true,
+    "isPrivateLocation": false,
+    "pms": [
+      "CHARGE_CARD"
+    ],
+    "issuers": [
+      "v_issuers_0"
+    ],
+    "availability": "NONE",
+    "energyMix": {
+      "isGreenEnergy": true,
+      "energySources": [],
+      "environImpact": [],
+      "supplierName": "v_supplierName",
+      "energyProductName": "v_energyProductName"
+    },
+    "isHomeCharger": true,
+    "customProperties": [
+      {
+        "name": "v_name",
+        "value": "v_value"
+      }
+    ],
+    "timeZone": "v_timeZone",
+    "preAuthAmountInCents": 140,
+    "cpsoId": "v_cpsoId",
+    "cpoCustomerId": "v_cpoCustomerId",
+    "paymentServiceProvider": "Stripe"
+  },
+  "evseUid": "v_evseUid",
+  "connectorId": "v_connectorId",
+  "paymentMethod": {
+    "id": "v_id",
+    "externalPaymentMethodId": "v_externalPaymentMethodId",
+    "cardAlias": "v_cardAlias",
+    "type": "CHARGE_CARD",
+    "chargeCardIssuer": "v_chargeCardIssuer",
+    "cardHint": "v_cardHint",
+    "cardShortHint": "v_cardShortHint",
+    "cardExpiryHint": "v_cardExpiryHint",
+    "authId": "v_authId",
+    "isCompatible": false,
+    "isVidMapped": false,
+    "isAccountPaymentMethod": false,
+    "verificationStatus": "PENDING",
+    "driverName": "v_driverName",
+    "linkedPaymentMethodId": "v_linkedPaymentMethodId",
+    "linkedPaymentMethod": {
+      "id": "v_id",
+      "type": "CHARGE_CARD",
+      "cardHint": "v_cardHint"
+    },
+    "expirationDate": "2026-01-01T17:09:06+00:00",
+    "createdDate": "2026-01-01T08:44:53+00:00",
+    "isDefault": true,
+    "displayName": "v_displayName",
+    "preferredNetwork": "v_preferredNetwork",
+    "isValid": false
+  },
+  "startTime": "2026-01-01T04:44:18+00:00",
+  "endTime": "2026-01-01T04:02:49+00:00",
+  "retailCostInclVat": 670.5,
+  "currency": "v_currency",
+  "energyInKwh": 382.5,
+  "vatAmount": 792.5,
+  "vatPercentage": 14.5,
+  "prioritySessionEnabled": true,
+  "hasMoreDetails": true,
+  "paymentConfirmationTime": "2026-01-01T09:25:43+00:00",
+  "vidStatus": "VID_NOT_AVAILABLE"
+}

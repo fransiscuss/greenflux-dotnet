@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class RetryFailedSessionPaymentRequest
 {
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("paymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("paymentMethodId")]
+    public string? PaymentMethodId { get; set; }
 
 }

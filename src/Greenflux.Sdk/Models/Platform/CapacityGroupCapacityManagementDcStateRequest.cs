@@ -1,12 +1,10 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupCapacityManagementDcStateRequest
 {
-    [JsonProperty("default_group_capacity_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Default_group_capacity_watts { get; set; } = default!;
+    [JsonPropertyName("default_group_capacity_watts")]
+    public double? DefaultGroupCapacityWatts { get; set; }
 }
 

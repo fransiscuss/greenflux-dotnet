@@ -1,19 +1,17 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CouponScopeStruct
 {
-    [JsonProperty("emsp", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Emsp { get; set; } = default!;
+    [JsonPropertyName("emsp")]
+    public string? Emsp { get; set; }
 
-    [JsonProperty("driverId", NullValueHandling = NullValueHandling.Ignore)]
-    public string? DriverId { get; set; } = default!;
+    [JsonPropertyName("driverId")]
+    public string? DriverId { get; set; }
 
-    [JsonProperty("cpsos", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Cpsos { get; set; } = default!;
+    [JsonPropertyName("cpsos")]
+    public ICollection<string>? Cpsos { get; set; }
 
     private IDictionary<string, object>? _additionalProperties;
 

@@ -1,0 +1,70 @@
+{
+  "data": [
+    {
+      "id": "v_id",
+      "type": "ON_STREET",
+      "publish": true,
+      "access_type": "PUBLIC",
+      "name": "v_name",
+      "address": "v_address",
+      "address_line_2": "v_address_line_2",
+      "city": "v_city",
+      "postal_code": "v_postal_code",
+      "country": "v_country",
+      "coordinates": {
+        "latitude": "v_latitude",
+        "longitude": "v_longitude"
+      },
+      "evses": [],
+      "directions": [],
+      "facilities": [
+        "v_facilities_0"
+      ],
+      "operator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number"
+      },
+      "suboperator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number"
+      },
+      "owner": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number"
+      },
+      "auth_rules": [],
+      "time_zone": "v_time_zone",
+      "opening_times": {
+        "twentyfourseven": false
+      },
+      "charging_when_closed": true,
+      "energy_mix": {
+        "energy_mix_profile_id": "v_energy_mix_profile_id",
+        "is_green_energy": true,
+        "supplier_name": "v_supplier_name",
+        "energy_product_name": "v_energy_product_name"
+      },
+      "custom_groups": [],
+      "maintenance_info": "v_maintenance_info",
+      "remarks": "v_remarks",
+      "payment_provider": "v_payment_provider",
+      "wallet_id": "v_wallet_id",
+      "cpo_id": "v_cpo_id",
+      "cpo_customer_external_id": "v_cpo_customer_external_id",
+      "etag": "v_etag",
+      "created_by": "v_created_by",
+      "modified_by": "v_modified_by",
+      "customised_fields": [],
+      "created": "2026-01-01T17:58:15+00:00",
+      "modified": "2026-01-01T12:16:38+00:00",
+      "last_updated": "2026-01-01T08:35:41+00:00"
+    }
+  ],
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}

@@ -1,15 +1,13 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 /// <summary>Custom Groups the Location belongs to.</summary>
 public partial class GcpiCustomGroup
 {
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("external_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? External_id { get; set; } = default!;
+    [JsonPropertyName("external_id")]
+    public string? ExternalId { get; set; }
 }

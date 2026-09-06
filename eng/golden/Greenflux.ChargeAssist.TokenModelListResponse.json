@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "appToken": "v_appToken",
+      "shareableId": "v_shareableId",
+      "authId": "v_authId",
+      "groups": [
+        "v_groups_0"
+      ],
+      "groupFilterString": "v_groupFilterString",
+      "alerts": [],
+      "vidMapping": {
+        "vid": "v_vid",
+        "appToken": "v_appToken",
+        "paymentMethodId": "v_paymentMethodId",
+        "emailId": "v_emailId",
+        "vidStatus": "VID_REQUESTED"
+      },
+      "settings": {
+        "defaultPaymentMethodId": "v_defaultPaymentMethodId",
+        "defaultLanguageCode": "v_defaultLanguageCode"
+      },
+      "vidUpdating": true,
+      "muteVidNotifications": false,
+      "personalChargerSettings": [],
+      "email": "v_email",
+      "subscriptionSettings": {
+        "subscriber": "v_subscriber",
+        "displayName": "v_displayName",
+        "requestChargeCardUrl": "v_requestChargeCardUrl",
+        "supportUrl": "v_supportUrl",
+        "supportEmail": "v_supportEmail",
+        "supportPhoneNumber": "v_supportPhoneNumber",
+        "driverAccount": true,
+        "loginRequired": false,
+        "allowExternalChargeCards": true,
+        "allowDirectCards": true,
+        "whiteLabelApp": "v_whiteLabelApp",
+        "isWhiteLabelApp": false,
+        "measurementSystem": "Metric",
+        "taxLabel": "v_taxLabel",
+        "accountType": "Anonymous",
+        "reject3rdPartyChargeCards": true
+      }
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

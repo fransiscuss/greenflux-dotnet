@@ -1,0 +1,17 @@
+{
+  "uid": "v_uid",
+  "chargerType": "v_chargerType",
+  "status": "AVAILABLE",
+  "agreement": false,
+  "connectors": [
+    {
+      "id": "v_id",
+      "standard": "CHADEMO",
+      "kw": 773,
+      "powerInKw": 813.5,
+      "powerType": "AC_1_PHASE"
+    }
+  ],
+  "evseId": "v_evseId",
+  "displayName": "v_displayName"
+}

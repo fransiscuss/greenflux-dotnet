@@ -1,0 +1,68 @@
+{
+  "charge_station_id": "v_charge_station_id",
+  "location_id": "v_location_id",
+  "name": "v_name",
+  "deploy_state": "Stock",
+  "installation_date": "2026-01-01T08:26:10+00:00",
+  "default_charge_station_reimbursement_tariff_id": "v_default_charge_station_reimbursement_tariff_id",
+  "default_charge_station_tariff_id": "v_default_charge_station_tariff_id",
+  "default_charge_station_directions": [
+    {
+      "language": "v_language",
+      "text": "v_text"
+    }
+  ],
+  "default_charge_station_floor_level": "v_default_charge_station_floor_level",
+  "evses": [
+    {
+      "uid": "v_uid",
+      "evse_id": "v_evse_id",
+      "status": "AVAILABLE",
+      "status_schedule": [],
+      "capabilities": [
+        "v_capabilities_0"
+      ],
+      "connectors": [],
+      "floor_level": "v_floor_level",
+      "coordinates": {
+        "latitude": "v_latitude",
+        "longitude": "v_longitude"
+      },
+      "physical_reference": "v_physical_reference",
+      "directions": [],
+      "parking_restrictions": [
+        "EV_ONLY"
+      ],
+      "images": [],
+      "last_updated": "2026-01-01T08:35:41+00:00",
+      "evse_sequence_number": 524
+    }
+  ],
+  "maintenance_info": "v_maintenance_info",
+  "remarks": "v_remarks",
+  "contactless_terminal_serial_number": "v_contactless_terminal_serial_number",
+  "contactless_terminal_auth_amount": 933.5,
+  "status_schedule": [
+    {
+      "period_begin": "2026-01-01T00:41:40+00:00",
+      "period_end": "2026-01-01T21:14:58+00:00",
+      "status": "AVAILABLE",
+      "status_message": "v_status_message"
+    }
+  ],
+  "auth_rules": [
+    {
+      "type": "CustomerExternalId",
+      "value": "v_value"
+    }
+  ],
+  "contactless_type": "v_contactless_type",
+  "tap_to_stop": false,
+  "stop_on_parking": true,
+  "dynamic_time_based_tariffs": true,
+  "time_of_use_tariffs": true,
+  "exclude_vat": false,
+  "charger_type": "Public",
+  "charge_station_template_id": "v_charge_station_template_id",
+  "etag": "v_etag"
+}

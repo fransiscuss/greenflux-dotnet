@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -7,10 +6,10 @@ namespace Greenflux.ChargeAssist;
 public class RetryFailedPaymentsSettingModel
 {
 
-    [JsonProperty("enabled", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Enabled { get; set; } = default!;
+    [JsonPropertyName("enabled")]
+    public bool? Enabled { get; set; }
 
-    [JsonProperty("startDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? StartDate { get; set; } = default!;
+    [JsonPropertyName("startDate")]
+    public DateTimeOffset? StartDate { get; set; }
 
 }

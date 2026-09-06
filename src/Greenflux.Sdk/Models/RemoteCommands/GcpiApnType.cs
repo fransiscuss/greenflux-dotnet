@@ -1,31 +1,27 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiApnType
 {
-    [JsonProperty("apn", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Apn { get; set; } = default!;
+    [JsonPropertyName("apn")]
+    public string? Apn { get; set; }
 
-    [JsonProperty("apn_user_name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Apn_user_name { get; set; } = default!;
+    [JsonPropertyName("apn_user_name")]
+    public string? ApnUserName { get; set; }
 
-    [JsonProperty("apn_password", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Apn_password { get; set; } = default!;
+    [JsonPropertyName("apn_password")]
+    public string? ApnPassword { get; set; }
 
-    [JsonProperty("sim_pin", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Sim_pin { get; set; } = default!;
+    [JsonPropertyName("sim_pin")]
+    public int? SimPin { get; set; }
 
-    [JsonProperty("preferred_network", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Preferred_network { get; set; } = default!;
+    [JsonPropertyName("preferred_network")]
+    public string? PreferredNetwork { get; set; }
 
-    [JsonProperty("use_only_preferred_network", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Use_only_preferred_network { get; set; } = default!;
+    [JsonPropertyName("use_only_preferred_network")]
+    public bool? UseOnlyPreferredNetwork { get; set; }
 
-    [JsonProperty("apn_authentication", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiApnTypeApn_authentication? Apn_authentication { get; set; } = default!;
+    [JsonPropertyName("apn_authentication")]
+    public GcpiApnTypeApn_authentication? ApnAuthentication { get; set; }
 }

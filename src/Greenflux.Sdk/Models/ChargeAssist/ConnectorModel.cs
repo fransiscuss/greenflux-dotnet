@@ -1,49 +1,44 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class ConnectorModel
 {
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("standard", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ConnectorModelStandard? Standard { get; set; } = default!;
+    [JsonPropertyName("standard")]
+    public ConnectorModelStandard? Standard { get; set; }
 
-    [JsonProperty("format", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ConnectorModelFormat? Format { get; set; } = default!;
+    [JsonPropertyName("format")]
+    public ConnectorModelFormat? Format { get; set; }
 
-    [JsonProperty("powerType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ConnectorModelPowerType? PowerType { get; set; } = default!;
+    [JsonPropertyName("powerType")]
+    public ConnectorModelPowerType? PowerType { get; set; }
 
-    [JsonProperty("phases", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Phases { get; set; } = default!;
+    [JsonPropertyName("phases")]
+    public int? Phases { get; set; }
 
-    [JsonProperty("kw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Kw { get; set; } = default!;
+    [JsonPropertyName("kw")]
+    public int? Kw { get; set; }
 
-    [JsonProperty("powerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? PowerInKw { get; set; } = default!;
+    [JsonPropertyName("powerInKw")]
+    public double? PowerInKw { get; set; }
 
-    [JsonProperty("voltage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Voltage { get; set; } = default!;
+    [JsonPropertyName("voltage")]
+    public int? Voltage { get; set; }
 
-    [JsonProperty("amperage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Amperage { get; set; } = default!;
+    [JsonPropertyName("amperage")]
+    public int? Amperage { get; set; }
 
-    [JsonProperty("tariffId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TariffId { get; set; } = default!;
+    [JsonPropertyName("tariffId")]
+    public string? TariffId { get; set; }
 
-    [JsonProperty("termsAndConditions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TermsAndConditions { get; set; } = default!;
+    [JsonPropertyName("termsAndConditions")]
+    public string? TermsAndConditions { get; set; }
 
-    [JsonProperty("matchesFilter", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? MatchesFilter { get; set; } = default!;
+    [JsonPropertyName("matchesFilter")]
+    public bool? MatchesFilter { get; set; }
 
 }

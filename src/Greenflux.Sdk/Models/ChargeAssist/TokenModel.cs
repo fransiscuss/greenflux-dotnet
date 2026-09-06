@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,43 +6,43 @@ namespace Greenflux.ChargeAssist;
 public class TokenModel
 {
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("shareableId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ShareableId { get; set; } = default!;
+    [JsonPropertyName("shareableId")]
+    public string? ShareableId { get; set; }
 
-    [JsonProperty("authId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AuthId { get; set; } = default!;
+    [JsonPropertyName("authId")]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("groups", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Groups { get; set; } = default!;
+    [JsonPropertyName("groups")]
+    public ICollection<string>? Groups { get; set; }
 
-    [JsonProperty("groupFilterString", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? GroupFilterString { get; set; } = default!;
+    [JsonPropertyName("groupFilterString")]
+    public string? GroupFilterString { get; set; }
 
-    [JsonProperty("alerts", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<LocationAlertModel>? Alerts { get; set; } = default!;
+    [JsonPropertyName("alerts")]
+    public ICollection<LocationAlertModel>? Alerts { get; set; }
 
-    [JsonProperty("vidMapping", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public VidMappingModel? VidMapping { get; set; } = default!;
+    [JsonPropertyName("vidMapping")]
+    public VidMappingModel? VidMapping { get; set; }
 
-    [JsonProperty("settings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TokenSettingsModel? Settings { get; set; } = default!;
+    [JsonPropertyName("settings")]
+    public TokenSettingsModel? Settings { get; set; }
 
-    [JsonProperty("vidUpdating", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? VidUpdating { get; set; } = default!;
+    [JsonPropertyName("vidUpdating")]
+    public bool? VidUpdating { get; set; }
 
-    [JsonProperty("muteVidNotifications", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? MuteVidNotifications { get; set; } = default!;
+    [JsonPropertyName("muteVidNotifications")]
+    public bool? MuteVidNotifications { get; set; }
 
-    [JsonProperty("personalChargerSettings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<PersonalChargerSettingsModel>? PersonalChargerSettings { get; set; } = default!;
+    [JsonPropertyName("personalChargerSettings")]
+    public ICollection<PersonalChargerSettingsModel>? PersonalChargerSettings { get; set; }
 
-    [JsonProperty("email", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Email { get; set; } = default!;
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
 
-    [JsonProperty("subscriptionSettings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ApiSubscriptionSettingsModel? SubscriptionSettings { get; set; } = default!;
+    [JsonPropertyName("subscriptionSettings")]
+    public ApiSubscriptionSettingsModel? SubscriptionSettings { get; set; }
 
 }

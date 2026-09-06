@@ -1,31 +1,33 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class StartRequest
 {
 
-    [JsonProperty("locationId", Required = Required.Always)]
+    [JsonPropertyName("locationId")]
+    [JsonRequired]
     public string LocationId { get; set; } = default!;
 
-    [JsonProperty("evseUid", Required = Required.Always)]
+    [JsonPropertyName("evseUid")]
+    [JsonRequired]
     public string EvseUid { get; set; } = default!;
 
-    [JsonProperty("connectorId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ConnectorId { get; set; } = default!;
+    [JsonPropertyName("connectorId")]
+    public string? ConnectorId { get; set; }
 
-    [JsonProperty("paymentMethodId", Required = Required.Always)]
+    [JsonPropertyName("paymentMethodId")]
+    [JsonRequired]
     public string PaymentMethodId { get; set; } = default!;
 
-    [JsonProperty("adhocPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AdhocPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("adhocPaymentMethodId")]
+    public string? AdhocPaymentMethodId { get; set; }
 
-    [JsonProperty("isPinned", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("isPinned")]
     [System.Obsolete]
-    public bool? IsPinned { get; set; } = default!;
+    public bool? IsPinned { get; set; }
 
-    [JsonProperty("ignoreEvseAvailablity", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IgnoreEvseAvailablity { get; set; } = default!;
+    [JsonPropertyName("ignoreEvseAvailablity")]
+    public bool? IgnoreEvseAvailablity { get; set; }
 
 }

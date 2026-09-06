@@ -1,54 +1,50 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 /// <summary>List of EVSEs that belong to this Location.</summary>
 public partial class GcpiEvse
 {
-    [JsonProperty("uid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("evse_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Evse_id { get; set; } = default!;
+    [JsonPropertyName("evse_id")]
+    public string? EvseId { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiEvseStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public GcpiEvseStatus? Status { get; set; }
 
-    [JsonProperty("status_schedule", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEvseStatusSchedule>? Status_schedule { get; set; } = default!;
+    [JsonPropertyName("status_schedule")]
+    public ICollection<GcpiEvseStatusSchedule>? StatusSchedule { get; set; }
 
-    [JsonProperty("capabilities", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Capabilities { get; set; } = default!;
+    [JsonPropertyName("capabilities")]
+    public ICollection<string>? Capabilities { get; set; }
 
-    [JsonProperty("connectors", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiConnector>? Connectors { get; set; } = default!;
+    [JsonPropertyName("connectors")]
+    public ICollection<GcpiConnector>? Connectors { get; set; }
 
-    [JsonProperty("floor_level", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Floor_level { get; set; } = default!;
+    [JsonPropertyName("floor_level")]
+    public string? FloorLevel { get; set; }
 
-    [JsonProperty("coordinates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiGeoLocation? Coordinates { get; set; } = default!;
+    [JsonPropertyName("coordinates")]
+    public GcpiGeoLocation? Coordinates { get; set; }
 
-    [JsonProperty("physical_reference", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Physical_reference { get; set; } = default!;
+    [JsonPropertyName("physical_reference")]
+    public string? PhysicalReference { get; set; }
 
-    [JsonProperty("directions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiDisplayText>? Directions { get; set; } = default!;
+    [JsonPropertyName("directions")]
+    public ICollection<GcpiDisplayText>? Directions { get; set; }
 
-    [JsonProperty("parking_restrictions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<GcpiParkingRestriction>? Parking_restrictions { get; set; } = default!;
+    [JsonPropertyName("parking_restrictions")]
+    public ICollection<GcpiParkingRestriction>? ParkingRestrictions { get; set; }
 
-    [JsonProperty("images", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiImage>? Images { get; set; } = default!;
+    [JsonPropertyName("images")]
+    public ICollection<GcpiImage>? Images { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    public DateTimeOffset? LastUpdated { get; set; }
 
-    [JsonProperty("evse_sequence_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Evse_sequence_number { get; set; } = default!;
+    [JsonPropertyName("evse_sequence_number")]
+    public int? EvseSequenceNumber { get; set; }
 }

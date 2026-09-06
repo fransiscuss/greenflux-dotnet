@@ -1,55 +1,54 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 using System.Collections.ObjectModel;
 
 namespace Greenflux.Platform;
 
 public partial class Evse
 {
-    [JsonProperty("uid", Required = Required.Always)]
+    [JsonPropertyName("uid")]
+    [JsonRequired]
     public string Uid { get; set; } = default!;
 
-    [JsonProperty("evse_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Evse_id { get; set; } = default!;
+    [JsonPropertyName("evse_id")]
+    public string? EvseId { get; set; }
 
-    [JsonProperty("status", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("status")]
+    [JsonRequired]
     public Status Status { get; set; } = default!;
 
-    [JsonProperty("status_schedule", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<StatusSchedule>? Status_schedule { get; set; } = default!;
+    [JsonPropertyName("status_schedule")]
+    public ICollection<StatusSchedule>? StatusSchedule { get; set; }
 
-    [JsonProperty("capabilities", NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<Capability>? Capabilities { get; set; } = default!;
+    [JsonPropertyName("capabilities")]
+    public ICollection<Capability>? Capabilities { get; set; }
 
-    [JsonProperty("connectors", Required = Required.Always)]
+    [JsonPropertyName("connectors")]
+    [JsonRequired]
     public ICollection<Connector> Connectors { get; set; } = new Collection<Connector>();
 
-    [JsonProperty("floor_level", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Floor_level { get; set; } = default!;
+    [JsonPropertyName("floor_level")]
+    public string? FloorLevel { get; set; }
 
-    [JsonProperty("coordinates", NullValueHandling = NullValueHandling.Ignore)]
-    public GeoLocation? Coordinates { get; set; } = default!;
+    [JsonPropertyName("coordinates")]
+    public GeoLocation? Coordinates { get; set; }
 
-    [JsonProperty("physical_reference", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Physical_reference { get; set; } = default!;
+    [JsonPropertyName("physical_reference")]
+    public string? PhysicalReference { get; set; }
 
-    [JsonProperty("directions", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DisplayText>? Directions { get; set; } = default!;
+    [JsonPropertyName("directions")]
+    public ICollection<DisplayText>? Directions { get; set; }
 
-    [JsonProperty("parking_restrictions", NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<ParkingRestriction>? Parking_restrictions { get; set; } = default!;
+    [JsonPropertyName("parking_restrictions")]
+    public ICollection<ParkingRestriction>? ParkingRestrictions { get; set; }
 
-    [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<Image>? Images { get; set; } = default!;
+    [JsonPropertyName("images")]
+    public ICollection<Image>? Images { get; set; }
 
-    [JsonProperty("charging_behavior", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ChargingBehavior? Charging_behavior { get; set; } = default!;
+    [JsonPropertyName("charging_behavior")]
+    public ChargingBehavior? ChargingBehavior { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Always)]
-    public DateTimeOffset Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    [JsonRequired]
+    public DateTimeOffset LastUpdated { get; set; } = default!;
 }
 

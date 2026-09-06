@@ -1,26 +1,22 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupAllocationResponse
 {
-    [JsonProperty("timestamp", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 
-    [JsonProperty("capacity", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Capacity { get; set; } = default!;
+    [JsonPropertyName("capacity")]
+    public double? Capacity { get; set; }
 
-    [JsonProperty("total_allocated_amps", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_allocated_amps { get; set; } = default!;
+    [JsonPropertyName("total_allocated_amps")]
+    public double? TotalAllocatedAmps { get; set; }
 
-    [JsonProperty("phase", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PhaseFilter? Phase { get; set; } = default!;
+    [JsonPropertyName("phase")]
+    public PhaseFilter? Phase { get; set; }
 
-    [JsonProperty("evses", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<CapacityGroupEvseAllocationResponse>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<CapacityGroupEvseAllocationResponse>? Evses { get; set; }
 }
 

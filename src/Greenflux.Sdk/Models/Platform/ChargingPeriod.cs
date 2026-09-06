@@ -1,15 +1,13 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class ChargingPeriod
 {
-    [JsonProperty("start_date_time", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Start_date_time { get; set; } = default!;
+    [JsonPropertyName("start_date_time")]
+    public DateTimeOffset? StartDateTime { get; set; }
 
-    [JsonProperty("dimensions", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<CdrDimension>? Dimensions { get; set; } = default!;
+    [JsonPropertyName("dimensions")]
+    public ICollection<CdrDimension>? Dimensions { get; set; }
 }
 

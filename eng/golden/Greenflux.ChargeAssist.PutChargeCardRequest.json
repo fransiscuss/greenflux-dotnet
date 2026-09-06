@@ -1,0 +1,8 @@
+{
+  "visualNumber": "v_visualNumber",
+  "tokenIssuer": "v_tokenIssuer",
+  "cardAlias": "v_cardAlias",
+  "chipId": "v_chipId",
+  "activate": true,
+  "displayName": "v_displayName"
+}

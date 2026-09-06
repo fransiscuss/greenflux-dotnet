@@ -7,7 +7,7 @@ using Greenflux.Platform;
 using Greenflux.RemoteCommands;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 using Xunit;
 
 namespace Greenflux.Sdk.Tests;
@@ -159,7 +159,9 @@ public sealed class ClientRegistrationTests
 
         var response = await client.ChargeStations_CreateChargeStationAsync("2.0");
 
-        Assert.IsType<JArray>(response.Data);
+        // An untyped payload now surfaces as a JsonElement rather than a JArray.
+        var data = Assert.IsType<JsonElement>(response.Data);
+        Assert.Equal(JsonValueKind.Array, data.ValueKind);
         Assert.Empty(response.GetChargeStations());
     }
 
@@ -180,10 +182,10 @@ public sealed class ClientRegistrationTests
 
         await client.RemoteCommands_StartSessionAsync(new GcpiStartSession
         {
-            Token = new GcpiToken { Uid = "token", Auth_id = "auth", Valid = true },
-            Location_id = "location",
-            Evse_uid = "evse",
-            Chargestation_id = "station",
+            Token = new GcpiToken { Uid = "token", AuthId = "auth", Valid = true },
+            LocationId = "location",
+            EvseUid = "evse",
+            ChargestationId = "station",
         });
 
         Assert.Contains("\"location_id\":\"location\"", handler.RequestBody, StringComparison.Ordinal);
@@ -231,7 +233,7 @@ public sealed class ClientRegistrationTests
     [InlineData(typeof(IChargeLocationManagementClient), 24)]
     [InlineData(typeof(IRemoteCommandsClient), 11)]
     [InlineData(typeof(IChargeAssistClient), 67)]
-    public void GeneratedInterface_ContainsEveryOpenApiOperation(Type interfaceType, int expectedOperations)
+    public void ClientInterface_ExposesEveryDocumentedOperation(Type interfaceType, int expectedOperations)
     {
         Assert.Equal(expectedOperations, interfaceType.GetMethods().Length);
     }

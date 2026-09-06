@@ -1,10 +1,37 @@
 <Project>
+
+  <!-- Build settings shared by every project in the repo. -->
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>latest</LangVersion>
-    <Deterministic>true</Deterministic>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>NU5104</WarningsNotAsErrors>
+    <NoWarn>$(NoWarn);CS1591;CS1573</NoWarn>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
+
+  <!--
+    NuGet metadata shared by every packable project. Per-package identity
+    (PackageId, Version, Description, PackageTags) stays in the csproj.
+    PublishRepositoryUrl + EmbedUntrackedSources make the .snupkg we publish
+    actually usable in a debugger; the .NET SDK wires up SourceLink for GitHub.
+  -->
+  <PropertyGroup>
+    <Authors>Greenflux.Sdk contributors</Authors>
+    <Copyright>Copyright (c) 2026 Greenflux.Sdk contributors</Copyright>
+    <PackageProjectUrl>https://github.com/fransiscuss/greenflux-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fransiscuss/greenflux-dotnet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
 </Project>

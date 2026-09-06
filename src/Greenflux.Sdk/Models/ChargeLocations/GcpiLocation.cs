@@ -1,120 +1,115 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiLocation
 {
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiLocationType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public GcpiLocationType? Type { get; set; }
 
-    [JsonProperty("publish", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Publish { get; set; } = default!;
+    [JsonPropertyName("publish")]
+    public bool? Publish { get; set; }
 
-    [JsonProperty("access_type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiAccessType? Access_type { get; set; } = default!;
+    [JsonPropertyName("access_type")]
+    public GcpiAccessType? AccessType { get; set; }
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("address", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Address { get; set; } = default!;
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
-    [JsonProperty("address_line_2", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Address_line_2 { get; set; } = default!;
+    [JsonPropertyName("address_line_2")]
+    public string? AddressLine2 { get; set; }
 
-    [JsonProperty("city", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? City { get; set; } = default!;
+    [JsonPropertyName("city")]
+    public string? City { get; set; }
 
-    [JsonProperty("postal_code", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Postal_code { get; set; } = default!;
+    [JsonPropertyName("postal_code")]
+    public string? PostalCode { get; set; }
 
-    [JsonProperty("country", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Country { get; set; } = default!;
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-    [JsonProperty("coordinates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiGeoLocation? Coordinates { get; set; } = default!;
+    [JsonPropertyName("coordinates")]
+    public GcpiGeoLocation? Coordinates { get; set; }
 
-    [JsonProperty("evses", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEvse>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<GcpiEvse>? Evses { get; set; }
 
-    [JsonProperty("directions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiDisplayText>? Directions { get; set; } = default!;
+    [JsonPropertyName("directions")]
+    public ICollection<GcpiDisplayText>? Directions { get; set; }
 
-    [JsonProperty("facilities", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Facilities { get; set; } = default!;
+    [JsonPropertyName("facilities")]
+    public ICollection<string>? Facilities { get; set; }
 
-    [JsonProperty("operator", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiBusinessDetails? Operator { get; set; } = default!;
+    [JsonPropertyName("operator")]
+    public GcpiBusinessDetails? Operator { get; set; }
 
-    [JsonProperty("suboperator", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiBusinessDetails? Suboperator { get; set; } = default!;
+    [JsonPropertyName("suboperator")]
+    public GcpiBusinessDetails? Suboperator { get; set; }
 
-    [JsonProperty("owner", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiBusinessDetails? Owner { get; set; } = default!;
+    [JsonPropertyName("owner")]
+    public GcpiBusinessDetails? Owner { get; set; }
 
-    [JsonProperty("auth_rules", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiAuthRule>? Auth_rules { get; set; } = default!;
+    [JsonPropertyName("auth_rules")]
+    public ICollection<GcpiAuthRule>? AuthRules { get; set; }
 
-    [JsonProperty("time_zone", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Time_zone { get; set; } = default!;
+    [JsonPropertyName("time_zone")]
+    public string? TimeZone { get; set; }
 
-    [JsonProperty("opening_times", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiHours? Opening_times { get; set; } = default!;
+    [JsonPropertyName("opening_times")]
+    public GcpiHours? OpeningTimes { get; set; }
 
-    [JsonProperty("charging_when_closed", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Charging_when_closed { get; set; } = default!;
+    [JsonPropertyName("charging_when_closed")]
+    public bool? ChargingWhenClosed { get; set; }
 
-    [JsonProperty("energy_mix", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiEnergyMix? Energy_mix { get; set; } = default!;
+    [JsonPropertyName("energy_mix")]
+    public GcpiEnergyMix? EnergyMix { get; set; }
 
-    [JsonProperty("custom_groups", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiCustomGroup>? Custom_groups { get; set; } = default!;
+    [JsonPropertyName("custom_groups")]
+    public ICollection<GcpiCustomGroup>? CustomGroups { get; set; }
 
-    [JsonProperty("maintenance_info", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Maintenance_info { get; set; } = default!;
+    [JsonPropertyName("maintenance_info")]
+    public string? MaintenanceInfo { get; set; }
 
-    [JsonProperty("remarks", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Remarks { get; set; } = default!;
+    [JsonPropertyName("remarks")]
+    public string? Remarks { get; set; }
 
-    [JsonProperty("payment_provider", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Payment_provider { get; set; } = default!;
+    [JsonPropertyName("payment_provider")]
+    public string? PaymentProvider { get; set; }
 
-    [JsonProperty("wallet_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Wallet_id { get; set; } = default!;
+    [JsonPropertyName("wallet_id")]
+    public string? WalletId { get; set; }
 
-    [JsonProperty("cpo_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_id { get; set; } = default!;
+    [JsonPropertyName("cpo_id")]
+    public string? CpoId { get; set; }
 
-    [JsonProperty("cpo_customer_external_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_customer_external_id { get; set; } = default!;
+    [JsonPropertyName("cpo_customer_external_id")]
+    public string? CpoCustomerExternalId { get; set; }
 
-    [JsonProperty("etag", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Etag { get; set; } = default!;
+    [JsonPropertyName("etag")]
+    public string? Etag { get; set; }
 
-    [JsonProperty("created_by", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Created_by { get; set; } = default!;
+    [JsonPropertyName("created_by")]
+    public string? CreatedBy { get; set; }
 
-    [JsonProperty("modified_by", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Modified_by { get; set; } = default!;
+    [JsonPropertyName("modified_by")]
+    public string? ModifiedBy { get; set; }
 
-    [JsonProperty("customised_fields", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiCustomisedField>? Customised_fields { get; set; } = default!;
+    [JsonPropertyName("customised_fields")]
+    public ICollection<GcpiCustomisedField>? CustomisedFields { get; set; }
 
-    [JsonProperty("created", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Created { get; set; } = default!;
+    [JsonPropertyName("created")]
+    public DateTimeOffset? Created { get; set; }
 
-    [JsonProperty("modified", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Modified { get; set; } = default!;
+    [JsonPropertyName("modified")]
+    public DateTimeOffset? Modified { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    public DateTimeOffset? LastUpdated { get; set; }
 }

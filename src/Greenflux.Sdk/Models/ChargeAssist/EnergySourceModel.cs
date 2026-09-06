@@ -1,20 +1,20 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class EnergySourceModel
 {
 
-    [JsonProperty("source", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("source")]
+    [JsonRequired]
     public EnergySourceModelSource Source { get; set; } = default!;
 
-    [JsonProperty("percentage", Required = Required.Always)]
+    [JsonPropertyName("percentage")]
+    [JsonRequired]
     public double Percentage { get; set; } = default!;
 
-    [JsonProperty("isRenewableEnergy", Required = Required.Always)]
+    [JsonPropertyName("isRenewableEnergy")]
+    [JsonRequired]
     public bool IsRenewableEnergy { get; set; } = default!;
 
 }

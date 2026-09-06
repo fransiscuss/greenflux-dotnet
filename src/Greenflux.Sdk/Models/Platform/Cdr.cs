@@ -1,155 +1,162 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Cdr
 {
-    [JsonProperty("id", Required = Required.AllowNull)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    [JsonRequired]
+    public string? Id { get; set; }
 
-    [JsonProperty("start_date_time", Required = Required.AllowNull)]
-    public DateTimeOffset? Start_date_time { get; set; } = default!;
+    [JsonPropertyName("start_date_time")]
+    [JsonRequired]
+    public DateTimeOffset? StartDateTime { get; set; }
 
-    [JsonProperty("stop_date_time", Required = Required.AllowNull)]
-    public DateTimeOffset? Stop_date_time { get; set; } = default!;
+    [JsonPropertyName("stop_date_time")]
+    [JsonRequired]
+    public DateTimeOffset? StopDateTime { get; set; }
 
-    [JsonProperty("session_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Session_id { get; set; } = default!;
+    [JsonPropertyName("session_id")]
+    public string? SessionId { get; set; }
 
-    [JsonProperty("auth_id", Required = Required.AllowNull)]
-    public string? Auth_id { get; set; } = default!;
+    [JsonPropertyName("auth_id")]
+    [JsonRequired]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("token_uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Token_uid { get; set; } = default!;
+    [JsonPropertyName("token_uid")]
+    public string? TokenUid { get; set; }
 
-    [JsonProperty("token_visual_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Token_visual_number { get; set; } = default!;
+    [JsonPropertyName("token_visual_number")]
+    public string? TokenVisualNumber { get; set; }
 
-    [JsonProperty("auth_method", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public AuthMethod Auth_method { get; set; } = default!;
+    [JsonPropertyName("auth_method")]
+    [JsonRequired]
+    public AuthMethod AuthMethod { get; set; } = default!;
 
-    [JsonProperty("location", Required = Required.Always)]
+    [JsonPropertyName("location")]
+    [JsonRequired]
     public Location Location { get; set; } = new Location();
 
-    [JsonProperty("meter_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Meter_id { get; set; } = default!;
+    [JsonPropertyName("meter_id")]
+    public string? MeterId { get; set; }
 
-    [JsonProperty("currency", Required = Required.AllowNull)]
-    public string? Currency { get; set; } = default!;
+    [JsonPropertyName("currency")]
+    [JsonRequired]
+    public string? Currency { get; set; }
 
-    [JsonProperty("tariffs", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<Tariff>? Tariffs { get; set; } = default!;
+    [JsonPropertyName("tariffs")]
+    public ICollection<Tariff>? Tariffs { get; set; }
 
-    [JsonProperty("charging_periods", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ChargingPeriod>? Charging_periods { get; set; } = default!;
+    [JsonPropertyName("charging_periods")]
+    public ICollection<ChargingPeriod>? ChargingPeriods { get; set; }
 
-    [JsonProperty("charging_periods_retail", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ChargingPeriod>? Charging_periods_retail { get; set; } = default!;
+    [JsonPropertyName("charging_periods_retail")]
+    public ICollection<ChargingPeriod>? ChargingPeriodsRetail { get; set; }
 
-    [JsonProperty("charging_periods_reimbursement", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ChargingPeriod>? Charging_periods_reimbursement { get; set; } = default!;
+    [JsonPropertyName("charging_periods_reimbursement")]
+    public ICollection<ChargingPeriod>? ChargingPeriodsReimbursement { get; set; }
 
-    [JsonProperty("total_cost", Required = Required.AllowNull)]
-    public double? Total_cost { get; set; } = default!;
+    [JsonPropertyName("total_cost")]
+    [JsonRequired]
+    public double? TotalCost { get; set; }
 
-    [JsonProperty("total_cost_incl_vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_cost_incl_vat { get; set; } = default!;
+    [JsonPropertyName("total_cost_incl_vat")]
+    public double? TotalCostInclVat { get; set; }
 
-    [JsonProperty("total_vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_vat { get; set; } = default!;
+    [JsonPropertyName("total_vat")]
+    public double? TotalVat { get; set; }
 
-    [JsonProperty("total_energy", Required = Required.AllowNull)]
-    public double? Total_energy { get; set; } = default!;
+    [JsonPropertyName("total_energy")]
+    [JsonRequired]
+    public double? TotalEnergy { get; set; }
 
-    [JsonProperty("total_time", Required = Required.AllowNull)]
-    public double? Total_time { get; set; } = default!;
+    [JsonPropertyName("total_time")]
+    [JsonRequired]
+    public double? TotalTime { get; set; }
 
-    [JsonProperty("total_parking_time", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_parking_time { get; set; } = default!;
+    [JsonPropertyName("total_parking_time")]
+    public double? TotalParkingTime { get; set; }
 
-    [JsonProperty("remark", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Remark { get; set; } = default!;
+    [JsonPropertyName("remark")]
+    public string? Remark { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.AllowNull)]
-    public DateTimeOffset? Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    [JsonRequired]
+    public DateTimeOffset? LastUpdated { get; set; }
 
-    [JsonProperty("total_retail_cost", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_retail_cost { get; set; } = default!;
+    [JsonPropertyName("total_retail_cost")]
+    public double? TotalRetailCost { get; set; }
 
-    [JsonProperty("total_retail_cost_incl_vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_retail_cost_incl_vat { get; set; } = default!;
+    [JsonPropertyName("total_retail_cost_incl_vat")]
+    public double? TotalRetailCostInclVat { get; set; }
 
-    [JsonProperty("total_retail_vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_retail_vat { get; set; } = default!;
+    [JsonPropertyName("total_retail_vat")]
+    public double? TotalRetailVat { get; set; }
 
-    [JsonProperty("retail_currency", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Retail_currency { get; set; } = default!;
+    [JsonPropertyName("retail_currency")]
+    public string? RetailCurrency { get; set; }
 
-    [JsonProperty("total_reimbursement_cost", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Total_reimbursement_cost { get; set; } = default!;
+    [JsonPropertyName("total_reimbursement_cost")]
+    public double? TotalReimbursementCost { get; set; }
 
-    [JsonProperty("reimbursement_tariff_code", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reimbursement_tariff_code { get; set; } = default!;
+    [JsonPropertyName("reimbursement_tariff_code")]
+    public string? ReimbursementTariffCode { get; set; }
 
-    [JsonProperty("retail_package_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Retail_package_id { get; set; } = default!;
+    [JsonPropertyName("retail_package_id")]
+    public string? RetailPackageId { get; set; }
 
-    [JsonProperty("authorization_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Authorization_id { get; set; } = default!;
+    [JsonPropertyName("authorization_id")]
+    public string? AuthorizationId { get; set; }
 
-    [JsonProperty("auth_host_reference", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Auth_host_reference { get; set; } = default!;
+    [JsonPropertyName("auth_host_reference")]
+    public string? AuthHostReference { get; set; }
 
-    [JsonProperty("customer_external_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Customer_external_id { get; set; } = default!;
+    [JsonPropertyName("customer_external_id")]
+    public string? CustomerExternalId { get; set; }
 
-    [JsonProperty("driver_external_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Driver_external_id { get; set; } = default!;
+    [JsonPropertyName("driver_external_id")]
+    public string? DriverExternalId { get; set; }
 
-    [JsonProperty("emsp_party_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Emsp_party_id { get; set; } = default!;
+    [JsonPropertyName("emsp_party_id")]
+    public string? EmspPartyId { get; set; }
 
-    [JsonProperty("emsp_country_code", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Emsp_country_code { get; set; } = default!;
+    [JsonPropertyName("emsp_country_code")]
+    public string? EmspCountryCode { get; set; }
 
-    [JsonProperty("emsp_external_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Emsp_external_id { get; set; } = default!;
+    [JsonPropertyName("emsp_external_id")]
+    public string? EmspExternalId { get; set; }
 
-    [JsonProperty("cpo_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_id { get; set; } = default!;
+    [JsonPropertyName("cpo_id")]
+    public string? CpoId { get; set; }
 
-    [JsonProperty("vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Vat { get; set; } = default!;
+    [JsonPropertyName("vat")]
+    public double? Vat { get; set; }
 
-    [JsonProperty("retail_vat", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Retail_vat { get; set; } = default!;
+    [JsonPropertyName("retail_vat")]
+    public double? RetailVat { get; set; }
 
-    [JsonProperty("charger_type", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Charger_type { get; set; } = default!;
+    [JsonPropertyName("charger_type")]
+    public string? ChargerType { get; set; }
 
-    [JsonProperty("coupon_ids", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Coupon_ids { get; set; } = default!;
+    [JsonPropertyName("coupon_ids")]
+    public ICollection<string>? CouponIds { get; set; }
 
-    [JsonProperty("coupons_compensated_costs", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Coupons_compensated_costs { get; set; } = default!;
+    [JsonPropertyName("coupons_compensated_costs")]
+    public double? CouponsCompensatedCosts { get; set; }
 
-    [JsonProperty("custom_groups", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? Custom_groups { get; set; } = default!;
+    [JsonPropertyName("custom_groups")]
+    public ICollection<string>? CustomGroups { get; set; }
 
-    [JsonProperty("cost_breakdown", NullValueHandling = NullValueHandling.Ignore)]
-    public CdrLineItem? Cost_breakdown { get; set; } = default!;
+    [JsonPropertyName("cost_breakdown")]
+    public CdrLineItem? CostBreakdown { get; set; }
 
-    [JsonProperty("cost_breakdown_retail", NullValueHandling = NullValueHandling.Ignore)]
-    public CdrLineItem? Cost_breakdown_retail { get; set; } = default!;
+    [JsonPropertyName("cost_breakdown_retail")]
+    public CdrLineItem? CostBreakdownRetail { get; set; }
 
-    [JsonProperty("cost_breakdown_reimbursement", NullValueHandling = NullValueHandling.Ignore)]
-    public CdrLineItem? Cost_breakdown_reimbursement { get; set; } = default!;
+    [JsonPropertyName("cost_breakdown_reimbursement")]
+    public CdrLineItem? CostBreakdownReimbursement { get; set; }
 
-    [JsonProperty("max_power_w", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_power_w { get; set; } = default!;
+    [JsonPropertyName("max_power_w")]
+    public double? MaxPowerW { get; set; }
 }
 

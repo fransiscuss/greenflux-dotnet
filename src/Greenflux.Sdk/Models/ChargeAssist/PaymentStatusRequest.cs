@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,17 +6,17 @@ namespace Greenflux.ChargeAssist;
 public class PaymentStatusRequest
 {
 
-    [JsonProperty("externalCdrId", Required = Required.Always)]
+    [JsonPropertyName("externalCdrId")]
+    [JsonRequired]
     public string ExternalCdrId { get; set; } = default!;
 
-    [JsonProperty("transactionTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? TransactionTime { get; set; } = default!;
+    [JsonPropertyName("transactionTime")]
+    public DateTimeOffset? TransactionTime { get; set; }
 
-    [JsonProperty("paymentStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PaymentStatusRequestPaymentStatus? PaymentStatus { get; set; } = default!;
+    [JsonPropertyName("paymentStatus")]
+    public PaymentStatusRequestPaymentStatus? PaymentStatus { get; set; }
 
-    [JsonProperty("error", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Error { get; set; } = default!;
+    [JsonPropertyName("error")]
+    public string? Error { get; set; }
 
 }

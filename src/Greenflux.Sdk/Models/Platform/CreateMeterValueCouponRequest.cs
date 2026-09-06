@@ -1,24 +1,25 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CreateMeterValueCouponRequest
 {
-    [JsonProperty("duration", Required = Required.Always)]
+    [JsonPropertyName("duration")]
+    [JsonRequired]
     public string Duration { get; set; } = default!;
 
-    [JsonProperty("tolerance", Required = Required.Always)]
+    [JsonPropertyName("tolerance")]
+    [JsonRequired]
     public string Tolerance { get; set; } = default!;
 
-    [JsonProperty("scope", Required = Required.Always)]
+    [JsonPropertyName("scope")]
+    [JsonRequired]
     public CouponScopeStruct Scope { get; set; } = new CouponScopeStruct();
 
-    [JsonProperty("expirationUtc", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? ExpirationUtc { get; set; } = default!;
+    [JsonPropertyName("expirationUtc")]
+    public DateTimeOffset? ExpirationUtc { get; set; }
 
-    [JsonProperty("reason", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reason { get; set; } = default!;
+    [JsonPropertyName("reason")]
+    public string? Reason { get; set; }
 }
 

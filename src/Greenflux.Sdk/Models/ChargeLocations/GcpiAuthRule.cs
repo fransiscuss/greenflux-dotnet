@@ -1,16 +1,12 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiAuthRule
 {
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiAuthRuleType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public GcpiAuthRuleType? Type { get; set; }
 
-    [JsonProperty("value", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Value { get; set; } = default!;
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 }

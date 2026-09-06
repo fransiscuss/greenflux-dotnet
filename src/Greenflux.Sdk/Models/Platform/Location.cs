@@ -1,84 +1,87 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Location
 {
-    [JsonProperty("id", Required = Required.Always)]
+    [JsonPropertyName("id")]
+    [JsonRequired]
     public string Id { get; set; } = default!;
 
-    [JsonProperty("type", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("type")]
+    [JsonRequired]
     public LocationType Type { get; set; } = default!;
 
-    [JsonProperty("access_type", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public AccessType? Access_type { get; set; } = default!;
+    [JsonPropertyName("access_type")]
+    public AccessType? AccessType { get; set; }
 
-    [JsonProperty("publish", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Publish { get; set; } = default!;
+    [JsonPropertyName("publish")]
+    public bool? Publish { get; set; }
 
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("address", Required = Required.Always)]
+    [JsonPropertyName("address")]
+    [JsonRequired]
     public string Address { get; set; } = default!;
 
-    [JsonProperty("city", Required = Required.Always)]
+    [JsonPropertyName("city")]
+    [JsonRequired]
     public string City { get; set; } = default!;
 
-    [JsonProperty("postal_code", Required = Required.Always)]
-    public string Postal_code { get; set; } = default!;
+    [JsonPropertyName("postal_code")]
+    [JsonRequired]
+    public string PostalCode { get; set; } = default!;
 
-    [JsonProperty("country", Required = Required.Always)]
+    [JsonPropertyName("country")]
+    [JsonRequired]
     public string Country { get; set; } = default!;
 
-    [JsonProperty("coordinates", Required = Required.Always)]
+    [JsonPropertyName("coordinates")]
+    [JsonRequired]
     public GeoLocation Coordinates { get; set; } = new GeoLocation();
 
-    [JsonProperty("related_locations", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<AdditionalGeoLocation>? Related_locations { get; set; } = default!;
+    [JsonPropertyName("related_locations")]
+    public ICollection<AdditionalGeoLocation>? RelatedLocations { get; set; }
 
-    [JsonProperty("evses", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<Evse>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<Evse>? Evses { get; set; }
 
-    [JsonProperty("directions", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DisplayText>? Directions { get; set; } = default!;
+    [JsonPropertyName("directions")]
+    public ICollection<DisplayText>? Directions { get; set; }
 
-    [JsonProperty("operator", NullValueHandling = NullValueHandling.Ignore)]
-    public BusinessDetails? Operator { get; set; } = default!;
+    [JsonPropertyName("operator")]
+    public BusinessDetails? Operator { get; set; }
 
-    [JsonProperty("suboperator", NullValueHandling = NullValueHandling.Ignore)]
-    public BusinessDetails? Suboperator { get; set; } = default!;
+    [JsonPropertyName("suboperator")]
+    public BusinessDetails? Suboperator { get; set; }
 
-    [JsonProperty("auth_rules", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<AuthRule>? Auth_rules { get; set; } = default!;
+    [JsonPropertyName("auth_rules")]
+    public ICollection<AuthRule>? AuthRules { get; set; }
 
-    [JsonProperty("owner", NullValueHandling = NullValueHandling.Ignore)]
-    public BusinessDetails? Owner { get; set; } = default!;
+    [JsonPropertyName("owner")]
+    public BusinessDetails? Owner { get; set; }
 
-    [JsonProperty("facilities", NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<Facility>? Facilities { get; set; } = default!;
+    [JsonPropertyName("facilities")]
+    public ICollection<Facility>? Facilities { get; set; }
 
-    [JsonProperty("time_zone", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Time_zone { get; set; } = default!;
+    [JsonPropertyName("time_zone")]
+    public string? TimeZone { get; set; }
 
-    [JsonProperty("opening_times", NullValueHandling = NullValueHandling.Ignore)]
-    public Hours? Opening_times { get; set; } = default!;
+    [JsonPropertyName("opening_times")]
+    public Hours? OpeningTimes { get; set; }
 
-    [JsonProperty("charging_when_closed", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Charging_when_closed { get; set; } = default!;
+    [JsonPropertyName("charging_when_closed")]
+    public bool? ChargingWhenClosed { get; set; }
 
-    [JsonProperty("images", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<Image>? Images { get; set; } = default!;
+    [JsonPropertyName("images")]
+    public ICollection<Image>? Images { get; set; }
 
-    [JsonProperty("energy_mix", NullValueHandling = NullValueHandling.Ignore)]
-    public EnergyMix? Energy_mix { get; set; } = default!;
+    [JsonPropertyName("energy_mix")]
+    public EnergyMix? EnergyMix { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Always)]
-    public DateTimeOffset Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    [JsonRequired]
+    public DateTimeOffset LastUpdated { get; set; } = default!;
 }
 

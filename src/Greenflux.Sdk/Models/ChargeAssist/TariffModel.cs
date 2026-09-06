@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,35 +6,34 @@ namespace Greenflux.ChargeAssist;
 public class TariffModel
 {
 
-    [JsonProperty("tariffType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public TariffModelTariffType? TariffType { get; set; } = default!;
+    [JsonPropertyName("tariffType")]
+    public TariffModelTariffType? TariffType { get; set; }
 
-    [JsonProperty("vatPercentage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? VatPercentage { get; set; } = default!;
+    [JsonPropertyName("vatPercentage")]
+    public double? VatPercentage { get; set; }
 
-    [JsonProperty("currency", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Currency { get; set; } = default!;
+    [JsonPropertyName("currency")]
+    public string? Currency { get; set; }
 
-    [JsonProperty("isVatIncluded", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsVatIncluded { get; set; } = default!;
+    [JsonPropertyName("isVatIncluded")]
+    public bool? IsVatIncluded { get; set; }
 
-    [JsonProperty("countryCode", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CountryCode { get; set; } = default!;
+    [JsonPropertyName("countryCode")]
+    public string? CountryCode { get; set; }
 
-    [JsonProperty("descriptionUrl", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DescriptionUrl { get; set; } = default!;
+    [JsonPropertyName("descriptionUrl")]
+    public string? DescriptionUrl { get; set; }
 
-    [JsonProperty("descriptions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DisplayTextModel>? Descriptions { get; set; } = default!;
+    [JsonPropertyName("descriptions")]
+    public ICollection<DisplayTextModel>? Descriptions { get; set; }
 
-    [JsonProperty("elements", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<TariffElementModel>? Elements { get; set; } = default!;
+    [JsonPropertyName("elements")]
+    public ICollection<TariffElementModel>? Elements { get; set; }
 
-    [JsonProperty("validFrom", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ValidFrom { get; set; } = default!;
+    [JsonPropertyName("validFrom")]
+    public string? ValidFrom { get; set; }
 
-    [JsonProperty("validTo", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ValidTo { get; set; } = default!;
+    [JsonPropertyName("validTo")]
+    public string? ValidTo { get; set; }
 
 }

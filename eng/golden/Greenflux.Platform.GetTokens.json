@@ -1,0 +1,14 @@
+{
+  "tokens": [
+    {
+      "state": "active",
+      "uid": "v_uid",
+      "auth_id": "v_auth_id",
+      "visual_number": "v_visual_number",
+      "scopes": {
+        "country_party_codes": []
+      }
+    }
+  ],
+  "token_id": "v_token_id"
+}

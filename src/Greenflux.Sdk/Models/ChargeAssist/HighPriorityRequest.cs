@@ -1,12 +1,11 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class HighPriorityRequest
 {
 
-    [JsonProperty("chargeSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeSessionId { get; set; } = default!;
+    [JsonPropertyName("chargeSessionId")]
+    public string? ChargeSessionId { get; set; }
 
 }

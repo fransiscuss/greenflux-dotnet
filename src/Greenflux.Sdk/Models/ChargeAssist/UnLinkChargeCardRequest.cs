@@ -1,12 +1,11 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class UnLinkChargeCardRequest
 {
 
-    [JsonProperty("chargeCardPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeCardPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("chargeCardPaymentMethodId")]
+    public string? ChargeCardPaymentMethodId { get; set; }
 
 }

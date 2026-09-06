@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,16 +6,16 @@ namespace Greenflux.ChargeAssist;
 public class HoursModel
 {
 
-    [JsonProperty("regularHours", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<RegularHoursModel>? RegularHours { get; set; } = default!;
+    [JsonPropertyName("regularHours")]
+    public ICollection<RegularHoursModel>? RegularHours { get; set; }
 
-    [JsonProperty("twentyfourseven", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Twentyfourseven { get; set; } = default!;
+    [JsonPropertyName("twentyfourseven")]
+    public bool? Twentyfourseven { get; set; }
 
-    [JsonProperty("exceptionalOpenings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ExceptionalPeriodModel>? ExceptionalOpenings { get; set; } = default!;
+    [JsonPropertyName("exceptionalOpenings")]
+    public ICollection<ExceptionalPeriodModel>? ExceptionalOpenings { get; set; }
 
-    [JsonProperty("exceptionalClosings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ExceptionalPeriodModel>? ExceptionalClosings { get; set; } = default!;
+    [JsonPropertyName("exceptionalClosings")]
+    public ICollection<ExceptionalPeriodModel>? ExceptionalClosings { get; set; }
 
 }

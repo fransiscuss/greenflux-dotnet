@@ -1,0 +1,14 @@
+{
+  "charge_station_ids": [
+    "v_charge_station_ids_0"
+  ],
+  "key": "v_key",
+  "keys": [
+    "v_keys_0"
+  ],
+  "firmware_version": "v_firmware_version",
+  "charge_point_vendor": "v_charge_point_vendor",
+  "protocol_version": "v_protocol_version",
+  "limit": 10,
+  "offset": 740
+}

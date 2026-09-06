@@ -1,0 +1,238 @@
+{
+  "id": "v_id",
+  "start_date_time": "2026-01-01T08:34:24+00:00",
+  "stop_date_time": "2026-01-01T23:14:54+00:00",
+  "session_id": "v_session_id",
+  "auth_id": "v_auth_id",
+  "token_uid": "v_token_uid",
+  "token_visual_number": "v_token_visual_number",
+  "auth_method": "AUTH_REQUEST",
+  "location": {
+    "id": "v_id",
+    "type": "ON_STREET",
+    "access_type": "PUBLIC",
+    "publish": true,
+    "name": "v_name",
+    "address": "v_address",
+    "city": "v_city",
+    "postal_code": "v_postal_code",
+    "country": "v_country",
+    "coordinates": {
+      "latitude": "v_latitude",
+      "longitude": "v_longitude"
+    },
+    "related_locations": [
+      {
+        "name": "v_name",
+        "latitude": "v_latitude",
+        "longitude": "v_longitude"
+      }
+    ],
+    "evses": [
+      {
+        "uid": "v_uid",
+        "evse_id": "v_evse_id",
+        "status": "AVAILABLE",
+        "connectors": [],
+        "floor_level": "v_floor_level",
+        "physical_reference": "v_physical_reference",
+        "charging_behavior": "URBAN_CHARGING",
+        "last_updated": "2026-01-01T08:35:41+00:00"
+      }
+    ],
+    "directions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "operator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "suboperator": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "auth_rules": [
+      {
+        "type": "v_type",
+        "value": "v_value"
+      }
+    ],
+    "owner": {
+      "name": "v_name",
+      "website": "v_website",
+      "logo": {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      },
+      "phone_number": "v_phone_number",
+      "email": "v_email"
+    },
+    "facilities": [
+      "HOTEL"
+    ],
+    "time_zone": "v_time_zone",
+    "opening_times": {
+      "regular_hours": [],
+      "twentyfourseven": false,
+      "exceptional_openings": [],
+      "exceptional_closings": []
+    },
+    "charging_when_closed": true,
+    "images": [
+      {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      }
+    ],
+    "energy_mix": {
+      "is_green_energy": true,
+      "energy_sources": [],
+      "environ_impact": [],
+      "supplier_name": "v_supplier_name",
+      "energy_product_name": "v_energy_product_name"
+    },
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "meter_id": "v_meter_id",
+  "currency": "v_currency",
+  "tariffs": [
+    {
+      "id": "v_id",
+      "currency": "v_currency",
+      "tariff_alt_text": [],
+      "tariff_alt_url": "v_tariff_alt_url",
+      "elements": [],
+      "energy_mix": {
+        "is_green_energy": true,
+        "supplier_name": "v_supplier_name",
+        "energy_product_name": "v_energy_product_name"
+      },
+      "last_updated": "2026-01-01T08:35:41+00:00"
+    }
+  ],
+  "charging_periods": [
+    {
+      "start_date_time": "2026-01-01T08:34:24+00:00",
+      "dimensions": []
+    }
+  ],
+  "charging_periods_retail": [
+    {
+      "start_date_time": "2026-01-01T08:34:24+00:00",
+      "dimensions": []
+    }
+  ],
+  "charging_periods_reimbursement": [
+    {
+      "start_date_time": "2026-01-01T08:34:24+00:00",
+      "dimensions": []
+    }
+  ],
+  "total_cost": 359.5,
+  "total_cost_incl_vat": 546.5,
+  "total_vat": 549.5,
+  "total_energy": 164.5,
+  "total_time": 879.5,
+  "total_parking_time": 992.5,
+  "remark": "v_remark",
+  "last_updated": "2026-01-01T08:35:41+00:00",
+  "total_retail_cost": 683.5,
+  "total_retail_cost_incl_vat": 794.5,
+  "total_retail_vat": 367.5,
+  "retail_currency": "v_retail_currency",
+  "total_reimbursement_cost": 992.5,
+  "reimbursement_tariff_code": "v_reimbursement_tariff_code",
+  "retail_package_id": "v_retail_package_id",
+  "authorization_id": "v_authorization_id",
+  "auth_host_reference": "v_auth_host_reference",
+  "customer_external_id": "v_customer_external_id",
+  "driver_external_id": "v_driver_external_id",
+  "emsp_party_id": "v_emsp_party_id",
+  "emsp_country_code": "v_emsp_country_code",
+  "emsp_external_id": "v_emsp_external_id",
+  "cpo_id": "v_cpo_id",
+  "vat": 968.5,
+  "retail_vat": 422.5,
+  "charger_type": "v_charger_type",
+  "coupon_ids": [
+    "v_coupon_ids_0"
+  ],
+  "coupons_compensated_costs": 737.5,
+  "custom_groups": [
+    "v_custom_groups_0"
+  ],
+  "cost_breakdown": {
+    "tariff_id": "v_tariff_id",
+    "start_date_time": "v_start_date_time",
+    "dimensions": [
+      {
+        "type": "ENERGY",
+        "volume": 387.5,
+        "dimension_details": "METER",
+        "price": 168.5,
+        "cost": 518.5
+      }
+    ],
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "cost_breakdown_retail": {
+    "tariff_id": "v_tariff_id",
+    "start_date_time": "v_start_date_time",
+    "dimensions": [
+      {
+        "type": "ENERGY",
+        "volume": 387.5,
+        "dimension_details": "METER",
+        "price": 168.5,
+        "cost": 518.5
+      }
+    ],
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "cost_breakdown_reimbursement": {
+    "tariff_id": "v_tariff_id",
+    "start_date_time": "v_start_date_time",
+    "dimensions": [
+      {
+        "type": "ENERGY",
+        "volume": 387.5,
+        "dimension_details": "METER",
+        "price": 168.5,
+        "cost": 518.5
+      }
+    ],
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "max_power_w": 161.5
+}

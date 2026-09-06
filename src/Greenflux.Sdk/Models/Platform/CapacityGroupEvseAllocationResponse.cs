@@ -1,27 +1,22 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupEvseAllocationResponse
 {
-    [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("allocated_amps", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_amps { get; set; } = default!;
+    [JsonPropertyName("allocated_amps")]
+    public double? AllocatedAmps { get; set; }
 
-    [JsonProperty("smart_charging_status", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SmartChargingEvseStatus? Smart_charging_status { get; set; } = default!;
+    [JsonPropertyName("smart_charging_status")]
+    public SmartChargingEvseStatus? SmartChargingStatus { get; set; }
 
-    [JsonProperty("level", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public EvseLevel? Level { get; set; } = default!;
+    [JsonPropertyName("level")]
+    public EvseLevel? Level { get; set; }
 
-    [JsonProperty("order", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Order { get; set; } = default!;
+    [JsonPropertyName("order")]
+    public int? Order { get; set; }
 }
 

@@ -1,23 +1,21 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiChargeStationListResponse
 {
-    [JsonProperty("data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiChargeStation>? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public ICollection<GcpiChargeStation>? Data { get; set; }
 
-    [JsonProperty("status_code", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public OcpiStatusCode? Status_code { get; set; } = default!;
+    [JsonPropertyName("status_code")]
+    public OcpiStatusCode? StatusCode { get; set; }
 
-    [JsonProperty("status_message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 
-    [JsonProperty("timestamp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 
     [JsonExtensionData]
     public IDictionary<string, object>? AdditionalProperties { get; set; }

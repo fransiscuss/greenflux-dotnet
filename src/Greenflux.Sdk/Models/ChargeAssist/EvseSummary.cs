@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,26 +6,25 @@ namespace Greenflux.ChargeAssist;
 public class EvseSummary
 {
 
-    [JsonProperty("uid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("chargerType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargerType { get; set; } = default!;
+    [JsonPropertyName("chargerType")]
+    public string? ChargerType { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public EvseSummaryStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public EvseSummaryStatus? Status { get; set; }
 
-    [JsonProperty("agreement", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Agreement { get; set; } = default!;
+    [JsonPropertyName("agreement")]
+    public bool? Agreement { get; set; }
 
-    [JsonProperty("connectors", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ConnectorSummary>? Connectors { get; set; } = default!;
+    [JsonPropertyName("connectors")]
+    public ICollection<ConnectorSummary>? Connectors { get; set; }
 
-    [JsonProperty("evseId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseId { get; set; } = default!;
+    [JsonPropertyName("evseId")]
+    public string? EvseId { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
 }

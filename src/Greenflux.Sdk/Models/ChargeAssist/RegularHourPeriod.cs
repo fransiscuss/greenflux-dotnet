@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class RegularHourPeriod
 {
 
-    [JsonProperty("periodBegin", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PeriodBegin { get; set; } = default!;
+    [JsonPropertyName("periodBegin")]
+    public string? PeriodBegin { get; set; }
 
-    [JsonProperty("periodEnd", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PeriodEnd { get; set; } = default!;
+    [JsonPropertyName("periodEnd")]
+    public string? PeriodEnd { get; set; }
 
 }

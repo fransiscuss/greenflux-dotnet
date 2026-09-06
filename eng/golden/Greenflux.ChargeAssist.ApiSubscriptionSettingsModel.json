@@ -1,0 +1,59 @@
+{
+  "subscriber": "v_subscriber",
+  "displayName": "v_displayName",
+  "requestChargeCardUrl": "v_requestChargeCardUrl",
+  "supportUrl": "v_supportUrl",
+  "supportEmail": "v_supportEmail",
+  "supportPhoneNumber": "v_supportPhoneNumber",
+  "driverAccount": true,
+  "loginRequired": false,
+  "allowExternalChargeCards": true,
+  "allowDirectCards": true,
+  "whiteLabelApp": "v_whiteLabelApp",
+  "versionSettings": {
+    "ios": {
+      "versions": []
+    },
+    "android": {
+      "versions": []
+    }
+  },
+  "cultureSettings": [
+    {
+      "type": "v_type",
+      "isPdf": false,
+      "values": []
+    }
+  ],
+  "isWhiteLabelApp": false,
+  "supportedPaymentMethods": [
+    "CHARGE_CARD"
+  ],
+  "measurementSystem": "Metric",
+  "qrSetting": {
+    "name": "v_name",
+    "logo": "v_logo",
+    "text": "v_text"
+  },
+  "autoChargeSetting": {
+    "enabled": true,
+    "excludedSources": [
+      "v_excludedSources_0"
+    ],
+    "paymentMethods": [
+      "CHARGE_CARD"
+    ]
+  },
+  "retryFailedPaymentsSetting": {
+    "enabled": true,
+    "startDate": "2026-01-01T19:13:05+00:00"
+  },
+  "taxLabel": "v_taxLabel",
+  "accountType": "Anonymous",
+  "tariffMinSetting": {
+    "enabled": true,
+    "minimumZoomLevel": 284,
+    "maximumNumberOfLocations": 103
+  },
+  "reject3rdPartyChargeCards": true
+}

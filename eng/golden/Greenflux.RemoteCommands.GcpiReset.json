@@ -1,0 +1,6 @@
+{
+  "charge_station_id": "v_charge_station_id",
+  "evse_uid": "v_evse_uid",
+  "type": "Hard",
+  "scheduled": "Immediate"
+}

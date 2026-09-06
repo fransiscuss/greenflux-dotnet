@@ -1,0 +1,6 @@
+{
+  "id": "v_id",
+  "display_name": "v_display_name",
+  "utc_offset": "v_utc_offset",
+  "supports_daylight_saving_time": false
+}

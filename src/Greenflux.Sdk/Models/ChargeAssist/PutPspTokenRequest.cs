@@ -1,26 +1,23 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class PutPspTokenRequest
 {
 
-    [JsonProperty("pspPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PspPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("pspPaymentMethodId")]
+    public string? PspPaymentMethodId { get; set; }
 
-    [JsonProperty("customerOrWalletId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CustomerOrWalletId { get; set; } = default!;
+    [JsonPropertyName("customerOrWalletId")]
+    public string? CustomerOrWalletId { get; set; }
 
-    [JsonProperty("cardAlias", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardAlias { get; set; } = default!;
+    [JsonPropertyName("cardAlias")]
+    public string? CardAlias { get; set; }
 
-    [JsonProperty("cardNumberHint", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardNumberHint { get; set; } = default!;
+    [JsonPropertyName("cardNumberHint")]
+    public string? CardNumberHint { get; set; }
 
-    [JsonProperty("cardType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PutPspTokenRequestCardType? CardType { get; set; } = default!;
+    [JsonPropertyName("cardType")]
+    public PutPspTokenRequestCardType? CardType { get; set; }
 
 }

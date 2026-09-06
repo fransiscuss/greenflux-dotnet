@@ -1,21 +1,20 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class PersonalChargerSettingsModel
 {
 
-    [JsonProperty("evseUid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseUid { get; set; } = default!;
+    [JsonPropertyName("evseUid")]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("pauseEnabled", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? PauseEnabled { get; set; } = default!;
+    [JsonPropertyName("pauseEnabled")]
+    public bool? PauseEnabled { get; set; }
 
-    [JsonProperty("startTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? StartTime { get; set; } = default!;
+    [JsonPropertyName("startTime")]
+    public string? StartTime { get; set; }
 
-    [JsonProperty("endTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EndTime { get; set; } = default!;
+    [JsonPropertyName("endTime")]
+    public string? EndTime { get; set; }
 
 }

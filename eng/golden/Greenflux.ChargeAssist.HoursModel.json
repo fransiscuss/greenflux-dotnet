@@ -1,0 +1,21 @@
+{
+  "regularHours": [
+    {
+      "weekday": 999,
+      "periods": []
+    }
+  ],
+  "twentyfourseven": false,
+  "exceptionalOpenings": [
+    {
+      "periodBegin": "2026-01-01T18:28:07+00:00",
+      "periodEnd": "2026-01-01T23:23:21+00:00"
+    }
+  ],
+  "exceptionalClosings": [
+    {
+      "periodBegin": "2026-01-01T18:28:07+00:00",
+      "periodEnd": "2026-01-01T23:23:21+00:00"
+    }
+  ]
+}

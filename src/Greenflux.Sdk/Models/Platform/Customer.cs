@@ -1,39 +1,39 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Customer
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("phone_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Phone_number { get; set; } = default!;
+    [JsonPropertyName("phone_number")]
+    public string? PhoneNumber { get; set; }
 
-    [JsonProperty("email", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Email { get; set; } = default!;
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
 
-    [JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Address { get; set; } = default!;
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
-    [JsonProperty("city", NullValueHandling = NullValueHandling.Ignore)]
-    public string? City { get; set; } = default!;
+    [JsonPropertyName("city")]
+    public string? City { get; set; }
 
-    [JsonProperty("postal_code", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Postal_code { get; set; } = default!;
+    [JsonPropertyName("postal_code")]
+    public string? PostalCode { get; set; }
 
-    [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Country { get; set; } = default!;
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-    [JsonProperty("modified_on_utc", Required = Required.Always)]
-    public DateTimeOffset Modified_on_utc { get; set; } = default!;
+    [JsonPropertyName("modified_on_utc")]
+    [JsonRequired]
+    public DateTimeOffset ModifiedOnUtc { get; set; } = default!;
 
-    [JsonProperty("modified_by", Required = Required.Always)]
-    public string Modified_by { get; set; } = default!;
+    [JsonPropertyName("modified_by")]
+    [JsonRequired]
+    public string ModifiedBy { get; set; } = default!;
 }
 

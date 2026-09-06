@@ -1,0 +1,23 @@
+{
+  "cpsoGrouping": {
+    "k_cpsoGrouping": {
+      "money": 119.5,
+      "sessions": 910,
+      "discountRate": 518.5,
+      "meterValueDuration": "v_meterValueDuration",
+      "meterValueTolerance": "v_meterValueTolerance",
+      "cpso": "v_cpso",
+      "k_AdditionalProperties": "o_AdditionalProperties_v"
+    }
+  },
+  "shared": {
+    "money": 119.5,
+    "sessions": 910,
+    "discountRate": 518.5,
+    "meterValueDuration": "v_meterValueDuration",
+    "meterValueTolerance": "v_meterValueTolerance",
+    "cpso": "v_cpso",
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}

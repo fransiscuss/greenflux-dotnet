@@ -1,0 +1,89 @@
+{
+  "boundingBox": {
+    "bottomLeftLat": 220.5,
+    "bottomLeftLng": 830.5,
+    "topRightLat": 615.5,
+    "topRightLng": 5.5
+  },
+  "data": [
+    {
+      "id": "v_id",
+      "type": "ON_STREET",
+      "name": "v_name",
+      "displayName": "v_displayName",
+      "address": "v_address",
+      "city": "v_city",
+      "postalCode": "v_postalCode",
+      "country": "v_country",
+      "coordinates": {
+        "latitude": 187.5,
+        "longitude": 646.5
+      },
+      "evses": [],
+      "directions": [],
+      "operator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "suboperator": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "owner": {
+        "name": "v_name",
+        "website": "v_website",
+        "phone_number": "v_phone_number",
+        "email": "v_email"
+      },
+      "facilities": [
+        "HOTEL"
+      ],
+      "openingHours": {
+        "twentyfourseven": false
+      },
+      "images": [],
+      "branding": {
+        "id": "v_id",
+        "displayName": "v_displayName",
+        "primaryColorHex": "v_primaryColorHex",
+        "logoUrl": "v_logoUrl",
+        "supportPhone": "v_supportPhone",
+        "supportEmail": "v_supportEmail",
+        "supportWebsite": "v_supportWebsite"
+      },
+      "smartChargingEnabled": true,
+      "reservationEnabled": true,
+      "dp": false,
+      "rfid": true,
+      "isPrivateLocation": false,
+      "pms": [
+        "CHARGE_CARD"
+      ],
+      "issuers": [
+        "v_issuers_0"
+      ],
+      "availability": "NONE",
+      "energyMix": {
+        "isGreenEnergy": true,
+        "supplierName": "v_supplierName",
+        "energyProductName": "v_energyProductName"
+      },
+      "isHomeCharger": true,
+      "customProperties": [],
+      "timeZone": "v_timeZone",
+      "preAuthAmountInCents": 140,
+      "cpsoId": "v_cpsoId",
+      "cpoCustomerId": "v_cpoCustomerId",
+      "paymentServiceProvider": "Stripe"
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

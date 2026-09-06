@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,10 +6,10 @@ namespace Greenflux.ChargeAssist;
 public class LocationModelListResponse
 {
 
-    [JsonProperty("data", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<LocationModel>? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public ICollection<LocationModel>? Data { get; set; }
 
-    [JsonProperty("meta", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public MetaInfo? Meta { get; set; } = default!;
+    [JsonPropertyName("meta")]
+    public MetaInfo? Meta { get; set; }
 
 }

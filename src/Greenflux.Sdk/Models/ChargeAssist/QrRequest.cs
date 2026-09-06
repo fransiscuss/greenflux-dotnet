@@ -1,12 +1,12 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class QrRequest
 {
 
-    [JsonProperty("url", Required = Required.Always)]
+    [JsonPropertyName("url")]
+    [JsonRequired]
     public string Url { get; set; } = default!;
 
 }

@@ -1,0 +1,28 @@
+{
+  "id": "v_id",
+  "externalPaymentMethodId": "v_externalPaymentMethodId",
+  "cardAlias": "v_cardAlias",
+  "type": "CHARGE_CARD",
+  "chargeCardIssuer": "v_chargeCardIssuer",
+  "cardHint": "v_cardHint",
+  "cardShortHint": "v_cardShortHint",
+  "cardExpiryHint": "v_cardExpiryHint",
+  "authId": "v_authId",
+  "isCompatible": false,
+  "isVidMapped": false,
+  "isAccountPaymentMethod": false,
+  "verificationStatus": "PENDING",
+  "driverName": "v_driverName",
+  "linkedPaymentMethodId": "v_linkedPaymentMethodId",
+  "linkedPaymentMethod": {
+    "id": "v_id",
+    "type": "CHARGE_CARD",
+    "cardHint": "v_cardHint"
+  },
+  "expirationDate": "2026-01-01T17:09:06+00:00",
+  "createdDate": "2026-01-01T08:44:53+00:00",
+  "isDefault": true,
+  "displayName": "v_displayName",
+  "preferredNetwork": "v_preferredNetwork",
+  "isValid": false
+}

@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class DayOfWeekCapacityGroupScenarioRequest
 {
-    [JsonProperty("time_zone", Required = Required.Always)]
-    public string Time_zone { get; set; } = default!;
+    [JsonPropertyName("time_zone")]
+    [JsonRequired]
+    public string TimeZone { get; set; } = default!;
 
-    [JsonProperty("scenarios", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DayOfWeekCapacityGroupScenarioRequestModel>? Scenarios { get; set; } = default!;
+    [JsonPropertyName("scenarios")]
+    public ICollection<DayOfWeekCapacityGroupScenarioRequestModel>? Scenarios { get; set; }
 }
 

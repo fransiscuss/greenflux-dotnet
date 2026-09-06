@@ -1,0 +1,19 @@
+{
+  "coordinates": {
+    "latitude": 187.5,
+    "longitude": 646.5
+  },
+  "name": "v_name",
+  "address": "v_address",
+  "city": "v_city",
+  "country": "v_country",
+  "timeZone": "v_timeZone",
+  "powerType": "AC_1_PHASE",
+  "branding": {
+    "displayName": "v_displayName",
+    "logoUrl": "v_logoUrl",
+    "supportPhone": "v_supportPhone",
+    "supportEmail": "v_supportEmail",
+    "supportWebsite": "v_supportWebsite"
+  }
+}

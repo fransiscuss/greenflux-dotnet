@@ -1,0 +1,14 @@
+{
+  "template_id": "v_template_id",
+  "name": "v_name",
+  "tenant_id": "v_tenant_id",
+  "evse_templates": [
+    {
+      "evse_sequence_number": 524,
+      "capabilities": [
+        "v_capabilities_0"
+      ],
+      "connector_templates": []
+    }
+  ]
+}

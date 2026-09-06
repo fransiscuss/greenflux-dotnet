@@ -1,39 +1,38 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class TariffTypeRestrictionModel
 {
 
-    [JsonProperty("min", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min { get; set; } = default!;
+    [JsonPropertyName("min")]
+    public double? Min { get; set; }
 
-    [JsonProperty("max", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max { get; set; } = default!;
+    [JsonPropertyName("max")]
+    public double? Max { get; set; }
 
-    [JsonProperty("min_kwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_kwh { get; set; } = default!;
+    [JsonPropertyName("min_kwh")]
+    public double? MinKwh { get; set; }
 
-    [JsonProperty("max_kwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_kwh { get; set; } = default!;
+    [JsonPropertyName("max_kwh")]
+    public double? MaxKwh { get; set; }
 
-    [JsonProperty("min_duration", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_duration { get; set; } = default!;
+    [JsonPropertyName("min_duration")]
+    public double? MinDuration { get; set; }
 
-    [JsonProperty("max_duration", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_duration { get; set; } = default!;
+    [JsonPropertyName("max_duration")]
+    public double? MaxDuration { get; set; }
 
-    [JsonProperty("min_power", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_power { get; set; } = default!;
+    [JsonPropertyName("min_power")]
+    public double? MinPower { get; set; }
 
-    [JsonProperty("max_power", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_power { get; set; } = default!;
+    [JsonPropertyName("max_power")]
+    public double? MaxPower { get; set; }
 
-    [JsonProperty("min_current", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_current { get; set; } = default!;
+    [JsonPropertyName("min_current")]
+    public double? MinCurrent { get; set; }
 
-    [JsonProperty("max_current", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_current { get; set; } = default!;
+    [JsonPropertyName("max_current")]
+    public double? MaxCurrent { get; set; }
 
 }

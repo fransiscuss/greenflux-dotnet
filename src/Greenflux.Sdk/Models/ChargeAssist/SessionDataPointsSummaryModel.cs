@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,19 +6,19 @@ namespace Greenflux.ChargeAssist;
 public class SessionDataPointsSummaryModel
 {
 
-    [JsonProperty("maxEnergyInKwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? MaxEnergyInKwh { get; set; } = default!;
+    [JsonPropertyName("maxEnergyInKwh")]
+    public double? MaxEnergyInKwh { get; set; }
 
-    [JsonProperty("maxPowerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? MaxPowerInKw { get; set; } = default!;
+    [JsonPropertyName("maxPowerInKw")]
+    public double? MaxPowerInKw { get; set; }
 
-    [JsonProperty("minEnergyInKwh", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? MinEnergyInKwh { get; set; } = default!;
+    [JsonPropertyName("minEnergyInKwh")]
+    public double? MinEnergyInKwh { get; set; }
 
-    [JsonProperty("minPowerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? MinPowerInKw { get; set; } = default!;
+    [JsonPropertyName("minPowerInKw")]
+    public double? MinPowerInKw { get; set; }
 
-    [JsonProperty("dataPoints", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<SessionDataPointModel>? DataPoints { get; set; } = default!;
+    [JsonPropertyName("dataPoints")]
+    public ICollection<SessionDataPointModel>? DataPoints { get; set; }
 
 }

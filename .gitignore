@@ -9,3 +9,5 @@ artifacts/
 TestResults/
 .env
 local-test/
+eng/golden-check/
+eng/golden-stj/

@@ -1,24 +1,20 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupUpdateRequest
 {
-    [JsonProperty("name", Required = Required.Always)]
+    [JsonPropertyName("name")]
+    [JsonRequired]
     public string Name { get; set; } = default!;
 
-    [JsonProperty("remarks", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Remarks { get; set; } = default!;
+    [JsonPropertyName("remarks")]
+    public string? Remarks { get; set; }
 
-    [JsonProperty("algorithm", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public AlgorithmType? Algorithm { get; set; } = default!;
+    [JsonPropertyName("algorithm")]
+    public AlgorithmType? Algorithm { get; set; }
 
-    [JsonProperty("capacity_update_method", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public CapacityUpdateMethod? Capacity_update_method { get; set; } = default!;
+    [JsonPropertyName("capacity_update_method")]
+    public CapacityUpdateMethod? CapacityUpdateMethod { get; set; }
 }
 

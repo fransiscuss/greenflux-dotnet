@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SessionLocationCoordinatesModel
 {
 
-    [JsonProperty("latitude", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Latitude { get; set; } = default!;
+    [JsonPropertyName("latitude")]
+    public double? Latitude { get; set; }
 
-    [JsonProperty("longitude", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Longitude { get; set; } = default!;
+    [JsonPropertyName("longitude")]
+    public double? Longitude { get; set; }
 
 }

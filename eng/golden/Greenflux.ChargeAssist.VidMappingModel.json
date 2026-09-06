@@ -1,0 +1,7 @@
+{
+  "vid": "v_vid",
+  "appToken": "v_appToken",
+  "paymentMethodId": "v_paymentMethodId",
+  "emailId": "v_emailId",
+  "vidStatus": "VID_REQUESTED"
+}

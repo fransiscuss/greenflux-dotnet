@@ -1,0 +1,6 @@
+{
+  "name": "v_name",
+  "remarks": "v_remarks",
+  "algorithm": "NONE",
+  "capacity_update_method": "DEFAULT"
+}

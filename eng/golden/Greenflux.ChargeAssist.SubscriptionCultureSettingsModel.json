@@ -1,0 +1,11 @@
+{
+  "type": "v_type",
+  "isPdf": false,
+  "values": [
+    {
+      "culture": "v_culture",
+      "value": "v_value",
+      "isDefault": true
+    }
+  ]
+}

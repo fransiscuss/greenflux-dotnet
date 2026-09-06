@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "v_id",
+    "first_name": "v_first_name",
+    "last_name": "v_last_name",
+    "phone_number": "v_phone_number",
+    "mobile_phone_number": "v_mobile_phone_number",
+    "email": "v_email",
+    "retail_package_id": "v_retail_package_id",
+    "address": "v_address",
+    "postal_code": "v_postal_code",
+    "city": "v_city",
+    "country": "v_country",
+    "customer_id": "v_customer_id",
+    "energy_contract": "v_energy_contract",
+    "modified_on_utc": "2026-01-01T17:41:29+00:00",
+    "modified_by": "v_modified_by"
+  },
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "status_code": "_1000",
+  "status_message": "v_status_message"
+}

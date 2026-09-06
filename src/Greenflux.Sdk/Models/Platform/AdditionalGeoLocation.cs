@@ -1,18 +1,18 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class AdditionalGeoLocation
 {
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("latitude", Required = Required.AllowNull)]
-    public string? Latitude { get; set; } = default!;
+    [JsonPropertyName("latitude")]
+    [JsonRequired]
+    public string? Latitude { get; set; }
 
-    [JsonProperty("longitude", Required = Required.AllowNull)]
-    public string? Longitude { get; set; } = default!;
+    [JsonPropertyName("longitude")]
+    [JsonRequired]
+    public string? Longitude { get; set; }
 }
 

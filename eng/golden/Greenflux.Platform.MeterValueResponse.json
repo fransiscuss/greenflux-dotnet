@@ -1,0 +1,24 @@
+{
+  "data": {
+    "meter_value_uid": "v_meter_value_uid",
+    "value": 288.5,
+    "unit": "v_unit",
+    "evse_id": "v_evse_id",
+    "charge_station_id": "v_charge_station_id",
+    "meter_type": "_0",
+    "message_id": "v_message_id",
+    "session_id": "v_session_id",
+    "connector_ID": "v_connector_ID",
+    "context": "v_context",
+    "measurand": "v_measurand",
+    "phase": "v_phase",
+    "format": "v_format",
+    "location": "CABLE",
+    "created": "2026-01-01T17:58:15+00:00",
+    "timestamp": "2026-01-01T10:53:25+00:00",
+    "meter_id": "v_meter_id"
+  },
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

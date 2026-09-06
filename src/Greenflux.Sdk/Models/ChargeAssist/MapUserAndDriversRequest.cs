@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,13 +6,13 @@ namespace Greenflux.ChargeAssist;
 public class MapUserAndDriversRequest
 {
 
-    [JsonProperty("adId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AdId { get; set; } = default!;
+    [JsonPropertyName("adId")]
+    public string? AdId { get; set; }
 
-    [JsonProperty("domain", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Domain { get; set; } = default!;
+    [JsonPropertyName("domain")]
+    public string? Domain { get; set; }
 
-    [JsonProperty("driverIds", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? DriverIds { get; set; } = default!;
+    [JsonPropertyName("driverIds")]
+    public ICollection<string>? DriverIds { get; set; }
 
 }

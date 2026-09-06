@@ -9,66 +9,41 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
+      # The package multi-targets net8.0 and net10.0, so both SDKs must be present:
+      # the .NET 8 SDK alone cannot build a net10.0 target framework (NETSDK1045).
       - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 9.0.x
+          dotnet-version: |
+            8.0.x
+            10.0.x
 
       - run: dotnet restore
 
-      - run: dotnet build --no-restore --configuration Release
+      - run: dotnet build --no-restore -c Release
 
-      - run: dotnet test --no-build --configuration Release --verbosity normal
+      # Run the suite on each supported runtime, not just the newest one.
+      - run: dotnet test --no-build -c Release -f net8.0
+      - run: dotnet test --no-build -c Release -f net10.0
 
-  release:
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-    steps:
-      - id: release
-        uses: googleapis/release-please-action@v5
-        with:
-          config-file: release-please-config.json
-          manifest-file: .release-please-manifest.json
-
-  publish:
-    needs: [build, release]
-    if: needs.release.outputs.release_created == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ needs.release.outputs.tag_name }}
-
-      - uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: 9.0.x
-
-      - name: Pack
-        run: dotnet pack src/Greenflux.Sdk/Greenflux.Sdk.csproj -c Release -o artifacts/packages
-
-      - name: NuGet login (OIDC)
-        uses: NuGet/login@v1
-        id: login
-        with:
-          user: fransiscus
-
-      - name: Push to NuGet.org
+      # Drives the real clients against a local HTTP server and asserts what goes
+      # over the wire. Exits non-zero on any failed check.
+      - name: Integration harness
         run: |
-          dotnet nuget push artifacts/packages/*.nupkg \
-            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
-            --source https://api.nuget.org/v3/index.json
+          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net8.0
+          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net10.0
+
+      # The serialized form of every model must match the committed baseline.
+      - name: Serialization golden check
+        run: |
+          dotnet run --project eng/SerializationGolden -c Release -- eng/golden-check
+          diff -r eng/golden eng/golden-check

@@ -1,0 +1,9 @@
+{
+  "apn": "v_apn",
+  "apn_user_name": "v_apn_user_name",
+  "apn_password": "v_apn_password",
+  "sim_pin": 620,
+  "preferred_network": "v_preferred_network",
+  "use_only_preferred_network": true,
+  "apn_authentication": "CHAP"
+}

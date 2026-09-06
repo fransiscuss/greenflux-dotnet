@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,13 +6,13 @@ namespace Greenflux.ChargeAssist;
 public class RatingOptionFeedback
 {
 
-    [JsonProperty("ratingOptionKey", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? RatingOptionKey { get; set; } = default!;
+    [JsonPropertyName("ratingOptionKey")]
+    public string? RatingOptionKey { get; set; }
 
-    [JsonProperty("subRatingOptions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? SubRatingOptions { get; set; } = default!;
+    [JsonPropertyName("subRatingOptions")]
+    public ICollection<string>? SubRatingOptions { get; set; }
 
-    [JsonProperty("feedbackText", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? FeedbackText { get; set; } = default!;
+    [JsonPropertyName("feedbackText")]
+    public string? FeedbackText { get; set; }
 
 }

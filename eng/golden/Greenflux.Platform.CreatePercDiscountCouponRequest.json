@@ -1,0 +1,13 @@
+{
+  "scope": {
+    "emsp": "v_emsp",
+    "driverId": "v_driverId",
+    "cpsos": [
+      "v_cpsos_0"
+    ],
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "percentage": 837.5,
+  "expirationUtc": "2026-01-01T22:00:36+00:00",
+  "reason": "v_reason"
+}

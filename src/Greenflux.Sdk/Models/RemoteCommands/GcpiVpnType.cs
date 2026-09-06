@@ -1,26 +1,24 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiVpnType
 {
-    [JsonProperty("server", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Server { get; set; } = default!;
+    [JsonPropertyName("server")]
+    public string? Server { get; set; }
 
-    [JsonProperty("user", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? User { get; set; } = default!;
+    [JsonPropertyName("user")]
+    public string? User { get; set; }
 
-    [JsonProperty("group", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Group { get; set; } = default!;
+    [JsonPropertyName("group")]
+    public string? Group { get; set; }
 
-    [JsonProperty("password", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Password { get; set; } = default!;
+    [JsonPropertyName("password")]
+    public string? Password { get; set; }
 
-    [JsonProperty("key", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Key { get; set; } = default!;
+    [JsonPropertyName("key")]
+    public string? Key { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 }

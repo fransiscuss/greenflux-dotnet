@@ -1,0 +1,14 @@
+{
+  "segmentId": 67,
+  "fromUtc": "2026-01-01T17:36:23+00:00",
+  "items": [
+    {
+      "dimension": "TIME",
+      "price": 168.5,
+      "quantity": 948.5,
+      "unroundedCost": 872.5,
+      "roundedCost": 377.5,
+      "unit": "MIN"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "excludedSources": [
+    "v_excludedSources_0"
+  ],
+  "paymentMethods": [
+    "CHARGE_CARD"
+  ]
+}

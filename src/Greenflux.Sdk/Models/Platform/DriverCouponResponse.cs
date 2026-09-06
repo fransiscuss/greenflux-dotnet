@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class DriverCouponResponse
 {
-    [JsonProperty("timestamp", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 
-    [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
-    public Data? Data { get; set; } = default!;
+    [JsonPropertyName("data")]
+    public Data? Data { get; set; }
 
-    [JsonProperty("status_code", NullValueHandling = NullValueHandling.Ignore)]
-    public OcpiStatusCode? Status_code { get; set; } = default!;
+    [JsonPropertyName("status_code")]
+    public OcpiStatusCode? StatusCode { get; set; }
 
-    [JsonProperty("status_message", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Status_message { get; set; } = default!;
+    [JsonPropertyName("status_message")]
+    public string? StatusMessage { get; set; }
 }
 

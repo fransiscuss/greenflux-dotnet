@@ -1,0 +1,26 @@
+{
+  "ocpp_version": "OCPP20",
+  "ocpp_transport": "JSON",
+  "ocpp_csms_url": "v_ocpp_csms_url",
+  "message_timeout": 576,
+  "security_profile": 347,
+  "ocpp_interface": "Wired0",
+  "vpn": {
+    "server": "v_server",
+    "user": "v_user",
+    "group": "v_group",
+    "password": "v_password",
+    "key": "v_key",
+    "type": "v_type"
+  },
+  "apn": {
+    "apn": "v_apn",
+    "apn_user_name": "v_apn_user_name",
+    "apn_password": "v_apn_password",
+    "sim_pin": 620,
+    "preferred_network": "v_preferred_network",
+    "use_only_preferred_network": true,
+    "apn_authentication": "CHAP"
+  },
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}

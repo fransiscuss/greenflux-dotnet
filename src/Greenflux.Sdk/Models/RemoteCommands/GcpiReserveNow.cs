@@ -1,23 +1,26 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiReserveNow
 {
-    [JsonProperty("token", Required = Required.Always)]
+    [JsonPropertyName("token")]
+    [JsonRequired]
     public GcpiToken Token { get; set; } = new GcpiToken();
 
-    [JsonProperty("expiry_date", Required = Required.Always)]
-    public DateTimeOffset Expiry_date { get; set; } = default!;
+    [JsonPropertyName("expiry_date")]
+    [JsonRequired]
+    public DateTimeOffset ExpiryDate { get; set; } = default!;
 
-    [JsonProperty("reservation_id", Required = Required.AllowNull)]
-    public string? Reservation_id { get; set; } = default!;
+    [JsonPropertyName("reservation_id")]
+    [JsonRequired]
+    public string? ReservationId { get; set; }
 
-    [JsonProperty("location_id", Required = Required.AllowNull)]
-    public string? Location_id { get; set; } = default!;
+    [JsonPropertyName("location_id")]
+    [JsonRequired]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("evse_uid", Required = Required.AllowNull)]
-    public string? Evse_uid { get; set; } = default!;
+    [JsonPropertyName("evse_uid")]
+    [JsonRequired]
+    public string? EvseUid { get; set; }
 }

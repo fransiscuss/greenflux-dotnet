@@ -1,18 +1,17 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class QrSettingModel
 {
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("logo", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Logo { get; set; } = default!;
+    [JsonPropertyName("logo")]
+    public string? Logo { get; set; }
 
-    [JsonProperty("text", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Text { get; set; } = default!;
+    [JsonPropertyName("text")]
+    public string? Text { get; set; }
 
 }

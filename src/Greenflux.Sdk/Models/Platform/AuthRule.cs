@@ -1,15 +1,13 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class AuthRule
 {
-    [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Value { get; set; } = default!;
+    [JsonPropertyName("value")]
+    public string? Value { get; set; }
 }
 

@@ -1,0 +1,5 @@
+{
+  "default_group_capacity_amps": 35.5,
+  "session_started_duration": "v_session_started_duration",
+  "min_allocation_amps": 888.5
+}

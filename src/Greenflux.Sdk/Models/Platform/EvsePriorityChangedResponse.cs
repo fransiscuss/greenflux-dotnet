@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class EvsePriorityChangedResponse
 {
-    [JsonProperty("capacity_group_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Capacity_group_id { get; set; } = default!;
+    [JsonPropertyName("capacity_group_id")]
+    public string? CapacityGroupId { get; set; }
 
-    [JsonProperty("cpo_external_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_external_id { get; set; } = default!;
+    [JsonPropertyName("cpo_external_id")]
+    public string? CpoExternalId { get; set; }
 
-    [JsonProperty("evse_uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Evse_uid { get; set; } = default!;
+    [JsonPropertyName("evse_uid")]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("timestamp", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 }
 

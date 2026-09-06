@@ -1,0 +1,72 @@
+{
+  "id": "v_id",
+  "cpo_id": "v_cpo_id",
+  "cpo_customer_external_id": "v_cpo_customer_external_id",
+  "type": "ON_STREET",
+  "publish": true,
+  "access_type": "PUBLIC",
+  "name": "v_name",
+  "address": "v_address",
+  "city": "v_city",
+  "postal_code": "v_postal_code",
+  "country": "v_country",
+  "coordinates": {
+    "latitude": "v_latitude",
+    "longitude": "v_longitude"
+  },
+  "directions": [
+    {
+      "language": "v_language",
+      "text": "v_text"
+    }
+  ],
+  "auth_rules": [
+    {
+      "type": "CustomerExternalId",
+      "value": "v_value"
+    }
+  ],
+  "facilities": [
+    "v_facilities_0"
+  ],
+  "opening_times": {
+    "regular_hours": [
+      {
+        "weekday": 999,
+        "period_begin": "v_period_begin",
+        "period_end": "v_period_end"
+      }
+    ],
+    "twentyfourseven": false,
+    "exceptional_openings": [
+      {
+        "period_begin": "2026-01-01T00:41:40+00:00",
+        "period_end": "2026-01-01T21:14:58+00:00"
+      }
+    ],
+    "exceptional_closings": [
+      {
+        "period_begin": "2026-01-01T00:41:40+00:00",
+        "period_end": "2026-01-01T21:14:58+00:00"
+      }
+    ]
+  },
+  "energy_mix": "v_energy_mix",
+  "address_line_2": "v_address_line_2",
+  "payment_provider": "v_payment_provider",
+  "wallet_id": "v_wallet_id",
+  "custom_groups": [
+    {
+      "name": "v_name",
+      "external_id": "v_external_id"
+    }
+  ],
+  "maintenance_info": "v_maintenance_info",
+  "remarks": "v_remarks",
+  "customised_fields": [
+    {
+      "type": "v_type",
+      "value": "v_value"
+    }
+  ]
+}

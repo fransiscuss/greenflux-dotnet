@@ -1,0 +1,8 @@
+{
+  "id": "v_id",
+  "type": "CHARGE_CARD",
+  "cardHint": "v_cardHint",
+  "chargeCardVisualNumber": "v_chargeCardVisualNumber",
+  "externalPaymentMethodId": "v_externalPaymentMethodId",
+  "displayName": "v_displayName"
+}

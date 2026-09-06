@@ -1,29 +1,27 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiConnectorTemplate
 {
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public int? Id { get; set; }
 
-    [JsonProperty("amperage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Amperage { get; set; } = default!;
+    [JsonPropertyName("amperage")]
+    public int? Amperage { get; set; }
 
-    [JsonProperty("voltage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Voltage { get; set; } = default!;
+    [JsonPropertyName("voltage")]
+    public int? Voltage { get; set; }
 
-    [JsonProperty("max_electric_power", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Max_electric_power { get; set; } = default!;
+    [JsonPropertyName("max_electric_power")]
+    public int? MaxElectricPower { get; set; }
 
-    [JsonProperty("standard", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Standard { get; set; } = default!;
+    [JsonPropertyName("standard")]
+    public string? Standard { get; set; }
 
-    [JsonProperty("format", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Format { get; set; } = default!;
+    [JsonPropertyName("format")]
+    public string? Format { get; set; }
 
-    [JsonProperty("power_type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Power_type { get; set; } = default!;
+    [JsonPropertyName("power_type")]
+    public string? PowerType { get; set; }
 }

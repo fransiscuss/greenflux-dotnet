@@ -1,12 +1,12 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class StopRequest
 {
 
-    [JsonProperty("chargeSessionId", Required = Required.Always)]
+    [JsonPropertyName("chargeSessionId")]
+    [JsonRequired]
     public string ChargeSessionId { get; set; } = default!;
 
 }
