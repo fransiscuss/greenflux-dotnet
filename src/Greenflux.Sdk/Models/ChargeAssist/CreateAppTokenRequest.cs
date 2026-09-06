@@ -1,18 +1,18 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class CreateAppTokenRequest
 {
 
-    [JsonProperty("appToken", Required = Required.Always)]
+    [JsonPropertyName("appToken")]
+    [JsonRequired]
     public string AppToken { get; set; } = default!;
 
-    [JsonProperty("driverId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DriverId { get; set; } = default!;
+    [JsonPropertyName("driverId")]
+    public string? DriverId { get; set; }
 
-    [JsonProperty("emspId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EmspId { get; set; } = default!;
+    [JsonPropertyName("emspId")]
+    public string? EmspId { get; set; }
 
 }

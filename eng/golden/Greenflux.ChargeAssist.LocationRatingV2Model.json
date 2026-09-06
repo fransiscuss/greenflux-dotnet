@@ -1,0 +1,16 @@
+{
+  "id": "v_id",
+  "appToken": "v_appToken",
+  "locationId": "v_locationId",
+  "evseUid": "v_evseUid",
+  "ratingOptionFeedbacks": [
+    {
+      "ratingOptionKey": "v_ratingOptionKey",
+      "subRatingOptions": [
+        "v_subRatingOptions_0"
+      ],
+      "feedbackText": "v_feedbackText"
+    }
+  ],
+  "feedbackText": "v_feedbackText"
+}

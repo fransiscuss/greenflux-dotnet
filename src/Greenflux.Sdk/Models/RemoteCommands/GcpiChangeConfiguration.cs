@@ -1,17 +1,18 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiChangeConfiguration
 {
-    [JsonProperty("charge_station_id", Required = Required.Always)]
-    public string Charge_station_id { get; set; } = default!;
+    [JsonPropertyName("charge_station_id")]
+    [JsonRequired]
+    public string ChargeStationId { get; set; } = default!;
 
-    [JsonProperty("key", Required = Required.Always)]
+    [JsonPropertyName("key")]
+    [JsonRequired]
     public string Key { get; set; } = default!;
 
-    [JsonProperty("value", Required = Required.Always)]
+    [JsonPropertyName("value")]
+    [JsonRequired]
     public string Value { get; set; } = default!;
 }

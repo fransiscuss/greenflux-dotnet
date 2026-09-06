@@ -1,24 +1,23 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class LocationMinModel
 {
 
-    [JsonProperty("lat", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Lat { get; set; } = default!;
+    [JsonPropertyName("lat")]
+    public double? Lat { get; set; }
 
-    [JsonProperty("lon", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Lon { get; set; } = default!;
+    [JsonPropertyName("lon")]
+    public double? Lon { get; set; }
 
-    [JsonProperty("locationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("evsesCount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? EvsesCount { get; set; } = default!;
+    [JsonPropertyName("evsesCount")]
+    public int? EvsesCount { get; set; }
 
-    [JsonProperty("evsesAvailableCount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? EvsesAvailableCount { get; set; } = default!;
+    [JsonPropertyName("evsesAvailableCount")]
+    public int? EvsesAvailableCount { get; set; }
 
 }

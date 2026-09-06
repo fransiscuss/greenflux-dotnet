@@ -1,44 +1,45 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class TokenRequest
 {
-    [JsonProperty("uid", Required = Required.Always)]
+    [JsonPropertyName("uid")]
+    [JsonRequired]
     public string Uid { get; set; } = default!;
 
-    [JsonProperty("auth_id", Required = Required.Always)]
-    public string Auth_id { get; set; } = default!;
+    [JsonPropertyName("auth_id")]
+    [JsonRequired]
+    public string AuthId { get; set; } = default!;
 
-    [JsonProperty("visual_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Visual_number { get; set; } = default!;
+    [JsonPropertyName("visual_number")]
+    public string? VisualNumber { get; set; }
 
-    [JsonProperty("valid", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Valid { get; set; } = default!;
+    [JsonPropertyName("valid")]
+    public bool? Valid { get; set; }
 
-    [JsonProperty("expiration_date", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Expiration_date { get; set; } = default!;
+    [JsonPropertyName("expiration_date")]
+    public DateTimeOffset? ExpirationDate { get; set; }
 
-    [JsonProperty("roaming_allowed", NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Roaming_allowed { get; set; } = default!;
+    [JsonPropertyName("roaming_allowed")]
+    public bool? RoamingAllowed { get; set; }
 
-    [JsonProperty("whitelist_type", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public TokenRequestWhitelist_type? Whitelist_type { get; set; } = default!;
+    [JsonPropertyName("whitelist_type")]
+    public TokenRequestWhitelist_type? WhitelistType { get; set; }
 
-    [JsonProperty("driver_id", Required = Required.Always)]
-    public string Driver_id { get; set; } = default!;
+    [JsonPropertyName("driver_id")]
+    [JsonRequired]
+    public string DriverId { get; set; } = default!;
 
-    [JsonProperty("customer_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Customer_id { get; set; } = default!;
+    [JsonPropertyName("customer_id")]
+    public string? CustomerId { get; set; }
 
-    [JsonProperty("modified_on_utc", Required = Required.Always)]
-    public DateTimeOffset Modified_on_utc { get; set; } = default!;
+    [JsonPropertyName("modified_on_utc")]
+    [JsonRequired]
+    public DateTimeOffset ModifiedOnUtc { get; set; } = default!;
 
-    [JsonProperty("modified_by", Required = Required.Always)]
-    public string Modified_by { get; set; } = default!;
+    [JsonPropertyName("modified_by")]
+    [JsonRequired]
+    public string ModifiedBy { get; set; } = default!;
 }
 

@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,26 +6,25 @@ namespace Greenflux.ChargeAssist;
 public class SessionTransactionDetailsModel
 {
 
-    [JsonProperty("paymentMethod", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionPaymentMethodModel? PaymentMethod { get; set; } = default!;
+    [JsonPropertyName("paymentMethod")]
+    public SessionPaymentMethodModel? PaymentMethod { get; set; }
 
-    [JsonProperty("pspTransactionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PspTransactionId { get; set; } = default!;
+    [JsonPropertyName("pspTransactionId")]
+    public string? PspTransactionId { get; set; }
 
-    [JsonProperty("totalCostsCharged", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? TotalCostsCharged { get; set; } = default!;
+    [JsonPropertyName("totalCostsCharged")]
+    public double? TotalCostsCharged { get; set; }
 
-    [JsonProperty("paymentConfirmationTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? PaymentConfirmationTime { get; set; } = default!;
+    [JsonPropertyName("paymentConfirmationTime")]
+    public DateTimeOffset? PaymentConfirmationTime { get; set; }
 
-    [JsonProperty("paymentStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SessionTransactionDetailsModelPaymentStatus? PaymentStatus { get; set; } = default!;
+    [JsonPropertyName("paymentStatus")]
+    public SessionTransactionDetailsModelPaymentStatus? PaymentStatus { get; set; }
 
-    [JsonProperty("creditWalletId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CreditWalletId { get; set; } = default!;
+    [JsonPropertyName("creditWalletId")]
+    public string? CreditWalletId { get; set; }
 
-    [JsonProperty("externalCdrId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ExternalCdrId { get; set; } = default!;
+    [JsonPropertyName("externalCdrId")]
+    public string? ExternalCdrId { get; set; }
 
 }

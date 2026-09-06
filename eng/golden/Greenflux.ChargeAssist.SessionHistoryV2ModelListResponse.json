@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "chargeSessionId": "v_chargeSessionId",
+      "status": "REQUESTED",
+      "paymentMethod": {
+        "id": "v_id",
+        "externalPaymentMethodId": "v_externalPaymentMethodId",
+        "cardAlias": "v_cardAlias",
+        "type": "CHARGE_CARD",
+        "chargeCardIssuer": "v_chargeCardIssuer",
+        "cardHint": "v_cardHint",
+        "cardShortHint": "v_cardShortHint",
+        "cardExpiryHint": "v_cardExpiryHint",
+        "authId": "v_authId",
+        "isCompatible": false,
+        "isVidMapped": false,
+        "isAccountPaymentMethod": false,
+        "verificationStatus": "PENDING",
+        "driverName": "v_driverName",
+        "linkedPaymentMethodId": "v_linkedPaymentMethodId",
+        "expirationDate": "2026-01-01T17:09:06+00:00",
+        "createdDate": "2026-01-01T08:44:53+00:00",
+        "isDefault": true,
+        "displayName": "v_displayName",
+        "preferredNetwork": "v_preferredNetwork",
+        "isValid": false
+      },
+      "startTime": "2026-01-01T04:44:18+00:00",
+      "endTime": "2026-01-01T04:02:49+00:00",
+      "retailCostInclVat": 670.5,
+      "currency": "v_currency",
+      "energyInKwh": 382.5,
+      "vatAmount": 792.5,
+      "vatPercentage": 14.5,
+      "prioritySessionEnabled": true,
+      "paymentConfirmationTime": "2026-01-01T09:25:43+00:00",
+      "paymentStatus": "Pending",
+      "locationSummary": {
+        "locationId": "v_locationId",
+        "evseUid": "v_evseUid",
+        "connectorId": "v_connectorId",
+        "name": "v_name",
+        "address": "v_address",
+        "city": "v_city",
+        "country": "v_country",
+        "timeZone": "v_timeZone",
+        "powerType": "AC_1_PHASE"
+      },
+      "vidStatus": "VID_NOT_AVAILABLE",
+      "co2Saved": 458.5
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

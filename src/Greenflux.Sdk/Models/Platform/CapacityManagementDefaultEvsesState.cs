@@ -1,36 +1,34 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityManagementDefaultEvsesState
 {
-    [JsonProperty("number", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Number { get; set; } = default!;
+    [JsonPropertyName("number")]
+    public int? Number { get; set; }
 
-    [JsonProperty("allocated", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated { get; set; } = default!;
+    [JsonPropertyName("allocated")]
+    public double? Allocated { get; set; }
 
-    [JsonProperty("allocated_l1", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_l1 { get; set; } = default!;
+    [JsonPropertyName("allocated_l1")]
+    public double? AllocatedL1 { get; set; }
 
-    [JsonProperty("allocated_l2", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_l2 { get; set; } = default!;
+    [JsonPropertyName("allocated_l2")]
+    public double? AllocatedL2 { get; set; }
 
-    [JsonProperty("allocated_l3", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_l3 { get; set; } = default!;
+    [JsonPropertyName("allocated_l3")]
+    public double? AllocatedL3 { get; set; }
 
-    [JsonProperty("power_consumption_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Power_consumption_watts { get; set; } = default!;
+    [JsonPropertyName("power_consumption_watts")]
+    public double? PowerConsumptionWatts { get; set; }
 
-    [JsonProperty("power_consumption_l1_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Power_consumption_l1_watts { get; set; } = default!;
+    [JsonPropertyName("power_consumption_l1_watts")]
+    public double? PowerConsumptionL1Watts { get; set; }
 
-    [JsonProperty("power_consumption_l2_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Power_consumption_l2_watts { get; set; } = default!;
+    [JsonPropertyName("power_consumption_l2_watts")]
+    public double? PowerConsumptionL2Watts { get; set; }
 
-    [JsonProperty("power_consumption_l3_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Power_consumption_l3_watts { get; set; } = default!;
+    [JsonPropertyName("power_consumption_l3_watts")]
+    public double? PowerConsumptionL3Watts { get; set; }
 }
 

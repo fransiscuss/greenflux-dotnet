@@ -1,0 +1,45 @@
+{
+  "boundingBox": {
+    "bottomLeftLat": 220.5,
+    "bottomLeftLng": 830.5,
+    "topRightLat": 615.5,
+    "topRightLng": 5.5
+  },
+  "data": [
+    {
+      "id": "v_id",
+      "type": "ON_STREET",
+      "name": "v_name",
+      "displayName": "v_displayName",
+      "add": "v_add",
+      "city": "v_city",
+      "country": "v_country",
+      "lat": 358.5,
+      "lng": 748.5,
+      "conAvail": 594,
+      "conTot": 464,
+      "dp": false,
+      "rfid": true,
+      "branding": {
+        "id": "v_id",
+        "displayName": "v_displayName",
+        "primaryColorHex": "v_primaryColorHex",
+        "logoUrl": "v_logoUrl",
+        "supportPhone": "v_supportPhone",
+        "supportEmail": "v_supportEmail",
+        "supportWebsite": "v_supportWebsite"
+      },
+      "brandingId": "v_brandingId",
+      "isHomeCharger": true,
+      "isPrivateLocation": false,
+      "evses": [],
+      "customProperties": [],
+      "timeZone": "v_timeZone"
+    }
+  ],
+  "meta": {
+    "count": 910,
+    "hasMoreData": true,
+    "continuationToken": "v_continuationToken"
+  }
+}

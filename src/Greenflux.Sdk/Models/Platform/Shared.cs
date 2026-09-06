@@ -1,28 +1,26 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Shared
 {
-    [JsonProperty("money", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Money { get; set; } = default!;
+    [JsonPropertyName("money")]
+    public double? Money { get; set; }
 
-    [JsonProperty("sessions", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Sessions { get; set; } = default!;
+    [JsonPropertyName("sessions")]
+    public int? Sessions { get; set; }
 
-    [JsonProperty("discountRate", NullValueHandling = NullValueHandling.Ignore)]
-    public double? DiscountRate { get; set; } = default!;
+    [JsonPropertyName("discountRate")]
+    public double? DiscountRate { get; set; }
 
-    [JsonProperty("meterValueDuration", NullValueHandling = NullValueHandling.Ignore)]
-    public string? MeterValueDuration { get; set; } = default!;
+    [JsonPropertyName("meterValueDuration")]
+    public string? MeterValueDuration { get; set; }
 
-    [JsonProperty("meterValueTolerance", NullValueHandling = NullValueHandling.Ignore)]
-    public string? MeterValueTolerance { get; set; } = default!;
+    [JsonPropertyName("meterValueTolerance")]
+    public string? MeterValueTolerance { get; set; }
 
-    [JsonProperty("cpso", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpso { get; set; } = default!;
+    [JsonPropertyName("cpso")]
+    public string? Cpso { get; set; }
 
     private IDictionary<string, object>? _additionalProperties;
 

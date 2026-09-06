@@ -1,0 +1,15 @@
+{
+  "id": "v_id",
+  "charge_station_notification_id": "v_charge_station_notification_id",
+  "charge_station_id": "v_charge_station_id",
+  "charge_location_id": "v_charge_location_id",
+  "location_id": "v_location_id",
+  "charge_station_message_payload": "v_charge_station_message_payload",
+  "evse_id": "v_evse_id",
+  "created": "2026-01-01T17:58:15+00:00",
+  "direction": "v_direction",
+  "level": "v_level",
+  "messageAction": "v_messageAction",
+  "message_Action": "v_message_Action",
+  "message_type": "v_message_type"
+}

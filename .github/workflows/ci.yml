@@ -34,3 +34,14 @@ jobs:
       # Run the suite on each supported runtime, not just the newest one.
       - run: dotnet test --no-build -c Release -f net8.0
       - run: dotnet test --no-build -c Release -f net10.0
+
+      # Drives the real clients against a local HTTP server and asserts what goes
+      # over the wire. Exits non-zero on any failed check.
+      - name: Integration harness
+        run: dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net10.0
+
+      # The serialized form of every model must match the committed baseline.
+      - name: Serialization golden check
+        run: |
+          dotnet run --project eng/SerializationGolden -c Release -- eng/golden-check
+          diff -r eng/golden eng/golden-check

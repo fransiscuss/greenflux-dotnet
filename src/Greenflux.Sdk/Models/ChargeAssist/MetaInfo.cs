@@ -1,18 +1,17 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class MetaInfo
 {
 
-    [JsonProperty("count", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Count { get; set; } = default!;
+    [JsonPropertyName("count")]
+    public int? Count { get; set; }
 
-    [JsonProperty("hasMoreData", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? HasMoreData { get; set; } = default!;
+    [JsonPropertyName("hasMoreData")]
+    public bool? HasMoreData { get; set; }
 
-    [JsonProperty("continuationToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ContinuationToken { get; set; } = default!;
+    [JsonPropertyName("continuationToken")]
+    public string? ContinuationToken { get; set; }
 
 }

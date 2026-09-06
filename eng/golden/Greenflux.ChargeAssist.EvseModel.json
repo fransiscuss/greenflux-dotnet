@@ -1,0 +1,61 @@
+{
+  "uid": "v_uid",
+  "displayName": "v_displayName",
+  "status": "AVAILABLE",
+  "capabilities": [
+    "CHARGING_PROFILE_CAPABLE"
+  ],
+  "connectors": [
+    {
+      "id": "v_id",
+      "standard": "CHADEMO",
+      "format": "SOCKET",
+      "powerType": "AC_1_PHASE",
+      "phases": 977,
+      "kw": 773,
+      "powerInKw": 813.5,
+      "voltage": 877,
+      "amperage": 791,
+      "tariffId": "v_tariffId",
+      "termsAndConditions": "v_termsAndConditions",
+      "matchesFilter": true
+    }
+  ],
+  "floorLevel": "v_floorLevel",
+  "coordinates": [
+    {
+      "latitude": 187.5,
+      "longitude": 646.5
+    }
+  ],
+  "physicalReference": "v_physicalReference",
+  "chargingNotAllowed": false,
+  "agreement": false,
+  "directions": [
+    {
+      "language": "v_language",
+      "text": "v_text"
+    }
+  ],
+  "parkingRestrictions": [
+    "EV_ONLY"
+  ],
+  "images": [
+    {
+      "url": "v_url",
+      "thumbnail": "v_thumbnail",
+      "category": "CHARGER",
+      "type": "v_type",
+      "width": 421,
+      "height": 96
+    }
+  ],
+  "matchesFilter": true,
+  "restrictedAccess": true,
+  "remoteCommandsCapable": false,
+  "chargerType": "v_chargerType",
+  "isPrivateCharger": true,
+  "evseId": "v_evseId",
+  "isQrPresent": false,
+  "lastUpdated": "2026-01-01T21:45:16+00:00"
+}

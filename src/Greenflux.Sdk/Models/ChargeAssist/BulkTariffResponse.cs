@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,7 +6,7 @@ namespace Greenflux.ChargeAssist;
 public class BulkTariffResponse
 {
 
-    [JsonProperty("evseTariffs", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EvseTariffItem>? EvseTariffs { get; set; } = default!;
+    [JsonPropertyName("evseTariffs")]
+    public ICollection<EvseTariffItem>? EvseTariffs { get; set; }
 
 }

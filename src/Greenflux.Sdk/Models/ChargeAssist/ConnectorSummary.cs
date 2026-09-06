@@ -1,27 +1,23 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class ConnectorSummary
 {
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("standard", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ConnectorSummaryStandard? Standard { get; set; } = default!;
+    [JsonPropertyName("standard")]
+    public ConnectorSummaryStandard? Standard { get; set; }
 
-    [JsonProperty("kw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Kw { get; set; } = default!;
+    [JsonPropertyName("kw")]
+    public int? Kw { get; set; }
 
-    [JsonProperty("powerInKw", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? PowerInKw { get; set; } = default!;
+    [JsonPropertyName("powerInKw")]
+    public double? PowerInKw { get; set; }
 
-    [JsonProperty("powerType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ConnectorSummaryPowerType? PowerType { get; set; } = default!;
+    [JsonPropertyName("powerType")]
+    public ConnectorSummaryPowerType? PowerType { get; set; }
 
 }

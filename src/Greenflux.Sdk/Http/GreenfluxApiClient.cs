@@ -1,13 +1,11 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json;
+using Greenflux.Json;
 
 namespace Greenflux.Http;
 
@@ -17,8 +15,6 @@ namespace Greenflux.Http;
 /// </summary>
 public abstract class GreenfluxApiClient
 {
-    private static readonly JsonSerializerSettings SharedSettings = CreateDefaultSettings();
-
     private readonly HttpClient _httpClient;
 
     /// <summary>Initializes a new instance of the <see cref="GreenfluxApiClient"/> class.</summary>
@@ -28,20 +24,8 @@ public abstract class GreenfluxApiClient
         _httpClient = httpClient;
     }
 
-    /// <summary>JSON serializer settings used for all requests and responses.</summary>
-    protected static JsonSerializerSettings JsonSerializerSettings => SharedSettings;
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static JsonSerializerSettings CreateDefaultSettings()
-    {
-        var settings = new JsonSerializerSettings
-        {
-            NullValueHandling = NullValueHandling.Ignore,
-            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-        };
-        settings.Converters.Add(new StringEnumConverter());
-        return settings;
-    }
+    /// <summary>JSON serializer options used for all requests and responses.</summary>
+    protected static JsonSerializerOptions JsonSerializerOptions => GreenfluxJson.Options;
 
     // ── HTTP helpers ────────────────────────────────────────────────
 
@@ -231,10 +215,9 @@ public abstract class GreenfluxApiClient
         try
         {
             using var stream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-            using var reader = new StreamReader(stream);
-            using var jsonReader = new JsonTextReader(reader);
-            var serializer = JsonSerializer.Create(JsonSerializerSettings);
-            var result = serializer.Deserialize<T>(jsonReader);
+            var result = await JsonSerializer
+                .DeserializeAsync<T>(stream, JsonSerializerOptions, cancellationToken)
+                .ConfigureAwait(false);
             return result!;
         }
         catch (JsonException exception)
@@ -273,7 +256,7 @@ public abstract class GreenfluxApiClient
     private static void SetJsonBody(HttpRequestMessage request, object? body)
     {
         if (body is null) return;
-        var json = JsonConvert.SerializeObject(body, JsonSerializerSettings);
+        var json = JsonSerializer.Serialize(body, JsonSerializerOptions);
         request.Content = new StringContent(json, Encoding.UTF8, "application/json");
     }
 

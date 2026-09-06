@@ -1,22 +1,20 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 /// <summary>The Hardware template used for this Charge Station.</summary>
 public partial class GcpiChargeStationTemplate
 {
-    [JsonProperty("template_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Template_id { get; set; } = default!;
+    [JsonPropertyName("template_id")]
+    public string? TemplateId { get; set; }
 
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("tenant_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Tenant_id { get; set; } = default!;
+    [JsonPropertyName("tenant_id")]
+    public string? TenantId { get; set; }
 
-    [JsonProperty("evse_templates", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiEvseTemplate>? Evse_templates { get; set; } = default!;
+    [JsonPropertyName("evse_templates")]
+    public ICollection<GcpiEvseTemplate>? EvseTemplates { get; set; }
 }

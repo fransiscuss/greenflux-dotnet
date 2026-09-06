@@ -1,0 +1,10 @@
+{
+  "chargeSessionId": "v_chargeSessionId",
+  "appToken": "v_appToken",
+  "paymentMethodId": "v_paymentMethodId",
+  "paymentStatus": "PENDING",
+  "totalCost": 232.5,
+  "transactionTime": "2026-01-01T08:47:22+00:00",
+  "lastAttemptedTime": "2026-01-01T10:08:50+00:00",
+  "error": "v_error"
+}

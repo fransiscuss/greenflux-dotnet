@@ -1,0 +1,10 @@
+{
+  "validationMessages": [
+    {
+      "code": "v_code",
+      "message": "v_message"
+    }
+  ],
+  "message": "v_message",
+  "developerMessage": "v_developerMessage"
+}

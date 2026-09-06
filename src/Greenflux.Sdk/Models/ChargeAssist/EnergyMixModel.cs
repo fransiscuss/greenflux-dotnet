@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,19 +6,20 @@ namespace Greenflux.ChargeAssist;
 public class EnergyMixModel
 {
 
-    [JsonProperty("isGreenEnergy", Required = Required.Always)]
+    [JsonPropertyName("isGreenEnergy")]
+    [JsonRequired]
     public bool IsGreenEnergy { get; set; } = default!;
 
-    [JsonProperty("energySources", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EnergySourceModel>? EnergySources { get; set; } = default!;
+    [JsonPropertyName("energySources")]
+    public ICollection<EnergySourceModel>? EnergySources { get; set; }
 
-    [JsonProperty("environImpact", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EnvironmentalImpactModel>? EnvironImpact { get; set; } = default!;
+    [JsonPropertyName("environImpact")]
+    public ICollection<EnvironmentalImpactModel>? EnvironImpact { get; set; }
 
-    [JsonProperty("supplierName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupplierName { get; set; } = default!;
+    [JsonPropertyName("supplierName")]
+    public string? SupplierName { get; set; }
 
-    [JsonProperty("energyProductName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EnergyProductName { get; set; } = default!;
+    [JsonPropertyName("energyProductName")]
+    public string? EnergyProductName { get; set; }
 
 }

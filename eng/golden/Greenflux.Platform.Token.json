@@ -1,0 +1,13 @@
+{
+  "uid": "v_uid",
+  "auth_id": "v_auth_id",
+  "visual_number": "v_visual_number",
+  "valid": false,
+  "expiration_date": "2026-01-01T21:26:37+00:00",
+  "roaming_allowed": false,
+  "whitelist_type": "Always",
+  "driver_id": "v_driver_id",
+  "customer_id": "v_customer_id",
+  "modified_on_utc": "2026-01-01T17:41:29+00:00",
+  "modified_by": "v_modified_by"
+}

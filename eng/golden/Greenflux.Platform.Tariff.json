@@ -1,0 +1,49 @@
+{
+  "id": "v_id",
+  "currency": "v_currency",
+  "tariff_alt_text": [
+    {
+      "language": "v_language",
+      "text": "v_text"
+    }
+  ],
+  "tariff_alt_url": "v_tariff_alt_url",
+  "elements": [
+    {
+      "price_components": [],
+      "restrictions": {
+        "start_time": "v_start_time",
+        "stop_time": "v_stop_time",
+        "end_time": "v_end_time",
+        "start_date": "v_start_date",
+        "stop_date": "v_stop_date",
+        "end_date": "v_end_date",
+        "min_kwh": 974.5,
+        "max_kwh": 976.5,
+        "min_power": 511.5,
+        "max_power": 937.5,
+        "min_duration": 622,
+        "max_duration": 688
+      },
+      "billingRuleReference": "v_billingRuleReference"
+    }
+  ],
+  "energy_mix": {
+    "is_green_energy": true,
+    "energy_sources": [
+      {
+        "source": "NUCLEAR",
+        "percentage": 837.5
+      }
+    ],
+    "environ_impact": [
+      {
+        "source": "NUCLEAR_WASTE",
+        "amount": 593.5
+      }
+    ],
+    "supplier_name": "v_supplier_name",
+    "energy_product_name": "v_energy_product_name"
+  },
+  "last_updated": "2026-01-01T08:35:41+00:00"
+}

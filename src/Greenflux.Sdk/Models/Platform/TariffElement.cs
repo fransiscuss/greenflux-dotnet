@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class TariffElement
 {
-    [JsonProperty("price_components", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<PriceComponent>? Price_components { get; set; } = default!;
+    [JsonPropertyName("price_components")]
+    public ICollection<PriceComponent>? PriceComponents { get; set; }
 
-    [JsonProperty("restrictions", NullValueHandling = NullValueHandling.Ignore)]
-    public TariffRestrictions? Restrictions { get; set; } = default!;
+    [JsonPropertyName("restrictions")]
+    public TariffRestrictions? Restrictions { get; set; }
 
-    [JsonProperty("billingRuleReference", NullValueHandling = NullValueHandling.Ignore)]
-    public string? BillingRuleReference { get; set; } = default!;
+    [JsonPropertyName("billingRuleReference")]
+    public string? BillingRuleReference { get; set; }
 }
 

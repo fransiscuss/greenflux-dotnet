@@ -1,29 +1,26 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class PriceComponentModel
 {
 
-    [JsonProperty("price", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Price { get; set; } = default!;
+    [JsonPropertyName("price")]
+    public double? Price { get; set; }
 
-    [JsonProperty("priceUnrounded", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? PriceUnrounded { get; set; } = default!;
+    [JsonPropertyName("priceUnrounded")]
+    public double? PriceUnrounded { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public PriceComponentModelType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public PriceComponentModelType? Type { get; set; }
 
-    [JsonProperty("stepSize", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? StepSize { get; set; } = default!;
+    [JsonPropertyName("stepSize")]
+    public int? StepSize { get; set; }
 
-    [JsonProperty("vat", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Vat { get; set; } = default!;
+    [JsonPropertyName("vat")]
+    public double? Vat { get; set; }
 
-    [JsonProperty("restrictions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffTypeRestrictionModel? Restrictions { get; set; } = default!;
+    [JsonPropertyName("restrictions")]
+    public TariffTypeRestrictionModel? Restrictions { get; set; }
 
 }

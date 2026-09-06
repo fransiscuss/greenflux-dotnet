@@ -1,54 +1,55 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Driver
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("first_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? First_name { get; set; } = default!;
+    [JsonPropertyName("first_name")]
+    public string? FirstName { get; set; }
 
-    [JsonProperty("last_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Last_name { get; set; } = default!;
+    [JsonPropertyName("last_name")]
+    public string? LastName { get; set; }
 
-    [JsonProperty("phone_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Phone_number { get; set; } = default!;
+    [JsonPropertyName("phone_number")]
+    public string? PhoneNumber { get; set; }
 
-    [JsonProperty("mobile_phone_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Mobile_phone_number { get; set; } = default!;
+    [JsonPropertyName("mobile_phone_number")]
+    public string? MobilePhoneNumber { get; set; }
 
-    [JsonProperty("email", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Email { get; set; } = default!;
+    [JsonPropertyName("email")]
+    public string? Email { get; set; }
 
-    [JsonProperty("retail_package_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Retail_package_id { get; set; } = default!;
+    [JsonPropertyName("retail_package_id")]
+    public string? RetailPackageId { get; set; }
 
-    [JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Address { get; set; } = default!;
+    [JsonPropertyName("address")]
+    public string? Address { get; set; }
 
-    [JsonProperty("postal_code", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Postal_code { get; set; } = default!;
+    [JsonPropertyName("postal_code")]
+    public string? PostalCode { get; set; }
 
-    [JsonProperty("city", NullValueHandling = NullValueHandling.Ignore)]
-    public string? City { get; set; } = default!;
+    [JsonPropertyName("city")]
+    public string? City { get; set; }
 
-    [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Country { get; set; } = default!;
+    [JsonPropertyName("country")]
+    public string? Country { get; set; }
 
-    [JsonProperty("customer_id", Required = Required.AllowNull)]
-    public string? Customer_id { get; set; } = default!;
+    [JsonPropertyName("customer_id")]
+    [JsonRequired]
+    public string? CustomerId { get; set; }
 
-    [JsonProperty("energy_contract", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Energy_contract { get; set; } = default!;
+    [JsonPropertyName("energy_contract")]
+    public string? EnergyContract { get; set; }
 
-    [JsonProperty("modified_on_utc", Required = Required.Always)]
-    public DateTimeOffset Modified_on_utc { get; set; } = default!;
+    [JsonPropertyName("modified_on_utc")]
+    [JsonRequired]
+    public DateTimeOffset ModifiedOnUtc { get; set; } = default!;
 
-    [JsonProperty("modified_by", Required = Required.Always)]
-    public string Modified_by { get; set; } = default!;
+    [JsonPropertyName("modified_by")]
+    [JsonRequired]
+    public string ModifiedBy { get; set; } = default!;
 }
 

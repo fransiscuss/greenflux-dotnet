@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "total_cost": 359.5,
+      "id": "v_id",
+      "start_datetime": "2026-01-01T23:47:03+00:00",
+      "end_datetime": "2026-01-01T21:07:28+00:00",
+      "kwh": 67.5,
+      "auth_id": "v_auth_id",
+      "auth_method": "AUTH_REQUEST",
+      "location": {
+        "id": "v_id",
+        "type": "ON_STREET",
+        "access_type": "PUBLIC",
+        "publish": true,
+        "name": "v_name",
+        "address": "v_address",
+        "city": "v_city",
+        "postal_code": "v_postal_code",
+        "country": "v_country",
+        "coordinates": {},
+        "time_zone": "v_time_zone",
+        "charging_when_closed": true,
+        "last_updated": "2026-01-01T08:35:41+00:00"
+      },
+      "meter_id": "v_meter_id",
+      "currency": "v_currency",
+      "charging_periods": [],
+      "status": "ACTIVE",
+      "last_updated": "2026-01-01T08:35:41+00:00",
+      "authorization_id": "v_authorization_id",
+      "vid": "v_vid",
+      "state_of_charge": 843.5
+    }
+  ],
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

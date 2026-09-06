@@ -1,27 +1,25 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiCpoCustomer
 {
-    [JsonProperty("name", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("cpo_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Cpo_id { get; set; } = default!;
+    [JsonPropertyName("cpo_id")]
+    public string? CpoId { get; set; }
 
-    [JsonProperty("external_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? External_id { get; set; } = default!;
+    [JsonPropertyName("external_id")]
+    public string? ExternalId { get; set; }
 
-    [JsonProperty("properties", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiCpoCustomerProperty>? Properties { get; set; } = default!;
+    [JsonPropertyName("properties")]
+    public ICollection<GcpiCpoCustomerProperty>? Properties { get; set; }
 
-    [JsonProperty("operator_details", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiOperatorDetails? Operator_details { get; set; } = default!;
+    [JsonPropertyName("operator_details")]
+    public GcpiOperatorDetails? OperatorDetails { get; set; }
 
-    [JsonProperty("vat_number", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Vat_number { get; set; } = default!;
+    [JsonPropertyName("vat_number")]
+    public string? VatNumber { get; set; }
 }

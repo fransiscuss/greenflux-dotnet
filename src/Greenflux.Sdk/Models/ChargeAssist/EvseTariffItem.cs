@@ -1,21 +1,20 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class EvseTariffItem
 {
 
-    [JsonProperty("tariff", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffModel? Tariff { get; set; } = default!;
+    [JsonPropertyName("tariff")]
+    public TariffModel? Tariff { get; set; }
 
-    [JsonProperty("tariffWholeSale", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffModel? TariffWholeSale { get; set; } = default!;
+    [JsonPropertyName("tariffWholeSale")]
+    public TariffModel? TariffWholeSale { get; set; }
 
-    [JsonProperty("locationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("evseUid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseUid { get; set; } = default!;
+    [JsonPropertyName("evseUid")]
+    public string? EvseUid { get; set; }
 
 }

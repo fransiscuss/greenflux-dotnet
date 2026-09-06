@@ -1,51 +1,48 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class TariffRestrictions
 {
-    [JsonProperty("start_time", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Start_time { get; set; } = default!;
+    [JsonPropertyName("start_time")]
+    public string? StartTime { get; set; }
 
     [Obsolete]
-    [JsonProperty("stop_time", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Stop_time { get; set; } = default!;
+    [JsonPropertyName("stop_time")]
+    public string? StopTime { get; set; }
 
-    [JsonProperty("end_time", NullValueHandling = NullValueHandling.Ignore)]
-    public string? End_time { get; set; } = default!;
+    [JsonPropertyName("end_time")]
+    public string? EndTime { get; set; }
 
-    [JsonProperty("start_date", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Start_date { get; set; } = default!;
+    [JsonPropertyName("start_date")]
+    public string? StartDate { get; set; }
 
     [Obsolete]
-    [JsonProperty("stop_date", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Stop_date { get; set; } = default!;
+    [JsonPropertyName("stop_date")]
+    public string? StopDate { get; set; }
 
-    [JsonProperty("end_date", NullValueHandling = NullValueHandling.Ignore)]
-    public string? End_date { get; set; } = default!;
+    [JsonPropertyName("end_date")]
+    public string? EndDate { get; set; }
 
-    [JsonProperty("min_kwh", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_kwh { get; set; } = default!;
+    [JsonPropertyName("min_kwh")]
+    public double? MinKwh { get; set; }
 
-    [JsonProperty("max_kwh", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_kwh { get; set; } = default!;
+    [JsonPropertyName("max_kwh")]
+    public double? MaxKwh { get; set; }
 
-    [JsonProperty("min_power", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_power { get; set; } = default!;
+    [JsonPropertyName("min_power")]
+    public double? MinPower { get; set; }
 
-    [JsonProperty("max_power", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Max_power { get; set; } = default!;
+    [JsonPropertyName("max_power")]
+    public double? MaxPower { get; set; }
 
-    [JsonProperty("min_duration", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Min_duration { get; set; } = default!;
+    [JsonPropertyName("min_duration")]
+    public int? MinDuration { get; set; }
 
-    [JsonProperty("max_duration", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Max_duration { get; set; } = default!;
+    [JsonPropertyName("max_duration")]
+    public int? MaxDuration { get; set; }
 
-    [JsonProperty("day_of_week", NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<DayOfWeekCustom>? Day_of_week { get; set; } = default!;
+    [JsonPropertyName("day_of_week")]
+    public ICollection<DayOfWeekCustom>? DayOfWeek { get; set; }
 }
 

@@ -1,0 +1,16 @@
+{
+  "paymentMethod": {
+    "id": "v_id",
+    "type": "CHARGE_CARD",
+    "cardHint": "v_cardHint",
+    "chargeCardVisualNumber": "v_chargeCardVisualNumber",
+    "externalPaymentMethodId": "v_externalPaymentMethodId",
+    "displayName": "v_displayName"
+  },
+  "pspTransactionId": "v_pspTransactionId",
+  "totalCostsCharged": 805.5,
+  "paymentConfirmationTime": "2026-01-01T09:25:43+00:00",
+  "paymentStatus": "Pending",
+  "creditWalletId": "v_creditWalletId",
+  "externalCdrId": "v_externalCdrId"
+}

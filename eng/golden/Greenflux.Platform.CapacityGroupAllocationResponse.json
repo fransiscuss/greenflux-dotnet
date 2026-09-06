@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "capacity": 253.5,
+  "total_allocated_amps": 867.5,
+  "phase": "L1",
+  "evses": [
+    {
+      "uid": "v_uid",
+      "allocated_amps": 336.5,
+      "smart_charging_status": "VEHICLEDONECHARGING",
+      "level": "AVAILABLE",
+      "order": 917
+    }
+  ]
+}

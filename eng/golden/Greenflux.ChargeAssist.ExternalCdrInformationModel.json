@@ -1,0 +1,43 @@
+{
+  "appToken": "v_appToken",
+  "sessionId": "v_sessionId",
+  "externalSessionId": "v_externalSessionId",
+  "locationId": "v_locationId",
+  "transactionDetails": {
+    "paymentMethod": {
+      "id": "v_id",
+      "type": "CHARGE_CARD",
+      "cardHint": "v_cardHint",
+      "chargeCardVisualNumber": "v_chargeCardVisualNumber",
+      "externalPaymentMethodId": "v_externalPaymentMethodId",
+      "displayName": "v_displayName"
+    },
+    "pspTransactionId": "v_pspTransactionId",
+    "totalCostsCharged": 805.5,
+    "paymentConfirmationTime": "2026-01-01T09:25:43+00:00",
+    "paymentStatus": "Pending",
+    "creditWalletId": "v_creditWalletId",
+    "externalCdrId": "v_externalCdrId"
+  },
+  "pspPreAuthTransactionId": "v_pspPreAuthTransactionId",
+  "locationSummary": {
+    "coordinates": {
+      "latitude": 187.5,
+      "longitude": 646.5
+    },
+    "name": "v_name",
+    "address": "v_address",
+    "city": "v_city",
+    "country": "v_country",
+    "timeZone": "v_timeZone",
+    "powerType": "AC_1_PHASE",
+    "branding": {
+      "displayName": "v_displayName",
+      "logoUrl": "v_logoUrl",
+      "supportPhone": "v_supportPhone",
+      "supportEmail": "v_supportEmail",
+      "supportWebsite": "v_supportWebsite"
+    }
+  },
+  "receiptNumber": "v_receiptNumber"
+}

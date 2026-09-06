@@ -1,45 +1,48 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class StripeConnect
 {
-    [JsonProperty("id", Required = Required.Always)]
+    [JsonPropertyName("id")]
+    [JsonRequired]
     public string Id { get; set; } = default!;
 
-    [JsonProperty("connection_name", Required = Required.Always)]
-    public string Connection_name { get; set; } = default!;
+    [JsonPropertyName("connection_name")]
+    [JsonRequired]
+    public string ConnectionName { get; set; } = default!;
 
-    [JsonProperty("cpsos", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<StripeConnectTenantCpso>? Cpsos { get; set; } = default!;
+    [JsonPropertyName("cpsos")]
+    public ICollection<StripeConnectTenantCpso>? Cpsos { get; set; }
 
-    [JsonProperty("cpo_customers", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<StripeConnectTenantCpoCustomer>? Cpo_customers { get; set; } = default!;
+    [JsonPropertyName("cpo_customers")]
+    public ICollection<StripeConnectTenantCpoCustomer>? CpoCustomers { get; set; }
 
-    [JsonProperty("connect_account_id", Required = Required.Always)]
-    public string Connect_account_id { get; set; } = default!;
+    [JsonPropertyName("connect_account_id")]
+    [JsonRequired]
+    public string ConnectAccountId { get; set; } = default!;
 
-    [JsonProperty("application_fee_percentage", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Application_fee_percentage { get; set; } = default!;
+    [JsonPropertyName("application_fee_percentage")]
+    public double? ApplicationFeePercentage { get; set; }
 
-    [JsonProperty("created_date", Required = Required.Always)]
-    public DateTimeOffset Created_date { get; set; } = default!;
+    [JsonPropertyName("created_date")]
+    [JsonRequired]
+    public DateTimeOffset CreatedDate { get; set; } = default!;
 
-    [JsonProperty("connected_on", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Connected_on { get; set; } = default!;
+    [JsonPropertyName("connected_on")]
+    public DateTimeOffset? ConnectedOn { get; set; }
 
-    [JsonProperty("onboarding_url", NullValueHandling = NullValueHandling.Ignore)]
-    public Uri? Onboarding_url { get; set; } = default!;
+    [JsonPropertyName("onboarding_url")]
+    public Uri? OnboardingUrl { get; set; }
 
-    [JsonProperty("customer_email", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Customer_email { get; set; } = default!;
+    [JsonPropertyName("customer_email")]
+    public string? CustomerEmail { get; set; }
 
-    [JsonProperty("business_details", NullValueHandling = NullValueHandling.Ignore)]
-    public Business_details2? Business_details { get; set; } = default!;
+    [JsonPropertyName("business_details")]
+    public Business_details2? Business_details { get; set; }
 
-    [JsonProperty("enable_tax_calculation", Required = Required.Always)]
-    public bool Enable_tax_calculation { get; set; } = default!;
+    [JsonPropertyName("enable_tax_calculation")]
+    [JsonRequired]
+    public bool EnableTaxCalculation { get; set; } = default!;
 }
 

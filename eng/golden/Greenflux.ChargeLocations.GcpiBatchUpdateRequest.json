@@ -1,0 +1,10 @@
+{
+  "charge_station_ids": [
+    "v_charge_station_ids_0"
+  ],
+  "key": "v_key",
+  "value": "v_value",
+  "reset_on_accepted": true,
+  "retries": 165,
+  "delay": 474
+}

@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityManagementDcEvsesState
 {
-    [JsonProperty("number", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Number { get; set; } = default!;
+    [JsonPropertyName("number")]
+    public int? Number { get; set; }
 
-    [JsonProperty("allocated", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated { get; set; } = default!;
+    [JsonPropertyName("allocated")]
+    public double? Allocated { get; set; }
 
-    [JsonProperty("power_consumption_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Power_consumption_watts { get; set; } = default!;
+    [JsonPropertyName("power_consumption_watts")]
+    public double? PowerConsumptionWatts { get; set; }
 }
 

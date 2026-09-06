@@ -1,16 +1,12 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiEnvironmentalImpact
 {
-    [JsonProperty("source", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiEnvironmentalImpactCategory? Source { get; set; } = default!;
+    [JsonPropertyName("source")]
+    public GcpiEnvironmentalImpactCategory? Source { get; set; }
 
-    [JsonProperty("amount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? Amount { get; set; } = default!;
+    [JsonPropertyName("amount")]
+    public double? Amount { get; set; }
 }

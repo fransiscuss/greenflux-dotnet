@@ -1,5 +1,3 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
 using System.Globalization;
 using Greenflux.Http;
 
@@ -8,7 +6,7 @@ namespace Greenflux.RemoteCommands;
 /// <summary>Interface for the Remote Commands API client.</summary>
 public interface IRemoteCommandsClient
 {
-    /// <summary>Start a charging session using the Auth_id or Chip_id.</summary>
+    /// <summary>Start a charging session using the AuthId or Chip_id.</summary>
     Task<GcpiCommandResponse> RemoteCommands_StartSessionAsync(GcpiStartSession body, CancellationToken cancellationToken = default);
 
     /// <summary>Stop a charging session using the session ID.</summary>

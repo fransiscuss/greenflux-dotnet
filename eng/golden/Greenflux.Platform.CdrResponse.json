@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "id": "v_id",
+      "start_date_time": "2026-01-01T08:34:24+00:00",
+      "stop_date_time": "2026-01-01T23:14:54+00:00",
+      "session_id": "v_session_id",
+      "auth_id": "v_auth_id",
+      "token_uid": "v_token_uid",
+      "token_visual_number": "v_token_visual_number",
+      "auth_method": "AUTH_REQUEST",
+      "location": {
+        "id": "v_id",
+        "type": "ON_STREET",
+        "access_type": "PUBLIC",
+        "publish": true,
+        "name": "v_name",
+        "address": "v_address",
+        "city": "v_city",
+        "postal_code": "v_postal_code",
+        "country": "v_country",
+        "coordinates": {},
+        "time_zone": "v_time_zone",
+        "charging_when_closed": true,
+        "last_updated": "2026-01-01T08:35:41+00:00"
+      },
+      "meter_id": "v_meter_id",
+      "currency": "v_currency",
+      "tariffs": [],
+      "charging_periods": [],
+      "charging_periods_retail": [],
+      "charging_periods_reimbursement": [],
+      "total_cost": 359.5,
+      "total_cost_incl_vat": 546.5,
+      "total_vat": 549.5,
+      "total_energy": 164.5,
+      "total_time": 879.5,
+      "total_parking_time": 992.5,
+      "remark": "v_remark",
+      "last_updated": "2026-01-01T08:35:41+00:00",
+      "total_retail_cost": 683.5,
+      "total_retail_cost_incl_vat": 794.5,
+      "total_retail_vat": 367.5,
+      "retail_currency": "v_retail_currency",
+      "total_reimbursement_cost": 992.5,
+      "reimbursement_tariff_code": "v_reimbursement_tariff_code",
+      "retail_package_id": "v_retail_package_id",
+      "authorization_id": "v_authorization_id",
+      "auth_host_reference": "v_auth_host_reference",
+      "customer_external_id": "v_customer_external_id",
+      "driver_external_id": "v_driver_external_id",
+      "emsp_party_id": "v_emsp_party_id",
+      "emsp_country_code": "v_emsp_country_code",
+      "emsp_external_id": "v_emsp_external_id",
+      "cpo_id": "v_cpo_id",
+      "vat": 968.5,
+      "retail_vat": 422.5,
+      "charger_type": "v_charger_type",
+      "coupon_ids": [
+        "v_coupon_ids_0"
+      ],
+      "coupons_compensated_costs": 737.5,
+      "custom_groups": [
+        "v_custom_groups_0"
+      ],
+      "cost_breakdown": {
+        "tariff_id": "v_tariff_id",
+        "start_date_time": "v_start_date_time",
+        "dimensions": []
+      },
+      "cost_breakdown_retail": {
+        "tariff_id": "v_tariff_id",
+        "start_date_time": "v_start_date_time",
+        "dimensions": []
+      },
+      "cost_breakdown_reimbursement": {
+        "tariff_id": "v_tariff_id",
+        "start_date_time": "v_start_date_time",
+        "dimensions": []
+      },
+      "max_power_w": 161.5
+    }
+  ],
+  "timestamp": "2026-01-01T10:53:25+00:00",
+  "status_code": "_1000",
+  "status_message": "v_status_message"
+}

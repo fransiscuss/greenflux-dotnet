@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,20 +6,20 @@ namespace Greenflux.ChargeAssist;
 public class ProblemDetails
 {
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonProperty("title", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Title { get; set; } = default!;
+    [JsonPropertyName("title")]
+    public string? Title { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public int? Status { get; set; }
 
-    [JsonProperty("detail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Detail { get; set; } = default!;
+    [JsonPropertyName("detail")]
+    public string? Detail { get; set; }
 
-    [JsonProperty("instance", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Instance { get; set; } = default!;
+    [JsonPropertyName("instance")]
+    public string? Instance { get; set; }
 
     private IDictionary<string, object>? _additionalProperties;
 

@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -8,29 +6,28 @@ namespace Greenflux.ChargeAssist;
 public class FailedSessionPaymentModel
 {
 
-    [JsonProperty("chargeSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeSessionId { get; set; } = default!;
+    [JsonPropertyName("chargeSessionId")]
+    public string? ChargeSessionId { get; set; }
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("paymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("paymentMethodId")]
+    public string? PaymentMethodId { get; set; }
 
-    [JsonProperty("paymentStatus", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public FailedSessionPaymentModelPaymentStatus? PaymentStatus { get; set; } = default!;
+    [JsonPropertyName("paymentStatus")]
+    public FailedSessionPaymentModelPaymentStatus? PaymentStatus { get; set; }
 
-    [JsonProperty("totalCost", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public double? TotalCost { get; set; } = default!;
+    [JsonPropertyName("totalCost")]
+    public double? TotalCost { get; set; }
 
-    [JsonProperty("transactionTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? TransactionTime { get; set; } = default!;
+    [JsonPropertyName("transactionTime")]
+    public DateTimeOffset? TransactionTime { get; set; }
 
-    [JsonProperty("lastAttemptedTime", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? LastAttemptedTime { get; set; } = default!;
+    [JsonPropertyName("lastAttemptedTime")]
+    public DateTimeOffset? LastAttemptedTime { get; set; }
 
-    [JsonProperty("error", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Error { get; set; } = default!;
+    [JsonPropertyName("error")]
+    public string? Error { get; set; }
 
 }

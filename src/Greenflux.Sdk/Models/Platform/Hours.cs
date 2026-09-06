@@ -1,21 +1,20 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Hours
 {
-    [JsonProperty("regular_hours", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<RegularHours>? Regular_hours { get; set; } = default!;
+    [JsonPropertyName("regular_hours")]
+    public ICollection<RegularHours>? RegularHours { get; set; }
 
-    [JsonProperty("twentyfourseven", Required = Required.Always)]
+    [JsonPropertyName("twentyfourseven")]
+    [JsonRequired]
     public bool Twentyfourseven { get; set; } = default!;
 
-    [JsonProperty("exceptional_openings", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ExceptionalPeriod>? Exceptional_openings { get; set; } = default!;
+    [JsonPropertyName("exceptional_openings")]
+    public ICollection<ExceptionalPeriod>? ExceptionalOpenings { get; set; }
 
-    [JsonProperty("exceptional_closings", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ExceptionalPeriod>? Exceptional_closings { get; set; } = default!;
+    [JsonPropertyName("exceptional_closings")]
+    public ICollection<ExceptionalPeriod>? ExceptionalClosings { get; set; }
 }
 

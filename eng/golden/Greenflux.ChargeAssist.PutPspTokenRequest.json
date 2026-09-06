@@ -1,0 +1,7 @@
+{
+  "pspPaymentMethodId": "v_pspPaymentMethodId",
+  "customerOrWalletId": "v_customerOrWalletId",
+  "cardAlias": "v_cardAlias",
+  "cardNumberHint": "v_cardNumberHint",
+  "cardType": "MASTER_CARD"
+}

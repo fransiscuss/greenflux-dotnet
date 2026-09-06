@@ -1,26 +1,23 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class GetTokensEntry
 {
-    [JsonProperty("state", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("state")]
+    [JsonRequired]
     public GetTokensEntryState State { get; set; } = default!;
 
-    [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Uid { get; set; } = default!;
+    [JsonPropertyName("uid")]
+    public string? Uid { get; set; }
 
-    [JsonProperty("auth_id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Auth_id { get; set; } = default!;
+    [JsonPropertyName("auth_id")]
+    public string? AuthId { get; set; }
 
-    [JsonProperty("visual_number", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Visual_number { get; set; } = default!;
+    [JsonPropertyName("visual_number")]
+    public string? VisualNumber { get; set; }
 
-    [JsonProperty("scopes", NullValueHandling = NullValueHandling.Ignore)]
-    public GetTokensEntryScopes? Scopes { get; set; } = default!;
+    [JsonPropertyName("scopes")]
+    public GetTokensEntryScopes? Scopes { get; set; }
 }
 

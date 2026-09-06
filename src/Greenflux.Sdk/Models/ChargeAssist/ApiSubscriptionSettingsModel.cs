@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,75 +6,74 @@ namespace Greenflux.ChargeAssist;
 public class ApiSubscriptionSettingsModel
 {
 
-    [JsonProperty("subscriber", Required = Required.AllowNull)]
-    public string? Subscriber { get; set; } = default!;
+    [JsonPropertyName("subscriber")]
+    [JsonRequired]
+    public string? Subscriber { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
-    [JsonProperty("requestChargeCardUrl", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? RequestChargeCardUrl { get; set; } = default!;
+    [JsonPropertyName("requestChargeCardUrl")]
+    public string? RequestChargeCardUrl { get; set; }
 
-    [JsonProperty("supportUrl", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportUrl { get; set; } = default!;
+    [JsonPropertyName("supportUrl")]
+    public string? SupportUrl { get; set; }
 
-    [JsonProperty("supportEmail", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportEmail { get; set; } = default!;
+    [JsonPropertyName("supportEmail")]
+    public string? SupportEmail { get; set; }
 
-    [JsonProperty("supportPhoneNumber", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SupportPhoneNumber { get; set; } = default!;
+    [JsonPropertyName("supportPhoneNumber")]
+    public string? SupportPhoneNumber { get; set; }
 
-    [JsonProperty("driverAccount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? DriverAccount { get; set; } = default!;
+    [JsonPropertyName("driverAccount")]
+    public bool? DriverAccount { get; set; }
 
-    [JsonProperty("loginRequired", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? LoginRequired { get; set; } = default!;
+    [JsonPropertyName("loginRequired")]
+    public bool? LoginRequired { get; set; }
 
-    [JsonProperty("allowExternalChargeCards", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? AllowExternalChargeCards { get; set; } = default!;
+    [JsonPropertyName("allowExternalChargeCards")]
+    public bool? AllowExternalChargeCards { get; set; }
 
-    [JsonProperty("allowDirectCards", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? AllowDirectCards { get; set; } = default!;
+    [JsonPropertyName("allowDirectCards")]
+    public bool? AllowDirectCards { get; set; }
 
-    [JsonProperty("whiteLabelApp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? WhiteLabelApp { get; set; } = default!;
+    [JsonPropertyName("whiteLabelApp")]
+    public string? WhiteLabelApp { get; set; }
 
-    [JsonProperty("versionSettings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public AppVersionSettingsModel? VersionSettings { get; set; } = default!;
+    [JsonPropertyName("versionSettings")]
+    public AppVersionSettingsModel? VersionSettings { get; set; }
 
-    [JsonProperty("cultureSettings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<SubscriptionCultureSettingsModel>? CultureSettings { get; set; } = default!;
+    [JsonPropertyName("cultureSettings")]
+    public ICollection<SubscriptionCultureSettingsModel>? CultureSettings { get; set; }
 
-    [JsonProperty("isWhiteLabelApp", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? IsWhiteLabelApp { get; set; } = default!;
+    [JsonPropertyName("isWhiteLabelApp")]
+    public bool? IsWhiteLabelApp { get; set; }
 
-    [JsonProperty("supportedPaymentMethods", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore, ItemConverterType = typeof(StringEnumConverter))]
-    public ICollection<SupportedPaymentMethods>? SupportedPaymentMethods { get; set; } = default!;
+    [JsonPropertyName("supportedPaymentMethods")]
+    public ICollection<SupportedPaymentMethods>? SupportedPaymentMethods { get; set; }
 
-    [JsonProperty("measurementSystem", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ApiSubscriptionSettingsModelMeasurementSystem? MeasurementSystem { get; set; } = default!;
+    [JsonPropertyName("measurementSystem")]
+    public ApiSubscriptionSettingsModelMeasurementSystem? MeasurementSystem { get; set; }
 
-    [JsonProperty("qrSetting", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public QrSettingModel? QrSetting { get; set; } = default!;
+    [JsonPropertyName("qrSetting")]
+    public QrSettingModel? QrSetting { get; set; }
 
-    [JsonProperty("autoChargeSetting", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public AutoChargeSettingModel? AutoChargeSetting { get; set; } = default!;
+    [JsonPropertyName("autoChargeSetting")]
+    public AutoChargeSettingModel? AutoChargeSetting { get; set; }
 
-    [JsonProperty("retryFailedPaymentsSetting", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public RetryFailedPaymentsSettingModel? RetryFailedPaymentsSetting { get; set; } = default!;
+    [JsonPropertyName("retryFailedPaymentsSetting")]
+    public RetryFailedPaymentsSettingModel? RetryFailedPaymentsSetting { get; set; }
 
-    [JsonProperty("taxLabel", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TaxLabel { get; set; } = default!;
+    [JsonPropertyName("taxLabel")]
+    public string? TaxLabel { get; set; }
 
-    [JsonProperty("accountType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public ApiSubscriptionSettingsModelAccountType? AccountType { get; set; } = default!;
+    [JsonPropertyName("accountType")]
+    public ApiSubscriptionSettingsModelAccountType? AccountType { get; set; }
 
-    [JsonProperty("tariffMinSetting", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public TariffMinSettingModel? TariffMinSetting { get; set; } = default!;
+    [JsonPropertyName("tariffMinSetting")]
+    public TariffMinSettingModel? TariffMinSetting { get; set; }
 
-    [JsonProperty("reject3rdPartyChargeCards", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Reject3rdPartyChargeCards { get; set; } = default!;
+    [JsonPropertyName("reject3rdPartyChargeCards")]
+    public bool? Reject3rdPartyChargeCards { get; set; }
 
 }

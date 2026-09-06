@@ -1,18 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class RegularHours
 {
-    [JsonProperty("weekday", Required = Required.Always)]
+    [JsonPropertyName("weekday")]
+    [JsonRequired]
     public int Weekday { get; set; } = default!;
 
-    [JsonProperty("period_begin", Required = Required.Always)]
-    public string Period_begin { get; set; } = default!;
+    [JsonPropertyName("period_begin")]
+    [JsonRequired]
+    public string PeriodBegin { get; set; } = default!;
 
-    [JsonProperty("period_end", Required = Required.Always)]
-    public string Period_end { get; set; } = default!;
+    [JsonPropertyName("period_end")]
+    [JsonRequired]
+    public string PeriodEnd { get; set; } = default!;
 }
 

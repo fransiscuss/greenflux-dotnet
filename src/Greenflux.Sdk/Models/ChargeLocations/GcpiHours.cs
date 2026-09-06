@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiHours
 {
-    [JsonProperty("regular_hours", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiRegularHours>? Regular_hours { get; set; } = default!;
+    [JsonPropertyName("regular_hours")]
+    public ICollection<GcpiRegularHours>? RegularHours { get; set; }
 
-    [JsonProperty("twentyfourseven", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Twentyfourseven { get; set; } = default!;
+    [JsonPropertyName("twentyfourseven")]
+    public bool? Twentyfourseven { get; set; }
 
-    [JsonProperty("exceptional_openings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiExceptionalPeriod>? Exceptional_openings { get; set; } = default!;
+    [JsonPropertyName("exceptional_openings")]
+    public ICollection<GcpiExceptionalPeriod>? ExceptionalOpenings { get; set; }
 
-    [JsonProperty("exceptional_closings", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<GcpiExceptionalPeriod>? Exceptional_closings { get; set; } = default!;
+    [JsonPropertyName("exceptional_closings")]
+    public ICollection<GcpiExceptionalPeriod>? ExceptionalClosings { get; set; }
 }

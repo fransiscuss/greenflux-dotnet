@@ -1,0 +1,62 @@
+{
+  "data": {
+    "uid": "v_uid",
+    "evse_id": "v_evse_id",
+    "status": "AVAILABLE",
+    "status_schedule": [
+      {
+        "period_begin": "2026-01-01T00:41:40+00:00",
+        "period_end": "2026-01-01T21:14:58+00:00",
+        "status": "AVAILABLE",
+        "status_message": "v_status_message"
+      }
+    ],
+    "capabilities": [
+      "CHARGING_PROFILE_CAPABLE"
+    ],
+    "connectors": [
+      {
+        "id": "v_id",
+        "standard": "CHADEMO",
+        "format": "SOCKET",
+        "power_type": "AC_1_PHASE",
+        "voltage": 877,
+        "amperage": 791,
+        "max_electric_power": 833,
+        "tariff_id": "v_tariff_id",
+        "terms_and_conditions": "v_terms_and_conditions",
+        "last_updated": "2026-01-01T08:35:41+00:00"
+      }
+    ],
+    "floor_level": "v_floor_level",
+    "coordinates": {
+      "latitude": "v_latitude",
+      "longitude": "v_longitude"
+    },
+    "physical_reference": "v_physical_reference",
+    "directions": [
+      {
+        "language": "v_language",
+        "text": "v_text"
+      }
+    ],
+    "parking_restrictions": [
+      "EV_ONLY"
+    ],
+    "images": [
+      {
+        "url": "v_url",
+        "thumbnail": "v_thumbnail",
+        "category": "CHARGER",
+        "type": "v_type",
+        "width": 421,
+        "height": 96
+      }
+    ],
+    "charging_behavior": "URBAN_CHARGING",
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "status_code": "_1000",
+  "status_message": "v_status_message",
+  "timestamp": "2026-01-01T10:53:25+00:00"
+}

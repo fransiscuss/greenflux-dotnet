@@ -1,0 +1,10 @@
+{
+  "uid": "v_uid",
+  "name": "v_name",
+  "charge_point": {
+    "id": "v_id",
+    "connectors": [
+      80
+    ]
+  }
+}

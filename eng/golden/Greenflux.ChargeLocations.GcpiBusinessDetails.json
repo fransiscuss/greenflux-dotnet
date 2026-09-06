@@ -1,0 +1,13 @@
+{
+  "name": "v_name",
+  "website": "v_website",
+  "logo": {
+    "url": "v_url",
+    "thumbnail": "v_thumbnail",
+    "category": "CHARGER",
+    "type": "v_type",
+    "width": 421,
+    "height": 96
+  },
+  "phone_number": "v_phone_number"
+}

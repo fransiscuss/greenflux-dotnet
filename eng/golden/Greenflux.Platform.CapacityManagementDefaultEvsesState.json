@@ -1,0 +1,11 @@
+{
+  "number": 602,
+  "allocated": 606.5,
+  "allocated_l1": 866.5,
+  "allocated_l2": 865.5,
+  "allocated_l3": 864.5,
+  "power_consumption_watts": 774.5,
+  "power_consumption_l1_watts": 578.5,
+  "power_consumption_l2_watts": 103.5,
+  "power_consumption_l3_watts": 784.5
+}

@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,19 +6,19 @@ namespace Greenflux.ChargeAssist;
 public class BadRequestObjectResult
 {
 
-    [JsonProperty("value", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public object? Value { get; set; } = default!;
+    [JsonPropertyName("value")]
+    public object? Value { get; set; }
 
-    [JsonProperty("formatters", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<IOutputFormatter>? Formatters { get; set; } = default!;
+    [JsonPropertyName("formatters")]
+    public ICollection<IOutputFormatter>? Formatters { get; set; }
 
-    [JsonProperty("contentTypes", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? ContentTypes { get; set; } = default!;
+    [JsonPropertyName("contentTypes")]
+    public ICollection<string>? ContentTypes { get; set; }
 
-    [JsonProperty("declaredType", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DeclaredType { get; set; } = default!;
+    [JsonPropertyName("declaredType")]
+    public string? DeclaredType { get; set; }
 
-    [JsonProperty("statusCode", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? StatusCode { get; set; } = default!;
+    [JsonPropertyName("statusCode")]
+    public int? StatusCode { get; set; }
 
 }

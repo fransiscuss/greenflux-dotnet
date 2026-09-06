@@ -1,0 +1,17 @@
+{
+  "evse_sequence_number": 524,
+  "capabilities": [
+    "v_capabilities_0"
+  ],
+  "connector_templates": [
+    {
+      "id": 692,
+      "amperage": 791,
+      "voltage": 877,
+      "max_electric_power": 833,
+      "standard": "v_standard",
+      "format": "v_format",
+      "power_type": "v_power_type"
+    }
+  ]
+}

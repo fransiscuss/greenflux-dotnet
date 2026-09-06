@@ -1,33 +1,32 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class ExternalCdrInformationModel
 {
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("sessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SessionId { get; set; } = default!;
+    [JsonPropertyName("sessionId")]
+    public string? SessionId { get; set; }
 
-    [JsonProperty("externalSessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ExternalSessionId { get; set; } = default!;
+    [JsonPropertyName("externalSessionId")]
+    public string? ExternalSessionId { get; set; }
 
-    [JsonProperty("locationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("transactionDetails", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionTransactionDetailsModel? TransactionDetails { get; set; } = default!;
+    [JsonPropertyName("transactionDetails")]
+    public SessionTransactionDetailsModel? TransactionDetails { get; set; }
 
-    [JsonProperty("pspPreAuthTransactionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? PspPreAuthTransactionId { get; set; } = default!;
+    [JsonPropertyName("pspPreAuthTransactionId")]
+    public string? PspPreAuthTransactionId { get; set; }
 
-    [JsonProperty("locationSummary", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public SessionLocationModel? LocationSummary { get; set; } = default!;
+    [JsonPropertyName("locationSummary")]
+    public SessionLocationModel? LocationSummary { get; set; }
 
-    [JsonProperty("receiptNumber", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ReceiptNumber { get; set; } = default!;
+    [JsonPropertyName("receiptNumber")]
+    public string? ReceiptNumber { get; set; }
 
 }

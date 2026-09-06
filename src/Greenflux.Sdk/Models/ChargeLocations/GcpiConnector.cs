@@ -1,41 +1,39 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeLocations;
 
 public partial class GcpiConnector
 {
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("standard", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Standard { get; set; } = default!;
+    [JsonPropertyName("standard")]
+    public string? Standard { get; set; }
 
-    [JsonProperty("format", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Format { get; set; } = default!;
+    [JsonPropertyName("format")]
+    public string? Format { get; set; }
 
-    [JsonProperty("power_type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Power_type { get; set; } = default!;
+    [JsonPropertyName("power_type")]
+    public string? PowerType { get; set; }
 
-    [JsonProperty("voltage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Voltage { get; set; } = default!;
+    [JsonPropertyName("voltage")]
+    public int? Voltage { get; set; }
 
-    [JsonProperty("amperage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Amperage { get; set; } = default!;
+    [JsonPropertyName("amperage")]
+    public int? Amperage { get; set; }
 
-    [JsonProperty("max_electric_power", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Max_electric_power { get; set; } = default!;
+    [JsonPropertyName("max_electric_power")]
+    public int? MaxElectricPower { get; set; }
 
-    [JsonProperty("tariff_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Tariff_id { get; set; } = default!;
+    [JsonPropertyName("tariff_id")]
+    public string? TariffId { get; set; }
 
-    [JsonProperty("terms_and_conditions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Terms_and_conditions { get; set; } = default!;
+    [JsonPropertyName("terms_and_conditions")]
+    public string? TermsAndConditions { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    public DateTimeOffset? LastUpdated { get; set; }
 
-    [JsonProperty("reimbursement_tariff_id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Reimbursement_tariff_id { get; set; } = default!;
+    [JsonPropertyName("reimbursement_tariff_id")]
+    public string? ReimbursementTariffId { get; set; }
 }

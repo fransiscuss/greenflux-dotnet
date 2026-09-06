@@ -1,13 +1,10 @@
-#pragma warning disable CS1591
-
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using Greenflux.Http;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 

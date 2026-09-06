@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,19 +6,19 @@ namespace Greenflux.ChargeAssist;
 public class SessionRatingAllV2Request
 {
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("sessionId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? SessionId { get; set; } = default!;
+    [JsonPropertyName("sessionId")]
+    public string? SessionId { get; set; }
 
-    [JsonProperty("feedbackText", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? FeedbackText { get; set; } = default!;
+    [JsonPropertyName("feedbackText")]
+    public string? FeedbackText { get; set; }
 
-    [JsonProperty("ratingOptions", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<string>? RatingOptions { get; set; } = default!;
+    [JsonPropertyName("ratingOptions")]
+    public ICollection<string>? RatingOptions { get; set; }
 
-    [JsonProperty("starRating", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? StarRating { get; set; } = default!;
+    [JsonPropertyName("starRating")]
+    public int? StarRating { get; set; }
 
 }

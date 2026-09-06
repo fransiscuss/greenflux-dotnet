@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 
 namespace Greenflux.ChargeAssist;
@@ -7,37 +6,37 @@ namespace Greenflux.ChargeAssist;
 public class QrResponse
 {
 
-    [JsonProperty("valid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Valid { get; set; } = default!;
+    [JsonPropertyName("valid")]
+    public bool? Valid { get; set; }
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("datasource", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Datasource { get; set; } = default!;
+    [JsonPropertyName("datasource")]
+    public string? Datasource { get; set; }
 
-    [JsonProperty("operator", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Operator { get; set; } = default!;
+    [JsonPropertyName("operator")]
+    public string? Operator { get; set; }
 
-    [JsonProperty("locationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("ocpiLocationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? OcpiLocationId { get; set; } = default!;
+    [JsonPropertyName("ocpiLocationId")]
+    public string? OcpiLocationId { get; set; }
 
-    [JsonProperty("evseUid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseUid { get; set; } = default!;
+    [JsonPropertyName("evseUid")]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("connectorId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ConnectorId { get; set; } = default!;
+    [JsonPropertyName("connectorId")]
+    public string? ConnectorId { get; set; }
 
-    [JsonProperty("url", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Url { get; set; } = default!;
+    [JsonPropertyName("url")]
+    public string? Url { get; set; }
 
-    [JsonProperty("embeddedUrl", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EmbeddedUrl { get; set; } = default!;
+    [JsonPropertyName("embeddedUrl")]
+    public string? EmbeddedUrl { get; set; }
 
-    [JsonProperty("createdDate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? CreatedDate { get; set; } = default!;
+    [JsonPropertyName("createdDate")]
+    public DateTimeOffset? CreatedDate { get; set; }
 
 }

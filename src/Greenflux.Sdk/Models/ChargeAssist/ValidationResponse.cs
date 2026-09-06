@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,13 +6,13 @@ namespace Greenflux.ChargeAssist;
 public class ValidationResponse
 {
 
-    [JsonProperty("validationMessages", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<ValidationMessage>? ValidationMessages { get; set; } = default!;
+    [JsonPropertyName("validationMessages")]
+    public ICollection<ValidationMessage>? ValidationMessages { get; set; }
 
-    [JsonProperty("message", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Message { get; set; } = default!;
+    [JsonPropertyName("message")]
+    public string? Message { get; set; }
 
-    [JsonProperty("developerMessage", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DeveloperMessage { get; set; } = default!;
+    [JsonPropertyName("developerMessage")]
+    public string? DeveloperMessage { get; set; }
 
 }

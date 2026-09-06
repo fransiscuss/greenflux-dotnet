@@ -1,12 +1,11 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class StripeConnectTenantCpso
 {
-    [JsonProperty("cpso_external_id", Required = Required.Always)]
-    public string Cpso_external_id { get; set; } = default!;
+    [JsonPropertyName("cpso_external_id")]
+    [JsonRequired]
+    public string CpsoExternalId { get; set; } = default!;
 }
 

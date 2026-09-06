@@ -1,30 +1,31 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Tariff
 {
-    [JsonProperty("id", Required = Required.Always)]
+    [JsonPropertyName("id")]
+    [JsonRequired]
     public string Id { get; set; } = default!;
 
-    [JsonProperty("currency", Required = Required.Always)]
+    [JsonPropertyName("currency")]
+    [JsonRequired]
     public string Currency { get; set; } = default!;
 
-    [JsonProperty("tariff_alt_text", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<DisplayText>? Tariff_alt_text { get; set; } = default!;
+    [JsonPropertyName("tariff_alt_text")]
+    public ICollection<DisplayText>? TariffAltText { get; set; }
 
-    [JsonProperty("tariff_alt_url", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Tariff_alt_url { get; set; } = default!;
+    [JsonPropertyName("tariff_alt_url")]
+    public string? TariffAltUrl { get; set; }
 
-    [JsonProperty("elements", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<TariffElement>? Elements { get; set; } = default!;
+    [JsonPropertyName("elements")]
+    public ICollection<TariffElement>? Elements { get; set; }
 
-    [JsonProperty("energy_mix", NullValueHandling = NullValueHandling.Ignore)]
-    public EnergyMix? Energy_mix { get; set; } = default!;
+    [JsonPropertyName("energy_mix")]
+    public EnergyMix? EnergyMix { get; set; }
 
-    [JsonProperty("last_updated", Required = Required.Always)]
-    public DateTimeOffset Last_updated { get; set; } = default!;
+    [JsonPropertyName("last_updated")]
+    [JsonRequired]
+    public DateTimeOffset LastUpdated { get; set; } = default!;
 }
 

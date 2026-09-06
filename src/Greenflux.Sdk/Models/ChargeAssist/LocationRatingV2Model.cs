@@ -1,5 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -7,22 +6,22 @@ namespace Greenflux.ChargeAssist;
 public class LocationRatingV2Model
 {
 
-    [JsonProperty("id", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("appToken", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? AppToken { get; set; } = default!;
+    [JsonPropertyName("appToken")]
+    public string? AppToken { get; set; }
 
-    [JsonProperty("locationId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LocationId { get; set; } = default!;
+    [JsonPropertyName("locationId")]
+    public string? LocationId { get; set; }
 
-    [JsonProperty("evseUid", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? EvseUid { get; set; } = default!;
+    [JsonPropertyName("evseUid")]
+    public string? EvseUid { get; set; }
 
-    [JsonProperty("ratingOptionFeedbacks", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<RatingOptionFeedback>? RatingOptionFeedbacks { get; set; } = default!;
+    [JsonPropertyName("ratingOptionFeedbacks")]
+    public ICollection<RatingOptionFeedback>? RatingOptionFeedbacks { get; set; }
 
-    [JsonProperty("feedbackText", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? FeedbackText { get; set; } = default!;
+    [JsonPropertyName("feedbackText")]
+    public string? FeedbackText { get; set; }
 
 }

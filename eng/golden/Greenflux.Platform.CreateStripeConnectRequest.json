@@ -1,0 +1,29 @@
+{
+  "connection_name": "v_connection_name",
+  "cpsos": [
+    {
+      "cpso_external_id": "v_cpso_external_id"
+    }
+  ],
+  "cpo_customers": [
+    {
+      "cpo_customer_external_id": "v_cpo_customer_external_id",
+      "cpso_id": "v_cpso_id"
+    }
+  ],
+  "application_fee_percentage": 5.5,
+  "customer_email": "v_customer_email",
+  "business_details": {
+    "name": "v_name",
+    "street": "v_street",
+    "postal_code": "v_postal_code",
+    "city": "v_city",
+    "country": "v_country",
+    "phone": "v_phone",
+    "email": "v_email",
+    "vat_number": "v_vat_number",
+    "registration_number": "v_registration_number",
+    "k_AdditionalProperties": "o_AdditionalProperties_v"
+  },
+  "enable_tax_calculation": true
+}

@@ -1,27 +1,26 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class PutChargeCardRequest
 {
 
-    [JsonProperty("visualNumber", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? VisualNumber { get; set; } = default!;
+    [JsonPropertyName("visualNumber")]
+    public string? VisualNumber { get; set; }
 
-    [JsonProperty("tokenIssuer", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? TokenIssuer { get; set; } = default!;
+    [JsonPropertyName("tokenIssuer")]
+    public string? TokenIssuer { get; set; }
 
-    [JsonProperty("cardAlias", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardAlias { get; set; } = default!;
+    [JsonPropertyName("cardAlias")]
+    public string? CardAlias { get; set; }
 
-    [JsonProperty("chipId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChipId { get; set; } = default!;
+    [JsonPropertyName("chipId")]
+    public string? ChipId { get; set; }
 
-    [JsonProperty("activate", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public bool? Activate { get; set; } = default!;
+    [JsonPropertyName("activate")]
+    public bool? Activate { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
 }

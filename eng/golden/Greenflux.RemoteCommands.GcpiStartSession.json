@@ -1,0 +1,17 @@
+{
+  "token": {
+    "uid": "v_uid",
+    "type": "OTHER",
+    "auth_id": "v_auth_id",
+    "visual_number": "v_visual_number",
+    "issuer": "v_issuer",
+    "valid": false,
+    "whitelist": "ALWAYS",
+    "language": "v_language",
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "location_id": "v_location_id",
+  "evse_uid": "v_evse_uid",
+  "connector_id": "v_connector_id",
+  "chargestation_id": "v_chargestation_id"
+}

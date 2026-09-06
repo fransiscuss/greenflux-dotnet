@@ -1,24 +1,23 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class EnergyMix
 {
-    [JsonProperty("is_green_energy", Required = Required.AllowNull)]
-    public bool? Is_green_energy { get; set; } = default!;
+    [JsonPropertyName("is_green_energy")]
+    [JsonRequired]
+    public bool? IsGreenEnergy { get; set; }
 
-    [JsonProperty("energy_sources", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EnergySource>? Energy_sources { get; set; } = default!;
+    [JsonPropertyName("energy_sources")]
+    public ICollection<EnergySource>? EnergySources { get; set; }
 
-    [JsonProperty("environ_impact", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<EnvironmentalImpact>? Environ_impact { get; set; } = default!;
+    [JsonPropertyName("environ_impact")]
+    public ICollection<EnvironmentalImpact>? EnvironImpact { get; set; }
 
-    [JsonProperty("supplier_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Supplier_name { get; set; } = default!;
+    [JsonPropertyName("supplier_name")]
+    public string? SupplierName { get; set; }
 
-    [JsonProperty("energy_product_name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Energy_product_name { get; set; } = default!;
+    [JsonPropertyName("energy_product_name")]
+    public string? EnergyProductName { get; set; }
 }
 

@@ -1,29 +1,28 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class Image
 {
-    [JsonProperty("url", Required = Required.Always)]
+    [JsonPropertyName("url")]
+    [JsonRequired]
     public string Url { get; set; } = default!;
 
-    [JsonProperty("thumbnail", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Thumbnail { get; set; } = default!;
+    [JsonPropertyName("thumbnail")]
+    public string? Thumbnail { get; set; }
 
-    [JsonProperty("category", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonPropertyName("category")]
+    [JsonRequired]
     public ImageCategory Category { get; set; } = default!;
 
-    [JsonProperty("type", Required = Required.Always)]
+    [JsonPropertyName("type")]
+    [JsonRequired]
     public string Type { get; set; } = default!;
 
-    [JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Width { get; set; } = default!;
+    [JsonPropertyName("width")]
+    public int? Width { get; set; }
 
-    [JsonProperty("height", NullValueHandling = NullValueHandling.Ignore)]
-    public int? Height { get; set; } = default!;
+    [JsonPropertyName("height")]
+    public int? Height { get; set; }
 }
 

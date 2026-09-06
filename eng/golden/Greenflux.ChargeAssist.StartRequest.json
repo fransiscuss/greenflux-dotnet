@@ -1,0 +1,9 @@
+{
+  "locationId": "v_locationId",
+  "evseUid": "v_evseUid",
+  "connectorId": "v_connectorId",
+  "paymentMethodId": "v_paymentMethodId",
+  "adhocPaymentMethodId": "v_adhocPaymentMethodId",
+  "isPinned": false,
+  "ignoreEvseAvailablity": true
+}

@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class RetailPackage
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Name { get; set; } = default!;
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
-    [JsonProperty("modified_on_utc", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Modified_on_utc { get; set; } = default!;
+    [JsonPropertyName("modified_on_utc")]
+    public DateTimeOffset? ModifiedOnUtc { get; set; }
 
-    [JsonProperty("modified_by", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Modified_by { get; set; } = default!;
+    [JsonPropertyName("modified_by")]
+    public string? ModifiedBy { get; set; }
 }
 

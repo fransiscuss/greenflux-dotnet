@@ -1,0 +1,17 @@
+{
+  "token": {
+    "uid": "v_uid",
+    "type": "OTHER",
+    "auth_id": "v_auth_id",
+    "visual_number": "v_visual_number",
+    "issuer": "v_issuer",
+    "valid": false,
+    "whitelist": "ALWAYS",
+    "language": "v_language",
+    "last_updated": "2026-01-01T08:35:41+00:00"
+  },
+  "expiry_date": "2026-01-01T17:25:11+00:00",
+  "reservation_id": "v_reservation_id",
+  "location_id": "v_location_id",
+  "evse_uid": "v_evse_uid"
+}

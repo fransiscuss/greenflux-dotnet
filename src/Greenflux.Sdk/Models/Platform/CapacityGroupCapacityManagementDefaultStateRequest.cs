@@ -1,18 +1,16 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupCapacityManagementDefaultStateRequest
 {
-    [JsonProperty("default_group_capacity_amps", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Default_group_capacity_amps { get; set; } = default!;
+    [JsonPropertyName("default_group_capacity_amps")]
+    public double? DefaultGroupCapacityAmps { get; set; }
 
-    [JsonProperty("session_started_duration", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Session_started_duration { get; set; } = default!;
+    [JsonPropertyName("session_started_duration")]
+    public string? SessionStartedDuration { get; set; }
 
-    [JsonProperty("min_allocation_amps", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Min_allocation_amps { get; set; } = default!;
+    [JsonPropertyName("min_allocation_amps")]
+    public double? MinAllocationAmps { get; set; }
 }
 

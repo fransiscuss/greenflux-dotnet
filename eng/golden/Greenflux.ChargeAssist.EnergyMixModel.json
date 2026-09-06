@@ -1,0 +1,18 @@
+{
+  "isGreenEnergy": true,
+  "energySources": [
+    {
+      "source": "NUCLEAR",
+      "percentage": 837.5,
+      "isRenewableEnergy": true
+    }
+  ],
+  "environImpact": [
+    {
+      "source": "NUCLEAR_WASTE",
+      "amount": 593.5
+    }
+  ],
+  "supplierName": "v_supplierName",
+  "energyProductName": "v_energyProductName"
+}

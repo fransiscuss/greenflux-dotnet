@@ -1,19 +1,20 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.ObjectModel;
 
 namespace Greenflux.Platform;
 
 public partial class CdrLineItem
 {
-    [JsonProperty("tariff_id", Required = Required.Always)]
-    public string Tariff_id { get; set; } = default!;
+    [JsonPropertyName("tariff_id")]
+    [JsonRequired]
+    public string TariffId { get; set; } = default!;
 
-    [JsonProperty("start_date_time", Required = Required.Always)]
-    public string Start_date_time { get; set; } = default!;
+    [JsonPropertyName("start_date_time")]
+    [JsonRequired]
+    public string StartDateTime { get; set; } = default!;
 
-    [JsonProperty("dimensions", Required = Required.Always)]
+    [JsonPropertyName("dimensions")]
+    [JsonRequired]
     public ICollection<CdrCostDimension> Dimensions { get; set; } = new Collection<CdrCostDimension>();
 
     private IDictionary<string, object>? _additionalProperties;

@@ -1,38 +1,38 @@
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.RemoteCommands;
 
 public partial class GcpiNetworkConnectionProfile
 {
-    [JsonProperty("ocpp_version", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiNetworkConnectionProfileOcpp_version Ocpp_version { get; set; } = default!;
+    [JsonPropertyName("ocpp_version")]
+    [JsonRequired]
+    public GcpiNetworkConnectionProfileOcpp_version OcppVersion { get; set; } = default!;
 
-    [JsonProperty("ocpp_transport", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiNetworkConnectionProfileOcpp_transport Ocpp_transport { get; set; } = default!;
+    [JsonPropertyName("ocpp_transport")]
+    [JsonRequired]
+    public GcpiNetworkConnectionProfileOcpp_transport OcppTransport { get; set; } = default!;
 
-    [JsonProperty("ocpp_csms_url", Required = Required.Always)]
-    public string Ocpp_csms_url { get; set; } = default!;
+    [JsonPropertyName("ocpp_csms_url")]
+    [JsonRequired]
+    public string OcppCsmsUrl { get; set; } = default!;
 
-    [JsonProperty("message_timeout", Required = Required.Always)]
-    public int Message_timeout { get; set; } = default!;
+    [JsonPropertyName("message_timeout")]
+    [JsonRequired]
+    public int MessageTimeout { get; set; } = default!;
 
-    [JsonProperty("security_profile", Required = Required.Always)]
-    public int Security_profile { get; set; } = default!;
+    [JsonPropertyName("security_profile")]
+    [JsonRequired]
+    public int SecurityProfile { get; set; } = default!;
 
-    [JsonProperty("ocpp_interface", Required = Required.Always)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public GcpiNetworkConnectionProfileOcpp_interface Ocpp_interface { get; set; } = default!;
+    [JsonPropertyName("ocpp_interface")]
+    [JsonRequired]
+    public GcpiNetworkConnectionProfileOcpp_interface OcppInterface { get; set; } = default!;
 
-    [JsonProperty("vpn", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiVpnType? Vpn { get; set; } = default!;
+    [JsonPropertyName("vpn")]
+    public GcpiVpnType? Vpn { get; set; }
 
-    [JsonProperty("apn", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public GcpiApnType? Apn { get; set; } = default!;
+    [JsonPropertyName("apn")]
+    public GcpiApnType? Apn { get; set; }
 
     [JsonExtensionData]
     public IDictionary<string, object>? AdditionalProperties { get; set; }

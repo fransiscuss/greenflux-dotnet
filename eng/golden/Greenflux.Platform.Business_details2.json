@@ -1,0 +1,12 @@
+{
+  "name": "v_name",
+  "street": "v_street",
+  "postal_code": "v_postal_code",
+  "city": "v_city",
+  "country": "v_country",
+  "phone": "v_phone",
+  "email": "v_email",
+  "vat_number": "v_vat_number",
+  "registration_number": "v_registration_number",
+  "k_AdditionalProperties": "o_AdditionalProperties_v"
+}

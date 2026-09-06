@@ -1,0 +1,175 @@
+{
+  "id": "v_id",
+  "type": "ON_STREET",
+  "name": "v_name",
+  "displayName": "v_displayName",
+  "address": "v_address",
+  "city": "v_city",
+  "postalCode": "v_postalCode",
+  "country": "v_country",
+  "coordinates": {
+    "latitude": 187.5,
+    "longitude": 646.5
+  },
+  "evses": [
+    {
+      "uid": "v_uid",
+      "displayName": "v_displayName",
+      "status": "AVAILABLE",
+      "capabilities": [
+        "CHARGING_PROFILE_CAPABLE"
+      ],
+      "connectors": [],
+      "floorLevel": "v_floorLevel",
+      "coordinates": [],
+      "physicalReference": "v_physicalReference",
+      "chargingNotAllowed": false,
+      "agreement": false,
+      "directions": [],
+      "parkingRestrictions": [
+        "EV_ONLY"
+      ],
+      "images": [],
+      "matchesFilter": true,
+      "restrictedAccess": true,
+      "remoteCommandsCapable": false,
+      "chargerType": "v_chargerType",
+      "isPrivateCharger": true,
+      "evseId": "v_evseId",
+      "isQrPresent": false,
+      "lastUpdated": "2026-01-01T21:45:16+00:00"
+    }
+  ],
+  "directions": [
+    {
+      "language": "v_language",
+      "text": "v_text"
+    }
+  ],
+  "operator": {
+    "name": "v_name",
+    "website": "v_website",
+    "logo": {
+      "url": "v_url",
+      "thumbnail": "v_thumbnail",
+      "category": "CHARGER",
+      "type": "v_type",
+      "width": 421,
+      "height": 96
+    },
+    "phone_number": "v_phone_number",
+    "email": "v_email"
+  },
+  "suboperator": {
+    "name": "v_name",
+    "website": "v_website",
+    "logo": {
+      "url": "v_url",
+      "thumbnail": "v_thumbnail",
+      "category": "CHARGER",
+      "type": "v_type",
+      "width": 421,
+      "height": 96
+    },
+    "phone_number": "v_phone_number",
+    "email": "v_email"
+  },
+  "owner": {
+    "name": "v_name",
+    "website": "v_website",
+    "logo": {
+      "url": "v_url",
+      "thumbnail": "v_thumbnail",
+      "category": "CHARGER",
+      "type": "v_type",
+      "width": 421,
+      "height": 96
+    },
+    "phone_number": "v_phone_number",
+    "email": "v_email"
+  },
+  "facilities": [
+    "HOTEL"
+  ],
+  "openingHours": {
+    "regularHours": [
+      {
+        "weekday": 999
+      }
+    ],
+    "twentyfourseven": false,
+    "exceptionalOpenings": [
+      {
+        "periodBegin": "2026-01-01T18:28:07+00:00",
+        "periodEnd": "2026-01-01T23:23:21+00:00"
+      }
+    ],
+    "exceptionalClosings": [
+      {
+        "periodBegin": "2026-01-01T18:28:07+00:00",
+        "periodEnd": "2026-01-01T23:23:21+00:00"
+      }
+    ]
+  },
+  "images": [
+    {
+      "url": "v_url",
+      "thumbnail": "v_thumbnail",
+      "category": "CHARGER",
+      "type": "v_type",
+      "width": 421,
+      "height": 96
+    }
+  ],
+  "branding": {
+    "id": "v_id",
+    "displayName": "v_displayName",
+    "primaryColorHex": "v_primaryColorHex",
+    "logoUrl": "v_logoUrl",
+    "supportPhone": "v_supportPhone",
+    "supportEmail": "v_supportEmail",
+    "supportWebsite": "v_supportWebsite"
+  },
+  "smartChargingEnabled": true,
+  "reservationEnabled": true,
+  "dp": false,
+  "rfid": true,
+  "isPrivateLocation": false,
+  "pms": [
+    "CHARGE_CARD"
+  ],
+  "issuers": [
+    "v_issuers_0"
+  ],
+  "availability": "NONE",
+  "energyMix": {
+    "isGreenEnergy": true,
+    "energySources": [
+      {
+        "source": "NUCLEAR",
+        "percentage": 837.5,
+        "isRenewableEnergy": true
+      }
+    ],
+    "environImpact": [
+      {
+        "source": "NUCLEAR_WASTE",
+        "amount": 593.5
+      }
+    ],
+    "supplierName": "v_supplierName",
+    "energyProductName": "v_energyProductName"
+  },
+  "isHomeCharger": true,
+  "customProperties": [
+    {
+      "name": "v_name",
+      "value": "v_value"
+    }
+  ],
+  "timeZone": "v_timeZone",
+  "preAuthAmountInCents": 140,
+  "cpsoId": "v_cpsoId",
+  "cpoCustomerId": "v_cpoCustomerId",
+  "paymentServiceProvider": "Stripe"
+}

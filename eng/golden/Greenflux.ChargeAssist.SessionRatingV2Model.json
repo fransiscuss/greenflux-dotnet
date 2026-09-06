@@ -1,0 +1,9 @@
+{
+  "sessionId": "v_sessionId",
+  "appToken": "v_appToken",
+  "ratingOptions": [
+    "v_ratingOptions_0"
+  ],
+  "feedbackText": "v_feedbackText",
+  "starRating": 744
+}

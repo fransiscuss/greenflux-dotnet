@@ -1,15 +1,14 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class LinkChargeCardRequest
 {
 
-    [JsonProperty("chargeCardPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeCardPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("chargeCardPaymentMethodId")]
+    public string? ChargeCardPaymentMethodId { get; set; }
 
-    [JsonProperty("linkPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? LinkPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("linkPaymentMethodId")]
+    public string? LinkPaymentMethodId { get; set; }
 
 }

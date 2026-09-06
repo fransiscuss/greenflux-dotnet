@@ -1,29 +1,27 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.ChargeAssist;
 
 public class SessionPaymentMethodModel
 {
 
-    [JsonProperty("id", Required = Required.AllowNull)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    [JsonRequired]
+    public string? Id { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public SessionPaymentMethodModelType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public SessionPaymentMethodModelType? Type { get; set; }
 
-    [JsonProperty("cardHint", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? CardHint { get; set; } = default!;
+    [JsonPropertyName("cardHint")]
+    public string? CardHint { get; set; }
 
-    [JsonProperty("chargeCardVisualNumber", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ChargeCardVisualNumber { get; set; } = default!;
+    [JsonPropertyName("chargeCardVisualNumber")]
+    public string? ChargeCardVisualNumber { get; set; }
 
-    [JsonProperty("externalPaymentMethodId", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? ExternalPaymentMethodId { get; set; } = default!;
+    [JsonPropertyName("externalPaymentMethodId")]
+    public string? ExternalPaymentMethodId { get; set; }
 
-    [JsonProperty("displayName", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DisplayName { get; set; } = default!;
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
 }

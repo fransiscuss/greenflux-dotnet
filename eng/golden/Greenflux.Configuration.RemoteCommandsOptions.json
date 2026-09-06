@@ -1,0 +1,5 @@
+{
+  "BaseAddress": "https://example.test/BaseAddress",
+  "Token": "v_Token",
+  "Timeout": "09:12:00"
+}

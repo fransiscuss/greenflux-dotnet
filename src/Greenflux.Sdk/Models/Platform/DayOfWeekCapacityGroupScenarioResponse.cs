@@ -1,26 +1,22 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class DayOfWeekCapacityGroupScenarioResponse
 {
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Id { get; set; } = default!;
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
-    [JsonProperty("capacity", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Capacity { get; set; } = default!;
+    [JsonPropertyName("capacity")]
+    public double? Capacity { get; set; }
 
-    [JsonProperty("day_of_week", NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public DayOfWeek? Day_of_week { get; set; } = default!;
+    [JsonPropertyName("day_of_week")]
+    public DayOfWeek? DayOfWeek { get; set; }
 
-    [JsonProperty("start_time", NullValueHandling = NullValueHandling.Ignore)]
-    public string? Start_time { get; set; } = default!;
+    [JsonPropertyName("start_time")]
+    public string? StartTime { get; set; }
 
-    [JsonProperty("end_time", NullValueHandling = NullValueHandling.Ignore)]
-    public string? End_time { get; set; } = default!;
+    [JsonPropertyName("end_time")]
+    public string? EndTime { get; set; }
 }
 

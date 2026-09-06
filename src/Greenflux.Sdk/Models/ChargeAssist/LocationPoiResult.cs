@@ -1,6 +1,4 @@
-#pragma warning disable CS1591
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace Greenflux.ChargeAssist;
@@ -8,39 +6,40 @@ namespace Greenflux.ChargeAssist;
 public class LocationPoiResult
 {
 
-    [JsonProperty("lat", Required = Required.Always)]
+    [JsonPropertyName("lat")]
+    [JsonRequired]
     public double Lat { get; set; } = default!;
 
-    [JsonProperty("lon", Required = Required.Always)]
+    [JsonPropertyName("lon")]
+    [JsonRequired]
     public double Lon { get; set; } = default!;
 
-    [JsonProperty("count", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Count { get; set; } = default!;
+    [JsonPropertyName("count")]
+    public int? Count { get; set; }
 
-    [JsonProperty("dCount", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public string? DCount { get; set; } = default!;
+    [JsonPropertyName("dCount")]
+    public string? DCount { get; set; }
 
-    [JsonProperty("locationIds", Required = Required.AllowNull)]
-    public ICollection<string>? LocationIds { get; set; } = default!;
+    [JsonPropertyName("locationIds")]
+    [JsonRequired]
+    public ICollection<string>? LocationIds { get; set; }
 
-    [JsonProperty("type", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public LocationPoiResultType? Type { get; set; } = default!;
+    [JsonPropertyName("type")]
+    public LocationPoiResultType? Type { get; set; }
 
-    [JsonProperty("x", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? X { get; set; } = default!;
+    [JsonPropertyName("x")]
+    public int? X { get; set; }
 
-    [JsonProperty("y", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? Y { get; set; } = default!;
+    [JsonPropertyName("y")]
+    public int? Y { get; set; }
 
-    [JsonProperty("status", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    [JsonConverter(typeof(StringEnumConverter))]
-    public LocationPoiResultStatus? Status { get; set; } = default!;
+    [JsonPropertyName("status")]
+    public LocationPoiResultStatus? Status { get; set; }
 
-    [JsonProperty("evsAvailCnt", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? EvsAvailCnt { get; set; } = default!;
+    [JsonPropertyName("evsAvailCnt")]
+    public int? EvsAvailCnt { get; set; }
 
-    [JsonProperty("evsCnt", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)]
-    public int? EvsCnt { get; set; } = default!;
+    [JsonPropertyName("evsCnt")]
+    public int? EvsCnt { get; set; }
 
 }

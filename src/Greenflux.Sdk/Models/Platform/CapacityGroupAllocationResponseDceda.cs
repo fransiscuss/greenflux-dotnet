@@ -1,21 +1,19 @@
-#pragma warning disable CS1591
-
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Greenflux.Platform;
 
 public partial class CapacityGroupAllocationResponseDceda
 {
-    [JsonProperty("timestamp", NullValueHandling = NullValueHandling.Ignore)]
-    public DateTimeOffset? Timestamp { get; set; } = default!;
+    [JsonPropertyName("timestamp")]
+    public DateTimeOffset? Timestamp { get; set; }
 
-    [JsonProperty("current_group_capacity_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Current_group_capacity_watts { get; set; } = default!;
+    [JsonPropertyName("current_group_capacity_watts")]
+    public double? CurrentGroupCapacityWatts { get; set; }
 
-    [JsonProperty("allocated_capacity_watts", NullValueHandling = NullValueHandling.Ignore)]
-    public double? Allocated_capacity_watts { get; set; } = default!;
+    [JsonPropertyName("allocated_capacity_watts")]
+    public double? AllocatedCapacityWatts { get; set; }
 
-    [JsonProperty("evses", NullValueHandling = NullValueHandling.Ignore)]
-    public ICollection<CapacityGroupEvseAllocationResponseDceda>? Evses { get; set; } = default!;
+    [JsonPropertyName("evses")]
+    public ICollection<CapacityGroupEvseAllocationResponseDceda>? Evses { get; set; }
 }
 
