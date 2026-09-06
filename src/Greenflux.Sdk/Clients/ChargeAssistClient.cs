@@ -151,7 +151,6 @@ public interface IChargeAssistClient
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
 // ── Exception types ────────────────────────────────────────────────
 
 public class ChargeAssistApiException : GreenfluxApiException
