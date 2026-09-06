@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.0](https://github.com/fransiscuss/greenflux-dotnet/compare/v0.2.2...v1.0.0) (2026-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* net8.0 is no longer a target framework. Consumers on .NET 8 should stay on the previous release until they move to .NET 10.
+* the package no longer depends on Newtonsoft.Json and no longer uses its attributes. Model properties that had underscores are now PascalCase, the protected GreenfluxApiClient.JsonSerializerSettings is now JsonSerializerOptions, and an untyped response payload surfaces as a JsonElement rather than a JObject/JArray.
+* net9.0 is no longer a target framework.
+
+### Features
+
+* migrate to System.Text.Json and clear out the NSwag residue ([bf08962](https://github.com/fransiscuss/greenflux-dotnet/commit/bf08962f8cb12501471a61ddc92d10fc2ef45358))
+* modernize packaging, CI and release flow ([0320e67](https://github.com/fransiscuss/greenflux-dotnet/commit/0320e67a6bd4fb438da717a3f3157edd4a2e1065))
+* target net10.0 only and take the Microsoft.Extensions.Http bump ([e79210b](https://github.com/fransiscuss/greenflux-dotnet/commit/e79210b093caab2d422ecc035b476131e5fd6b7e))
+
+
+### Bug Fixes
+
+* correct the documented harness command and run it on both runtimes ([c87381b](https://github.com/fransiscuss/greenflux-dotnet/commit/c87381b08703f2ab7258ffd0097506f85cbb5f9e))
+* correct the rationale for the analyzer suppressions ([bcc593e](https://github.com/fransiscuss/greenflux-dotnet/commit/bcc593e9b0816b5bf0d30a33c6ed2575b60e2a1c))
+
 ## [0.2.2](https://github.com/fransiscuss/greenflux-dotnet/compare/v0.2.1...v0.2.2) (2026-09-05)
 
 
