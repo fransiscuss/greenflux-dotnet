@@ -1,6 +1,6 @@
 # GreenfluxDotNet.Sdk
 
-An unofficial, strongly typed .NET 9 SDK for the Greenflux CPMS APIs. Install from [NuGet](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/). The package includes all operations and models published in these OpenAPI documents:
+An unofficial, strongly typed .NET SDK for the Greenflux CPMS APIs, targeting .NET 8.0 and .NET 10.0 (both LTS). Install from [NuGet](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/). The package includes all operations and models published in these OpenAPI documents:
 
 - [Greenflux Platform](https://developer.greenflux.com/openapi/greenflux-service-1.json): CPO, eMSP, CDR, session, meter-value, coupon, and Smart Charging APIs
 - [Charge Location Management API](https://developer.greenflux.com/openapi/charge-location-management-apis.json)
