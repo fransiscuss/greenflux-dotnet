@@ -123,7 +123,9 @@ Two tools back the test suite, both runnable:
 ```bash
 # End-to-end: starts a local HTTP server, drives the real clients against it, and
 # asserts the bytes on the wire - auth headers, request bodies, enum values, error mapping.
-dotnet run --project samples/Greenflux.Sdk.IntegrationHarness
+# The harness multi-targets, so pick the runtime to check (CI runs both).
+dotnet run --project samples/Greenflux.Sdk.IntegrationHarness --framework net10.0
+dotnet run --project samples/Greenflux.Sdk.IntegrationHarness --framework net8.0
 
 # Serialization safety net: writes the serialized form of all 296 models to eng/golden/.
 # Run before and after any serialization change and diff the output; it must not move.
