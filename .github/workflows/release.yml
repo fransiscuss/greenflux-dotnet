@@ -1,0 +1,101 @@
+name: release
+
+# Automated release flow (release-please + trusted publishing to nuget.org):
+#
+# 1. Every push to main runs release-please. It maintains a "Release PR" that
+#    accumulates merged changes, computes the next semver from Conventional
+#    Commits (fix: -> patch, feat: -> minor, feat!/BREAKING CHANGE: -> major),
+#    updates CHANGELOG.md and the csproj version.
+# 2. When that Release PR is merged, release-please creates the git tag
+#    (vX.Y.Z) and GitHub Release.
+# 3. The publish job then packs the tagged commit and pushes to nuget.org
+#    using Trusted Publishing (OIDC) - no stored API key.
+#
+# workflow_dispatch re-publishes an existing tag without re-running
+# release-please, for when step 3 fails on its own.
+#
+# nuget.org requirement: a Trusted Publishing policy for
+#   owner=fransiscuss  repository=greenflux-dotnet  workflow=release.yml
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to publish manually (e.g. v0.2.0)'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+
+jobs:
+  release-please:
+    # Never run on workflow_dispatch: a manual re-publish must not be able to
+    # cut a new release as a side effect.
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # create tags and releases
+      pull-requests: write  # create/update the Release PR
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - name: Run release-please
+        id: release
+        uses: googleapis/release-please-action@v5
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  publish:
+    needs: release-please
+    # always() so the job still evaluates when release-please is skipped on dispatch.
+    if: always() && (needs.release-please.outputs.release_created == 'true' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # OIDC token for NuGet Trusted Publishing
+      contents: read
+    steps:
+      - name: Checkout released tag
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || needs.release-please.outputs.tag_name }}
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Test
+        run: |
+          dotnet test --no-build -c Release -f net8.0
+          dotnet test --no-build -c Release -f net10.0
+
+      - name: Pack
+        run: dotnet pack src/Greenflux.Sdk/Greenflux.Sdk.csproj -c Release -o artifacts/packages
+
+      - name: NuGet login (OIDC)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: fransiscus
+
+      # `dotnet nuget push` uploads the sibling .snupkg automatically - pushing it
+      # separately causes duplicate symbol-package errors.
+      - name: Push to NuGet.org
+        run: |
+          dotnet nuget push artifacts/packages/*.nupkg \
+            --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json

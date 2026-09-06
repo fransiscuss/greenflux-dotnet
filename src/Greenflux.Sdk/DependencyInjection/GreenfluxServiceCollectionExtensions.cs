@@ -105,7 +105,7 @@ public static class GreenfluxServiceCollectionExtensions
     private static Uri EnsureTrailingSlash(Uri baseAddress)
     {
         var value = baseAddress.AbsoluteUri;
-        return value.EndsWith("/", StringComparison.Ordinal) ? baseAddress : new Uri(value + '/', UriKind.Absolute);
+        return value.EndsWith('/') ? baseAddress : new Uri(value + '/', UriKind.Absolute);
     }
 
     private static string GetVersion() =>

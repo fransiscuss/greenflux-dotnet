@@ -244,7 +244,7 @@ public abstract class GreenfluxApiClient
         }
     }
 
-    private static IReadOnlyDictionary<string, IEnumerable<string>> CollectHeaders(HttpResponseMessage response)
+    private static Dictionary<string, IEnumerable<string>> CollectHeaders(HttpResponseMessage response)
     {
         var headers = new Dictionary<string, IEnumerable<string>>(StringComparer.OrdinalIgnoreCase);
         foreach (var item in response.Headers)
@@ -270,7 +270,7 @@ public abstract class GreenfluxApiClient
 
     // ── Request body ────────────────────────────────────────────────
 
-    private void SetJsonBody(HttpRequestMessage request, object? body)
+    private static void SetJsonBody(HttpRequestMessage request, object? body)
     {
         if (body is null) return;
         var json = JsonConvert.SerializeObject(body, JsonSerializerSettings);
@@ -326,7 +326,7 @@ public abstract class GreenfluxApiClient
                     if (attribute?.Value is not null)
                         return attribute.Value;
                 }
-                return Convert.ToString(Convert.ChangeType(enumValue, Enum.GetUnderlyingType(enumValue.GetType()), cultureInfo)) ?? string.Empty;
+                return Convert.ToString(Convert.ChangeType(enumValue, Enum.GetUnderlyingType(enumValue.GetType()), cultureInfo), cultureInfo) ?? string.Empty;
             }
         }
 

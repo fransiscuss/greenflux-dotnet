@@ -1,0 +1,11 @@
+root = true
+
+# Clients/ and Models/ are NSwag output (see eng/generate-clients.sh). These rules are
+# inherent to generated code - member names come from the OpenAPI documents, and the
+# generator emits its own argument checks - so they are switched off for those paths
+# only. AnalysisLevel in Directory.Build.props still applies to hand-written code.
+[src/Greenflux.Sdk/{Clients,Models}/**.cs]
+dotnet_diagnostic.CA1707.severity = none  # underscores in member names
+dotnet_diagnostic.CA1510.severity = none  # ArgumentNullException.ThrowIfNull
+dotnet_diagnostic.CA1041.severity = none  # ObsoleteAttribute without a message
+dotnet_diagnostic.CA1716.severity = none  # type names that match a reserved keyword
