@@ -38,7 +38,9 @@ jobs:
       # Drives the real clients against a local HTTP server and asserts what goes
       # over the wire. Exits non-zero on any failed check.
       - name: Integration harness
-        run: dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net10.0
+        run: |
+          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net8.0
+          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net10.0
 
       # The serialized form of every model must match the committed baseline.
       - name: Serialization golden check
