@@ -19,28 +19,20 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # The package multi-targets net8.0 and net10.0, so both SDKs must be present:
-      # the .NET 8 SDK alone cannot build a net10.0 target framework (NETSDK1045).
       - uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            8.0.x
-            10.0.x
+          dotnet-version: 10.0.x
 
       - run: dotnet restore
 
       - run: dotnet build --no-restore -c Release
 
-      # Run the suite on each supported runtime, not just the newest one.
-      - run: dotnet test --no-build -c Release -f net8.0
-      - run: dotnet test --no-build -c Release -f net10.0
+      - run: dotnet test --no-build -c Release
 
       # Drives the real clients against a local HTTP server and asserts what goes
       # over the wire. Exits non-zero on any failed check.
       - name: Integration harness
-        run: |
-          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net8.0
-          dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release -f net10.0
+        run: dotnet run --project samples/Greenflux.Sdk.IntegrationHarness -c Release
 
       # The serialized form of every model must match the committed baseline.
       - name: Serialization golden check

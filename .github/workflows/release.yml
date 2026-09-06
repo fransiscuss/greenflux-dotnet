@@ -68,9 +68,7 @@ jobs:
 
       - uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            8.0.x
-            10.0.x
+          dotnet-version: 10.0.x
 
       - name: Restore
         run: dotnet restore
@@ -79,9 +77,7 @@ jobs:
         run: dotnet build --no-restore -c Release
 
       - name: Test
-        run: |
-          dotnet test --no-build -c Release -f net8.0
-          dotnet test --no-build -c Release -f net10.0
+        run: dotnet test --no-build -c Release
 
       - name: Pack
         run: dotnet pack src/Greenflux.Sdk/Greenflux.Sdk.csproj -c Release -o artifacts/packages

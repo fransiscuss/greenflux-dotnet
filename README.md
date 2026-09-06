@@ -1,6 +1,6 @@
 # GreenfluxDotNet.Sdk
 
-An unofficial, strongly typed .NET SDK for the Greenflux CPMS APIs, targeting .NET 8.0 and .NET 10.0 (both LTS). Install from [NuGet](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/). The package includes all operations and models published in these OpenAPI documents:
+An unofficial, strongly typed .NET SDK for the Greenflux CPMS APIs, targeting .NET 10.0 (LTS). Install from [NuGet](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/). The package includes all operations and models published in these OpenAPI documents:
 
 - [Greenflux Platform](https://developer.greenflux.com/openapi/greenflux-service-1.json): CPO, eMSP, CDR, session, meter-value, coupon, and Smart Charging APIs
 - [Charge Location Management API](https://developer.greenflux.com/openapi/charge-location-management-apis.json)
@@ -123,9 +123,7 @@ Two tools back the test suite, both runnable:
 ```bash
 # End-to-end: starts a local HTTP server, drives the real clients against it, and
 # asserts the bytes on the wire - auth headers, request bodies, enum values, error mapping.
-# The harness multi-targets, so pick the runtime to check (CI runs both).
-dotnet run --project samples/Greenflux.Sdk.IntegrationHarness --framework net10.0
-dotnet run --project samples/Greenflux.Sdk.IntegrationHarness --framework net8.0
+dotnet run --project samples/Greenflux.Sdk.IntegrationHarness
 
 # Serialization safety net: writes the serialized form of all 296 models to eng/golden/.
 # Run before and after any serialization change and diff the output; it must not move.
