@@ -175,11 +175,14 @@ public abstract class GreenfluxApiClient
         var headers = CollectHeaders(response);
 
         var status = (int)response.StatusCode;
-        if (status == 204)
-            return default!;
 
-        if (status == 200 || status == 201)
+        // Every 2xx is a success. Singling out 200/201 rejected the 202 Accepted that
+        // the remote-command endpoints return, and 203/206 besides.
+        if (status is >= 200 and < 300)
         {
+            if (status == 204 || status == 205)
+                return default!;
+
             return await DeserializeResponseAsync<T>(response, status, headers, cancellationToken).ConfigureAwait(false);
         }
 
@@ -219,6 +222,11 @@ public abstract class GreenfluxApiClient
                 .DeserializeAsync<T>(stream, JsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
             return result!;
+        }
+        catch (JsonException) when (response.Content.Headers.ContentLength == 0)
+        {
+            // An accepted command may answer with an empty body and no 204.
+            return default!;
         }
         catch (JsonException exception)
         {
@@ -383,7 +391,12 @@ public abstract class GreenfluxApiClient
         DateTimeOffset? value)
     {
         if (value.HasValue)
-            parameters[key] = value.Value.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+        {
+            // Convert to UTC first: formatting the caller's local offset and then
+            // labelling it "Z" sends a timestamp that is wrong by the offset.
+            parameters[key] = value.Value.ToUniversalTime()
+                .ToString("yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture);
+        }
     }
 
     /// <summary>Adds an enum parameter to the dictionary only if the value is not null.</summary>
