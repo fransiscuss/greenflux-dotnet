@@ -142,4 +142,4 @@ vulnerabilities, so a broken package is caught before a tag exists.
 `eng/golden/` is the committed baseline, captured while the SDK still used Newtonsoft.Json.
 It is what proves the System.Text.Json migration left the wire format untouched.
 
-This project is licensed under the [MIT License](LICENSE). Source: [github.com/fransiscuss/greenflux-dotnet](https://github.com/fransiscuss/greenflux-dotnet).
+This project is licensed under the [MIT License](LICENSE). Source: [github.com/fransiscuss/greenflux-dotnet](https://github.com/fransiscuss/greenflux-dotnet). Built and maintained by [Fransiscus Setiawan](https://fransiscuss.com).
