@@ -1,5 +1,10 @@
 # GreenfluxDotNet.Sdk
 
+[![CI](https://github.com/fransiscuss/greenflux-dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/fransiscuss/greenflux-dotnet/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/GreenfluxDotNet.Sdk)](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/)
+[![downloads](https://img.shields.io/nuget/dt/GreenfluxDotNet.Sdk)](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/)
+[![license](https://img.shields.io/github/license/fransiscuss/greenflux-dotnet)](LICENSE)
+
 An unofficial, strongly typed .NET SDK for the Greenflux CPMS APIs, targeting .NET 10.0 (LTS). Install from [NuGet](https://www.nuget.org/packages/GreenfluxDotNet.Sdk/). The package includes all operations and models published in these OpenAPI documents:
 
 - [Greenflux Platform](https://developer.greenflux.com/openapi/greenflux-service-1.json): CPO, eMSP, CDR, session, meter-value, coupon, and Smart Charging APIs
@@ -125,11 +130,14 @@ Two tools back the test suite, both runnable:
 # asserts the bytes on the wire - auth headers, request bodies, enum values, error mapping.
 dotnet run --project samples/Greenflux.Sdk.IntegrationHarness
 
-# Serialization safety net: writes the serialized form of all 296 models to eng/golden/.
+# Serialization safety net: writes the serialized form of every model to eng/golden/.
 # Run before and after any serialization change and diff the output; it must not move.
 dotnet run --project eng/SerializationGolden -- eng/golden-check
 diff -r eng/golden eng/golden-check
 ```
+
+CI runs both, then packs the project and audits dependencies for known
+vulnerabilities, so a broken package is caught before a tag exists.
 
 `eng/golden/` is the committed baseline, captured while the SDK still used Newtonsoft.Json.
 It is what proves the System.Text.Json migration left the wire format untouched.
