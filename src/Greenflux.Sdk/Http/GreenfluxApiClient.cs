@@ -175,11 +175,14 @@ public abstract class GreenfluxApiClient
         var headers = CollectHeaders(response);
 
         var status = (int)response.StatusCode;
-        if (status == 204)
-            return default!;
 
-        if (status == 200 || status == 201)
+        // Every 2xx is a success. Singling out 200/201 rejected the 202 Accepted that
+        // the remote-command endpoints return, and 203/206 besides.
+        if (status is >= 200 and < 300)
         {
+            if (status == 204 || status == 205)
+                return default!;
+
             return await DeserializeResponseAsync<T>(response, status, headers, cancellationToken).ConfigureAwait(false);
         }
 
@@ -215,8 +218,20 @@ public abstract class GreenfluxApiClient
         try
         {
             using var stream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+
+            // An accepted command may answer with an empty body and no 204. Content-Length
+            // is absent for a chunked or connection-framed response, so emptiness is decided
+            // by reading from the stream rather than by trusting the header.
+            var firstByte = new byte[1];
+            var read = await stream.ReadAsync(firstByte.AsMemory(0, 1), cancellationToken).ConfigureAwait(false);
+            if (read == 0)
+            {
+                return default!;
+            }
+
+            using var body = new PrefixedStream(firstByte[0], stream);
             var result = await JsonSerializer
-                .DeserializeAsync<T>(stream, JsonSerializerOptions, cancellationToken)
+                .DeserializeAsync<T>(body, JsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
             return result!;
         }
@@ -383,7 +398,12 @@ public abstract class GreenfluxApiClient
         DateTimeOffset? value)
     {
         if (value.HasValue)
-            parameters[key] = value.Value.ToString("yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture);
+        {
+            // Convert to UTC first: formatting the caller's local offset and then
+            // labelling it "Z" sends a timestamp that is wrong by the offset.
+            parameters[key] = value.Value.ToUniversalTime()
+                .ToString("yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture);
+        }
     }
 
     /// <summary>Adds an enum parameter to the dictionary only if the value is not null.</summary>
@@ -418,5 +438,77 @@ public abstract class GreenfluxApiClient
         var items = values.Select(v => ConvertToString(v, CultureInfo.InvariantCulture)).ToList();
         if (items.Count > 0)
             parameters[key] = string.Join(",", items);
+    }
+
+    /// <summary>
+    /// Forward-only view over a response stream whose first byte has already been read,
+    /// so an empty body can be detected without buffering the whole response.
+    /// </summary>
+    private sealed class PrefixedStream(byte first, Stream inner) : Stream
+    {
+        private bool _firstConsumed;
+
+        public override bool CanRead => true;
+
+        public override bool CanSeek => false;
+
+        public override bool CanWrite => false;
+
+        public override long Length => throw new NotSupportedException();
+
+        public override long Position
+        {
+            get => throw new NotSupportedException();
+            set => throw new NotSupportedException();
+        }
+
+        public override void Flush()
+        {
+        }
+
+        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+
+        public override void SetLength(long value) => throw new NotSupportedException();
+
+        public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+
+        public override int Read(byte[] buffer, int offset, int count) => Read(buffer.AsSpan(offset, count));
+
+        public override int Read(Span<byte> buffer)
+        {
+            if (buffer.IsEmpty)
+            {
+                return 0;
+            }
+
+            if (!_firstConsumed)
+            {
+                _firstConsumed = true;
+                buffer[0] = first;
+                return 1;
+            }
+
+            return inner.Read(buffer);
+        }
+
+        public override Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken) =>
+            ReadAsync(buffer.AsMemory(offset, count), cancellationToken).AsTask();
+
+        public override ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
+        {
+            if (buffer.IsEmpty)
+            {
+                return ValueTask.FromResult(0);
+            }
+
+            if (!_firstConsumed)
+            {
+                _firstConsumed = true;
+                buffer.Span[0] = first;
+                return ValueTask.FromResult(1);
+            }
+
+            return inner.ReadAsync(buffer, cancellationToken);
+        }
     }
 }
