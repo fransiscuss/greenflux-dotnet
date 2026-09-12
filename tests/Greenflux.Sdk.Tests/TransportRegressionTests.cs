@@ -57,6 +57,73 @@ public sealed class TransportRegressionTests
     }
 
     [Fact]
+    public async Task AnAcceptedCommandWithAnEmptyChunkedBodyIsNotAnError()
+    {
+        // StringContent sets Content-Length: 0, so it does not cover a chunked or
+        // connection-framed response, where ContentLength is null and the body is
+        // still empty. That is the shape a 202 Accepted actually arrives in.
+        var content = new StreamContent(new UnseekableStream([]));
+        Assert.Null(content.Headers.ContentLength);
+
+        var client = CreateRemoteCommandsClient(
+            new ResponseHandler(new HttpResponseMessage(HttpStatusCode.Accepted) { Content = content }),
+            out var provider);
+        await using (provider)
+        {
+            var response = await client.RemoteCommands_StartSessionAsync(new GcpiStartSession
+            {
+                Token = new GcpiToken { Uid = "token", AuthId = "auth", Valid = true },
+                LocationId = "location",
+                EvseUid = "evse",
+                ChargestationId = "station",
+            });
+
+            Assert.Null(response);
+        }
+    }
+
+    [Fact]
+    public async Task AChunkedBodyWithContentIsStillDeserialized()
+    {
+        // The first byte is read to decide emptiness; it must not be lost on the way
+        // into the deserializer.
+        var payload = System.Text.Encoding.UTF8.GetBytes("""{"result":"ACCEPTED"}""");
+        var content = new StreamContent(new UnseekableStream(payload));
+        Assert.Null(content.Headers.ContentLength);
+
+        var client = CreateRemoteCommandsClient(
+            new ResponseHandler(new HttpResponseMessage(HttpStatusCode.Accepted) { Content = content }),
+            out var provider);
+        await using (provider)
+        {
+            var response = await client.RemoteCommands_StartSessionAsync(new GcpiStartSession
+            {
+                Token = new GcpiToken { Uid = "token", AuthId = "auth", Valid = true },
+                LocationId = "location",
+                EvseUid = "evse",
+                ChargestationId = "station",
+            });
+
+            Assert.Equal(GcpiCommandResponseType.ACCEPTED, response?.Result);
+        }
+    }
+
+    [Fact]
+    public async Task AMalformedBodyIsStillReportedAsAnApiException()
+    {
+        var content = new StreamContent(new UnseekableStream(System.Text.Encoding.UTF8.GetBytes("not json")));
+
+        var client = CreateRemoteCommandsClient(
+            new ResponseHandler(new HttpResponseMessage(HttpStatusCode.OK) { Content = content }),
+            out var provider);
+        await using (provider)
+        {
+            await Assert.ThrowsAnyAsync<GreenfluxApiException>(
+                () => client.RemoteCommands_GetCommandNotificationAsync("evse", "notification"));
+        }
+    }
+
+    [Fact]
     public async Task AFailureStatusStillThrows()
     {
         var client = CreateRemoteCommandsClient(
@@ -120,6 +187,52 @@ public sealed class TransportRegressionTests
             IReadOnlyDictionary<string, IEnumerable<string>> headers,
             Exception? innerException) =>
             new GreenfluxApiException(message, statusCode, response, headers, innerException);
+    }
+
+
+    /// <summary>A stream that cannot report its length, so StreamContent omits Content-Length.</summary>
+    private sealed class UnseekableStream(byte[] data) : Stream
+    {
+        private int _position;
+
+        public override bool CanRead => true;
+
+        public override bool CanSeek => false;
+
+        public override bool CanWrite => false;
+
+        public override long Length => throw new NotSupportedException();
+
+        public override long Position
+        {
+            get => throw new NotSupportedException();
+            set => throw new NotSupportedException();
+        }
+
+        public override void Flush()
+        {
+        }
+
+        public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+
+        public override void SetLength(long value) => throw new NotSupportedException();
+
+        public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            var take = Math.Min(count, data.Length - _position);
+            Array.Copy(data, _position, buffer, offset, take);
+            _position += take;
+            return take;
+        }
+    }
+
+    private sealed class ResponseHandler(HttpResponseMessage response) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request,
+            CancellationToken cancellationToken) => Task.FromResult(response);
     }
 
     private sealed class StubHandler(HttpStatusCode statusCode, string body) : HttpMessageHandler
