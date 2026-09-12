@@ -5,7 +5,6 @@
 
 ### Bug Fixes
 
-* accept every 2xx response and send UTC timestamp parameters ([09b34db](https://github.com/fransiscuss/greenflux-dotnet/commit/09b34db9aed693ce0f7cea45159fb8738137e2cf))
 * accept every 2xx response and send UTC timestamp parameters ([d361443](https://github.com/fransiscuss/greenflux-dotnet/commit/d361443541360e2b6fc801fb41673d8d844d4c81))
 * decide an empty response body from the stream, not Content-Length ([4260e4f](https://github.com/fransiscuss/greenflux-dotnet/commit/4260e4f7eed20b778a9cb4b704d3913637085200))
 
